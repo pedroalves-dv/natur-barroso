@@ -1,0 +1,218 @@
+import Link from "next/link";
+import { getLocale, getTranslations } from "next-intl/server";
+import NaturBarrosoLogo from "@/components/ui/NaturBarrosoLogo";
+
+export default async function Footer() {
+  const locale = await getLocale();
+  const tNav = await getTranslations("Nav");
+  const t = await getTranslations("Footer");
+  const otherLocale = locale === "pt" ? "en" : "pt";
+
+  const quickNav = [
+    { href: `/${locale}/tours`, label: tNav("tours") },
+    { href: `/${locale}/region`, label: tNav("region") },
+    { href: `/${locale}/about`, label: tNav("about") },
+    { href: `/${locale}/blog`, label: tNav("blog") },
+    { href: `/${locale}/faq`, label: tNav("faq") },
+    { href: `/${locale}/contact`, label: tNav("contact") },
+  ];
+
+  const tourCategories = [
+    { href: `/${locale}/tours?cat=hiking`, label: "Caminhadas / Hiking" },
+    { href: `/${locale}/tours?cat=4x4`, label: "4×4 Off-Road" },
+    { href: `/${locale}/tours?cat=cultural`, label: "Cultural & Heritage" },
+    { href: `/${locale}/tours?cat=kayak`, label: "Rivers & Kayak" },
+    { href: `/${locale}/tours?cat=photography`, label: "Photography Tours" },
+    {
+      href: `/${locale}/tours?cat=multiday`,
+      label: "Multi-Day Expeditions",
+    },
+  ];
+
+  return (
+    <footer className="bg-granite text-fog">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 pt-16 pb-8">
+        {/* 4-column grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+          {/* Col 1 — Brand */}
+          <div>
+            <Link href={`/${locale}`} className="inline-block mb-4">
+              <NaturBarrosoLogo variant="light" className="h-10 w-auto" />
+            </Link>
+            <p className="text-sm text-fog/60 leading-relaxed mt-4 max-w-xs">
+              {t("tagline")}
+            </p>
+            <div className="flex items-center gap-3 mt-6">
+              <Link
+                href="/pt"
+                className={`text-sm font-medium transition-colors ${
+                  locale === "pt"
+                    ? "text-amber"
+                    : "text-fog/40 hover:text-fog"
+                }`}
+              >
+                PT
+              </Link>
+              <span className="text-fog/20">|</span>
+              <Link
+                href="/en"
+                className={`text-sm font-medium transition-colors ${
+                  locale === "en"
+                    ? "text-amber"
+                    : "text-fog/40 hover:text-fog"
+                }`}
+              >
+                EN
+              </Link>
+            </div>
+          </div>
+
+          {/* Col 2 — Quick Nav */}
+          <div>
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-fog/40 mb-5 font-sans">
+              {t("quickNav")}
+            </h3>
+            <ul className="space-y-3">
+              {quickNav.map(({ href, label }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="text-sm text-fog/60 hover:text-fog transition-colors"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Col 3 — Tour Categories */}
+          <div>
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-fog/40 mb-5 font-sans">
+              {t("tourCategories")}
+            </h3>
+            <ul className="space-y-3">
+              {tourCategories.map(({ href, label }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="text-sm text-fog/60 hover:text-fog transition-colors"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Col 4 — Contact + Socials */}
+          <div>
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-fog/40 mb-5 font-sans">
+              {t("contact")}
+            </h3>
+            <ul className="space-y-3 mb-8">
+              <li>
+                <a
+                  href="tel:+351960000000"
+                  className="text-sm text-fog/60 hover:text-fog transition-colors"
+                >
+                  +351 960 000 000
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:info@naturbarroso.pt"
+                  className="text-sm text-fog/60 hover:text-fog transition-colors"
+                >
+                  info@naturbarroso.pt
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/351960000000"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-fog/60 hover:text-fog transition-colors"
+                >
+                  WhatsApp
+                </a>
+              </li>
+            </ul>
+            <p className="text-xs font-semibold uppercase tracking-widest text-fog/40 mb-3 font-sans">
+              {t("followUs")}
+            </p>
+            <div className="flex gap-4">
+              <a
+                href="https://instagram.com/naturbarroso"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="text-fog/40 hover:text-fog transition-colors"
+              >
+                <InstagramIcon />
+              </a>
+              <a
+                href="https://facebook.com/naturbarroso"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="text-fog/40 hover:text-fog transition-colors"
+              >
+                <FacebookIcon />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="border-t border-fog/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-xs text-fog/40">{t("copyright")}</p>
+          <div className="flex gap-4">
+            <Link
+              href={`/${locale}/legal/privacy`}
+              className="text-xs text-fog/40 hover:text-fog/60 transition-colors"
+            >
+              {t("privacy")}
+            </Link>
+            <Link
+              href={`/${locale}/legal/cookies`}
+              className="text-xs text-fog/40 hover:text-fog/60 transition-colors"
+            >
+              {t("cookies")}
+            </Link>
+          </div>
+        </div>
+      </div>
+      {/* Spacer so floating WhatsApp button never overlaps footer content */}
+      <div className="h-2" aria-hidden="true" />
+    </footer>
+  );
+}
+
+function InstagramIcon() {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+    </svg>
+  );
+}
+
+function FacebookIcon() {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+    </svg>
+  );
+}

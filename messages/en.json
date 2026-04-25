@@ -1,0 +1,43 @@
+{
+  "Nav": {
+    "tours": "Tours",
+    "region": "The Region",
+    "about": "About",
+    "blog": "Journal",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "bookTour": "Book a Tour",
+    "menu": "Menu",
+    "close": "Close"
+  },
+  "Footer": {
+    "tagline": "Your adventure begins here, in the Terras de Barroso.",
+    "quickNav": "Navigation",
+    "tourCategories": "Tours",
+    "contact": "Contact",
+    "copyright": "© 2026 Natur Barroso. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "cookies": "Cookie Policy",
+    "followUs": "Follow us"
+  },
+  "HomePage": {
+    "titleLine1": "Terras de Barroso.",
+    "titleLine2": "Where Portugal goes wild.",
+    "subtitle": "Guided tours in the heart of Peneda-Gerês National Park."
+  },
+  "NotFound": {
+    "heading": "This trail doesn't seem to exist.",
+    "body": "The page you're looking for couldn't be found. It may have moved or the address is incorrect.",
+    "backHome": "Back to home",
+    "viewTours": "View our tours"
+  },
+  "CookieBanner": {
+    "message": "We use cookies to improve your experience and for analytics purposes. You can accept or decline non-essential cookies.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "learnMore": "Learn more"
+  },
+  "FloatingButton": {
+    "whatsappAriaLabel": "Chat with us on WhatsApp"
+  }
+}

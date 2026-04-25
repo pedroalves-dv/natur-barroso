@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Stack";
+  src: url("/fonts/stack_regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  /* Brand colours */
+  --color-forest: #2d4a2f;
+  --color-moss: #3d5c3a;
+  --color-amber: #c8882a;
+  --color-granite: #2a2a28;
+  --color-fog: #f5f2ec;
+  --color-river: #4a6b7c;
+
+  /* Typography */
+
+  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --font-stack: "Stack", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    @apply font-stack text-granite bg-fog;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+}

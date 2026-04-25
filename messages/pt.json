@@ -1,0 +1,43 @@
+{
+  "Nav": {
+    "tours": "Tours",
+    "region": "A Região",
+    "about": "Sobre nós",
+    "blog": "Diário",
+    "faq": "FAQ",
+    "contact": "Contacto",
+    "bookTour": "Reservar Tour",
+    "menu": "Menu",
+    "close": "Fechar"
+  },
+  "Footer": {
+    "tagline": "A sua aventura começa aqui, nas Terras de Barroso.",
+    "quickNav": "Navegação",
+    "tourCategories": "Tours",
+    "contact": "Contacto",
+    "copyright": "© 2026 Natur Barroso. Todos os direitos reservados.",
+    "privacy": "Política de Privacidade",
+    "cookies": "Política de Cookies",
+    "followUs": "Siga-nos"
+  },
+  "HomePage": {
+    "titleLine1": "Terras de Barroso.",
+    "titleLine2": "Onde a natureza manda.",
+    "subtitle": "Tours guiados no coração do Parque Nacional Peneda-Gerês."
+  },
+  "NotFound": {
+    "heading": "Parece que esta trilha não existe.",
+    "body": "A página que procura não foi encontrada. Talvez tenha sido movida ou o endereço esteja errado.",
+    "backHome": "Voltar ao início",
+    "viewTours": "Ver os nossos tours"
+  },
+  "CookieBanner": {
+    "message": "Utilizamos cookies para melhorar a sua experiência e para fins analíticos. Pode aceitar ou recusar o uso de cookies não essenciais.",
+    "accept": "Aceitar",
+    "decline": "Recusar",
+    "learnMore": "Saber mais"
+  },
+  "FloatingButton": {
+    "whatsappAriaLabel": "Fale connosco pelo WhatsApp"
+  }
+}
