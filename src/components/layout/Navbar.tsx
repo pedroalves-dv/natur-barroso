@@ -61,12 +61,12 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop nav */}
-          <ul className="hidden md:flex items-center gap-8">
+          <ul className="hidden md:flex items-center gap-12">
             {NAV_LINK_KEYS.map(({ href, key }) => (
               <li key={href}>
                 <Link
                   href={`/${locale}${href}`}
-                  className={`text-sm font-medium transition-colors ${
+                  className={`text-md font-medium transition-colors ${
                     isActive(href)
                       ? "text-amber"
                       : isScrolled
@@ -84,10 +84,10 @@ export default function Navbar() {
           <div className="flex items-center gap-3 md:gap-4">
             <Link
               href={localeSwitchPath}
-              className={`hidden md:block text-sm font-medium tracking-wide transition-colors ${
+              className={`hidden md:block text-md font-medium tracking-wide transition-colors border border-fog/20 rounded-full px-4 py-2 ${
                 isScrolled
-                  ? "text-granite/50 hover:text-granite"
-                  : "text-white/60 hover:text-white"
+                  ? "bg-granite/10 text-granite hover:bg-granite/20"
+                  : "bg-white/15 text-white hover:bg-white/25"
               }`}
               aria-label={`Switch to ${otherLocale.toUpperCase()}`}
             >
@@ -96,7 +96,7 @@ export default function Navbar() {
 
             <Link
               href={`/${locale}/tours`}
-              className="hidden md:inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-amber text-white hover:bg-amber/90 transition-colors"
+              className="hidden md:inline-flex items-center px-4 py-2 rounded-full text-md font-medium bg-amber text-white hover:bg-amber/90 transition-colors"
             >
               {t("bookTour")}
             </Link>

@@ -31,7 +31,7 @@ export default async function Footer() {
 
   return (
     <footer className="bg-granite text-fog">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 pt-16 pb-8">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 pt-16 pb-24">
         {/* 4-column grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Col 1 — Brand */}
@@ -46,9 +46,7 @@ export default async function Footer() {
               <Link
                 href="/pt"
                 className={`text-sm font-medium transition-colors ${
-                  locale === "pt"
-                    ? "text-amber"
-                    : "text-fog/40 hover:text-fog"
+                  locale === "pt" ? "text-amber" : "text-fog/40 hover:text-fog"
                 }`}
               >
                 PT
@@ -57,9 +55,7 @@ export default async function Footer() {
               <Link
                 href="/en"
                 className={`text-sm font-medium transition-colors ${
-                  locale === "en"
-                    ? "text-amber"
-                    : "text-fog/40 hover:text-fog"
+                  locale === "en" ? "text-amber" : "text-fog/40 hover:text-fog"
                 }`}
               >
                 EN

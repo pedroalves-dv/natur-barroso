@@ -19,10 +19,16 @@ export default async function HeroSection({ locale }: Props) {
         priority
         sizes="100vw"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-granite/60 via-granite/20 to-granite/70" />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.65) 100%)",
+        }}
+      />
 
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-20">
-        <h1 className="text-5xl md:text-7xl lg:text-8xl leading-[0.9] mb-6">
+        <h1 className="text-5xl md:text-7xl lg:text-8xl leading-[0.9] mb-6 drop-shadow-[0_2px_16px_rgba(0,0,0,0.8)]">
           <span className="font-serif italic">{t("titleLine1")}</span>
           <br />
           <span className="font-stack tracking-tight text-amber text-shadow-lg">

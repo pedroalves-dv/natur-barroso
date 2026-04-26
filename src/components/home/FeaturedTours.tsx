@@ -1,14 +1,14 @@
-import Link from 'next/link';
-import { getTranslations } from 'next-intl/server';
-import { tours } from '@/data/tours';
-import TourCard from '@/components/ui/TourCard';
+import Link from "next/link";
+import { getTranslations } from "next-intl/server";
+import { tours } from "@/data/tours";
+import TourCard from "@/components/ui/TourCard";
 
 interface Props {
   locale: string;
 }
 
 export default async function FeaturedTours({ locale }: Props) {
-  const t = await getTranslations('HomePage');
+  const t = await getTranslations("HomePage");
   const featured = tours.slice(0, 4);
 
   return (
@@ -17,17 +17,17 @@ export default async function FeaturedTours({ locale }: Props) {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
           <div>
             <p className="text-xs font-semibold uppercase tracking-widest text-amber mb-2">
-              {t('featuredToursEyebrow')}
+              {t("featuredToursEyebrow")}
             </p>
-            <h2 className="text-3xl md:text-4xl font-serif text-granite">
-              {t('featuredToursTitle')}
+            <h2 className="text-3xl md:text-5xl font-serif text-granite">
+              {t("featuredToursTitle")}
             </h2>
           </div>
           <Link
             href={`/${locale}/tours`}
             className="shrink-0 text-sm font-medium text-forest hover:text-amber transition-colors"
           >
-            {t('viewAllTours')} →
+            {t("viewAllTours")} →
           </Link>
         </div>
 
