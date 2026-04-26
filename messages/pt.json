@@ -103,5 +103,82 @@
   },
   "FloatingButton": {
     "whatsappAriaLabel": "Fale connosco pelo WhatsApp"
+  },
+  "AboutPage": {
+    "eyebrow": "A nossa equipa",
+    "title": "Guias locais. Barroso de raiz.",
+    "subtitle": "Somos uma equipa pequena, local e apaixonada pelo território que habitamos. Cada tour é guiado por quem cresceu aqui.",
+    "storyEyebrow": "A nossa história",
+    "storyTitle": "Nascemos no Barroso",
+    "guidesEyebrow": "A equipa",
+    "guidesTitle": "Os nossos guias",
+    "valuesEyebrow": "Os nossos princípios",
+    "valuesTitle": "O que nos define",
+    "certTitle": "Certificações e segurança",
+    "ratingLabel": "no TripAdvisor"
+  },
+  "BlogPage": {
+    "eyebrow": "Diário de bordo",
+    "title": "Do nosso Diário",
+    "subtitle": "Histórias, guias de trilhos, fauna e cultura das Terras de Barroso e do Parque Nacional Peneda-Gerês.",
+    "allCategories": "Todos",
+    "readPost": "Ler artigo",
+    "noResults": "Nenhum artigo nesta categoria."
+  },
+  "ContactPage": {
+    "eyebrow": "Fale connosco",
+    "title": "Contacto",
+    "subtitle": "Tem uma questão, quer reservar para um grupo ou planear uma experiência à medida? Estamos aqui.",
+    "generalTitle": "Envie-nos uma mensagem",
+    "generalSubtitle": "Para informações gerais, reservas e questões rápidas.",
+    "customTitle": "Planear uma experiência personalizada",
+    "customSubtitle": "Para grupos, empresas, escolas e experiências à medida. Respondemos em 24 horas.",
+    "nameLabel": "Nome",
+    "emailLabel": "Email",
+    "subjectLabel": "Assunto",
+    "messageLabel": "Mensagem",
+    "activityLabel": "Atividade de interesse",
+    "groupSizeLabel": "Tamanho do grupo",
+    "datesLabel": "Datas preferidas",
+    "budgetLabel": "Orçamento estimado",
+    "requirementsLabel": "Requisitos especiais",
+    "submitBtn": "Enviar mensagem",
+    "submitting": "A enviar...",
+    "successTitle": "Mensagem enviada!",
+    "successBody": "Recebemos a sua mensagem e respondemos em menos de 24 horas.",
+    "errorMsg": "Algo correu mal. Por favor tente novamente.",
+    "responseTime": "Respondemos em menos de 24 horas.",
+    "whatsappTitle": "Prefere falar diretamente?",
+    "whatsappBody": "Não tem de preencher formulários. Envie-nos uma mensagem pelo WhatsApp e respondemos em menos de uma hora.",
+    "whatsappBtn": "Falar connosco no WhatsApp"
+  },
+  "FAQPage": {
+    "eyebrow": "Perguntas frequentes",
+    "title": "FAQ",
+    "subtitle": "Tudo o que precisa saber antes de reservar — de cancelamentos a equipamento, passando por grupos e acessibilidade.",
+    "contactCta": "Não encontrou a resposta? Fale connosco diretamente."
+  },
+  "RegionPage": {
+    "eyebrow": "O território",
+    "title": "Terras de Barroso",
+    "subtitle": "Um planalto granítico de altitude, com aldeias medievais, rios selvagens e uma das últimas alcateias de lobo-ibérico da Península Ibérica.",
+    "whyEyebrow": "Porque visitar",
+    "whyTitle": "Um território único na Europa",
+    "placesEyebrow": "Destinos",
+    "placesTitle": "Explore a região",
+    "seasonTitle": "Quando visitar",
+    "gettingHereTitle": "Como chegar",
+    "mapPlaceholder": "Mapa interativo disponível em breve",
+    "toursEyebrow": "Experiências locais",
+    "toursTitle": "Tours que visitam este local"
+  },
+  "ReviewsPage": {
+    "sources": "TripAdvisor · Google Reviews",
+    "aggregateRating": "4,8 de 5",
+    "reviewCount": "Baseado em mais de 80 avaliações verificadas",
+    "title": "O que dizem os nossos clientes",
+    "leaveReviewTitle": "Partilhe a sua experiência",
+    "googleBtn": "Avaliar no Google",
+    "tripAdvisorBtn": "Avaliar no TripAdvisor"
   }
 }

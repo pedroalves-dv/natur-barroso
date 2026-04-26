@@ -103,5 +103,82 @@
   },
   "FloatingButton": {
     "whatsappAriaLabel": "Chat with us on WhatsApp"
+  },
+  "AboutPage": {
+    "eyebrow": "Our team",
+    "title": "Local guides. Barroso born.",
+    "subtitle": "We are a small, local team passionate about the territory we call home. Every tour is guided by someone who grew up here.",
+    "storyEyebrow": "Our story",
+    "storyTitle": "Born in Barroso",
+    "guidesEyebrow": "The team",
+    "guidesTitle": "Our guides",
+    "valuesEyebrow": "Our principles",
+    "valuesTitle": "What defines us",
+    "certTitle": "Certifications & safety",
+    "ratingLabel": "on TripAdvisor"
+  },
+  "BlogPage": {
+    "eyebrow": "Field notes",
+    "title": "From our Journal",
+    "subtitle": "Stories, trail guides, wildlife and culture from the Terras de Barroso and Peneda-Gerês National Park.",
+    "allCategories": "All",
+    "readPost": "Read post",
+    "noResults": "No articles in this category."
+  },
+  "ContactPage": {
+    "eyebrow": "Get in touch",
+    "title": "Contact",
+    "subtitle": "Got a question, booking a group or planning a custom experience? We're here.",
+    "generalTitle": "Send us a message",
+    "generalSubtitle": "For general information, bookings and quick questions.",
+    "customTitle": "Plan a Custom Experience",
+    "customSubtitle": "For groups, corporate, schools and bespoke experiences. We reply within 24 hours.",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "subjectLabel": "Subject",
+    "messageLabel": "Message",
+    "activityLabel": "Activity of interest",
+    "groupSizeLabel": "Group size",
+    "datesLabel": "Preferred dates",
+    "budgetLabel": "Estimated budget",
+    "requirementsLabel": "Special requirements",
+    "submitBtn": "Send message",
+    "submitting": "Sending...",
+    "successTitle": "Message sent!",
+    "successBody": "We've received your message and will reply within 24 hours.",
+    "errorMsg": "Something went wrong. Please try again.",
+    "responseTime": "We reply within 24 hours.",
+    "whatsappTitle": "Prefer to talk it through?",
+    "whatsappBody": "No forms to fill in. Send us a WhatsApp message and we'll get back to you within the hour.",
+    "whatsappBtn": "Message us on WhatsApp"
+  },
+  "FAQPage": {
+    "eyebrow": "Frequently asked questions",
+    "title": "FAQ",
+    "subtitle": "Everything you need to know before booking — from cancellations to equipment, groups and accessibility.",
+    "contactCta": "Didn't find the answer? Talk to us directly."
+  },
+  "RegionPage": {
+    "eyebrow": "The territory",
+    "title": "Terras de Barroso",
+    "subtitle": "A high granite plateau dotted with medieval villages, wild rivers and one of the last Iberian wolf packs on the Peninsula.",
+    "whyEyebrow": "Why visit",
+    "whyTitle": "A territory unique in Europe",
+    "placesEyebrow": "Destinations",
+    "placesTitle": "Explore the region",
+    "seasonTitle": "When to visit",
+    "gettingHereTitle": "Getting here",
+    "mapPlaceholder": "Interactive map coming soon",
+    "toursEyebrow": "Local experiences",
+    "toursTitle": "Tours that visit this place"
+  },
+  "ReviewsPage": {
+    "sources": "TripAdvisor · Google Reviews",
+    "aggregateRating": "4.8 out of 5",
+    "reviewCount": "Based on over 80 verified reviews",
+    "title": "What our guests say",
+    "leaveReviewTitle": "Share your experience",
+    "googleBtn": "Review on Google",
+    "tripAdvisorBtn": "Review on TripAdvisor"
   }
 }
