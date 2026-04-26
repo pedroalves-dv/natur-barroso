@@ -49,15 +49,15 @@ export default function TourHero({ tour, locale, backLabel }: Props) {
         </div>
 
         <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif leading-tight mb-4 max-w-3xl">
-          {tour.title}
+          {isPt ? tour.title : (tour.title_en ?? tour.title)}
         </h1>
 
         <p className="text-white/80 text-lg mb-6 max-w-xl leading-relaxed">
-          {tour.shortDescription}
+          {isPt ? tour.shortDescription : (tour.shortDescription_en ?? tour.shortDescription)}
         </p>
 
         <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/70">
-          <span>⏱ {tour.duration}</span>
+          <span>⏱ {isPt ? tour.duration : (tour.duration_en ?? tour.duration)}</span>
           <span>👥 {tour.groupSize.min}–{tour.groupSize.max} {isPt ? 'pessoas' : 'people'}</span>
           <span>🌿 {seasons}</span>
           <span className="text-white font-semibold">

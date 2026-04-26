@@ -30,7 +30,9 @@ export default function TourPricingTable({ pricing, title, locale }: Props) {
                 key={tier.label}
                 className={`${i < pricing.length - 1 ? 'border-b border-fog' : ''}`}
               >
-                <td className="px-5 py-4 text-sm text-granite">{tier.label}</td>
+                <td className="px-5 py-4 text-sm text-granite">
+                  {isPt ? tier.label : (tier.label_en ?? tier.label)}
+                </td>
                 <td className="px-5 py-4 text-right font-semibold text-granite">
                   €{tier.price}
                 </td>

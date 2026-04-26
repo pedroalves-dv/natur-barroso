@@ -6,6 +6,7 @@ export type CategorySlug =
 
 export interface PricingTier {
   label: string;
+  label_en?: string;
   price: number;
 }
 
@@ -30,10 +31,13 @@ export interface TourGuide {
 export interface Tour {
   slug: string;
   title: string;
+  title_en?: string;
   shortDescription: string;
+  shortDescription_en?: string;
   category: CategorySlug;
   difficulty: Difficulty;
   duration: string;
+  duration_en?: string;
   groupSize: { min: number; max: number };
   pricing: PricingTier[];
   seasonAvailability: Season[];

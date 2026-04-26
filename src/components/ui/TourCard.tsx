@@ -29,14 +29,18 @@ export default function TourCard({ tour, locale }: Props) {
       </div>
 
       <div className="flex flex-col flex-1 p-5">
-        <h3 className="font-serif text-lg text-granite mb-1 leading-snug">{tour.title}</h3>
+        <h3 className="font-serif text-lg text-granite mb-1 leading-snug">
+          {isPt ? tour.title : (tour.title_en ?? tour.title)}
+        </h3>
         <p className="text-sm text-granite/60 mb-4 leading-relaxed line-clamp-2">
-          {tour.shortDescription}
+          {isPt ? tour.shortDescription : (tour.shortDescription_en ?? tour.shortDescription)}
         </p>
 
         <div className="flex flex-wrap items-center gap-2 mb-4">
           <DifficultyPill difficulty={tour.difficulty} locale={locale} />
-          <span className="text-xs text-granite/50">{tour.duration}</span>
+          <span className="text-xs text-granite/50">
+            {isPt ? tour.duration : (tour.duration_en ?? tour.duration)}
+          </span>
           <span className="text-xs text-granite/50">
             {tour.groupSize.min}–{tour.groupSize.max} {isPt ? 'pessoas' : 'people'}
           </span>

@@ -25,7 +25,9 @@ export default function FareHarborWidget({ tour, locale }: Props) {
       <div className="space-y-2.5 mb-6 py-4 border-y border-fog">
         {tour.pricing.map((tier) => (
           <div key={tier.label} className="flex justify-between text-sm">
-            <span className="text-granite/60">{tier.label}</span>
+            <span className="text-granite/60">
+              {isPt ? tier.label : (tier.label_en ?? tier.label)}
+            </span>
             <span className="font-medium text-granite">€{tier.price}</span>
           </div>
         ))}
