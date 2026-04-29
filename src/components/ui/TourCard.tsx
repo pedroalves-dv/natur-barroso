@@ -51,7 +51,7 @@ export default function TourCard({ tour, locale }: Props) {
   const isPt = locale === "pt";
 
   return (
-    <article className="group relative flex flex-col bg-white rounded-2xl overflow-hidden border border-granite/10 hover:border-granite/20 hover:shadow-[0_5px_10px_rgba(42,42,40,0.08)] hover:-translate-y-1 transition-all duration-300 ease-out">
+    <article className="group relative flex flex-col bg-white rounded-2xl overflow-hidden border border-granite/10 hover:border-granite/40 hover:shadow-[0_5px_10px_rgba(42,42,40,0.08)] hover:-translate-y-1 transition-all duration-300 ease-out">
       <Link
         href={`/${locale}/tours/${tour.slug}`}
         className="absolute inset-0 z-10"
