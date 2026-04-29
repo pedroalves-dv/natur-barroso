@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Tour } from "@/types/tour";
+import type { Tour, Season } from "@/types/tour";
 import CategoryBadge from "./CategoryBadge";
 import DifficultyPill from "./DifficultyPill";
 
@@ -9,32 +9,81 @@ interface Props {
   locale: string;
 }
 
+const SEASON_ORDER: Record<Season, number> = {
+  spring: 0,
+  summer: 1,
+  autumn: 2,
+  winter: 3,
+};
+
+const SEASON_MONTHS: Record<
+  Season,
+  { firstPt: string; lastPt: string; firstEn: string; lastEn: string }
+> = {
+  spring: { firstPt: "Mar", lastPt: "Mai", firstEn: "Mar", lastEn: "May" },
+  summer: { firstPt: "Jun", lastPt: "Ago", firstEn: "Jun", lastEn: "Aug" },
+  autumn: { firstPt: "Set", lastPt: "Nov", firstEn: "Sep", lastEn: "Nov" },
+  winter: { firstPt: "Dez", lastPt: "Fev", firstEn: "Dec", lastEn: "Feb" },
+};
+
+function SeasonPill({ seasons, isPt }: { seasons: Season[]; isPt: boolean }) {
+  if (seasons.length === 4) {
+    return (
+      <span className="text-[10px] font-medium tracking-wide px-2 py-1 rounded-full bg-fog/85 backdrop-blur text-granite/70">
+        {isPt ? "Todo o ano" : "Year-round"}
+      </span>
+    );
+  }
+  const sorted = [...seasons].sort((a, b) => SEASON_ORDER[a] - SEASON_ORDER[b]);
+  const first = SEASON_MONTHS[sorted[0]!];
+  const last = SEASON_MONTHS[sorted[sorted.length - 1]!];
+  const start = isPt ? first.firstPt : first.firstEn;
+  const end = isPt ? last.lastPt : last.lastEn;
+  return (
+    <span className="text-[10px] font-medium tracking-wide px-2 py-1 rounded-full bg-fog/85 backdrop-blur text-granite/70">
+      {start} – {end}
+    </span>
+  );
+}
+
 export default function TourCard({ tour, locale }: Props) {
   const minPrice = Math.min(...tour.pricing.map((p) => p.price));
   const isPt = locale === "pt";
 
   return (
-    <article className="group relative flex flex-col bg-white rounded-2xl overflow-hidden border border-granite/10 hover:border-granite/70 hover:shadow-lg/3 transition-colors">
+    <article className="group relative flex flex-col bg-white rounded-2xl overflow-hidden border border-granite/10 hover:border-granite/20 hover:shadow-[0_5px_10px_rgba(42,42,40,0.08)] hover:-translate-y-1 transition-all duration-300 ease-out">
       <Link
         href={`/${locale}/tours/${tour.slug}`}
         className="absolute inset-0 z-10"
         aria-label={isPt ? tour.title : (tour.title_en ?? tour.title)}
       />
-      <div className="relative h-52 overflow-hidden">
+      <div className="relative h-56 overflow-hidden">
         <Image
           src={tour.coverImage}
           alt={tour.title}
           fill
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
+          className="object-cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
-        <div className="absolute top-3 left-3">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-granite/55 pointer-events-none" />
+        <div className="absolute top-3 left-3 z-20">
           <CategoryBadge category={tour.category} locale={locale} />
+        </div>
+        <div className="absolute top-3 right-3 z-20">
+          <SeasonPill seasons={tour.seasonAvailability} isPt={isPt} />
+        </div>
+        <div className="absolute bottom-3 right-3 text-right z-20">
+          <span className="block text-[10px] font-medium tracking-widest uppercase text-fog/70 leading-none mb-0.5">
+            {isPt ? "A partir de" : "From"}
+          </span>
+          <span className="block text-3xl text-white leading-none">
+            €{minPrice}
+          </span>
         </div>
       </div>
 
       <div className="flex flex-col flex-1 p-5">
-        <h3 className="font-serif text-lg text-granite mb-1 leading-snug">
+        <h3 className="font-stack text-xl text-granite mb-4 leading-snug">
           {isPt ? tour.title : (tour.title_en ?? tour.title)}
         </h3>
         <p className="text-sm text-granite/60 mb-4 leading-relaxed line-clamp-2">
@@ -43,33 +92,44 @@ export default function TourCard({ tour, locale }: Props) {
             : (tour.shortDescription_en ?? tour.shortDescription)}
         </p>
 
-        <div className="mb-4 space-y-1.5">
-          {/* Row 1: difficulty + duration */}
-          <div className="flex items-center justify-between">
-            <DifficultyPill difficulty={tour.difficulty} locale={locale} />
-            <span className="text-xs text-granite/50">
-              {isPt ? tour.duration : (tour.duration_en ?? tour.duration)}
-            </span>
-          </div>
+        <div className="mb-4 flex items-center gap-2 flex-wrap">
+          <DifficultyPill difficulty={tour.difficulty} locale={locale} />
 
-          {/* Row 2: group size */}
-          <div className="flex justify-end">
-            <span className="text-xs text-granite/50">
-              {tour.groupSize.min}–{tour.groupSize.max}{" "}
-              {isPt ? "pessoas" : "people"}
-            </span>
-          </div>
+          <span className="inline-flex items-center text-xs font-medium px-2.5 py-1 rounded-md bg-fog text-granite/65">
+            <svg
+              viewBox="0 0 12 12"
+              className="w-3 h-3 opacity-50 mr-1"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.2"
+            >
+              <circle cx="6" cy="6" r="5" />
+              <line x1="6" y1="6" x2="6" y2="3" />
+              <line x1="6" y1="6" x2="9" y2="6" />
+            </svg>
+            {isPt ? tour.duration : (tour.duration_en ?? tour.duration)}
+          </span>
+
+          <span className="inline-flex items-center text-xs font-medium px-2.5 py-1 rounded-md bg-fog text-granite/65">
+            <svg
+              viewBox="0 0 12 12"
+              className="w-3 h-3 opacity-50 mr-1"
+              fill="currentColor"
+            >
+              <circle cx="6" cy="3" r="1.8" />
+              <path d="M2 11c0-2.2 1.8-4 4-4s4 1.8 4 4" />
+            </svg>
+            {tour.groupSize.min}–{tour.groupSize.max}{" "}
+            {isPt ? "pessoas" : "people"}
+          </span>
         </div>
 
-        <div className="mt-auto flex items-center justify-between pt-4 border-t border-fog">
-          <span className="text-sm font-medium text-granite">
-            <span className="text-xs font-normal text-granite/50">
-              {isPt ? "A partir de " : "From "}
+        <div className="mt-auto flex justify-end pt-4 border-t border-fog">
+          <span className="inline-flex items-center gap-1 text-sm font-semibold px-3 py-1.5 rounded-lg text-forest bg-forest/[0.08] group-hover:bg-forest group-hover:text-fog transition-colors">
+            {isPt ? "Ver" : "View"}
+            <span className="transition-transform group-hover:translate-x-0.5">
+              →
             </span>
-            €{minPrice}
-          </span>
-          <span className="text-sm font-medium text-amber group-hover:text-forest transition-colors">
-            {isPt ? "Ver" : "View"} →
           </span>
         </div>
       </div>

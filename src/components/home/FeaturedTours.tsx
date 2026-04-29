@@ -32,7 +32,7 @@ export default async function FeaturedTours({ locale }: Props) {
         </div>
 
         {/* Mobile: horizontal scroll; Desktop: grid */}
-        <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible md:pb-0">
+        <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible md:pb-0">
           {featured.map((tour) => (
             <div key={tour.slug} className="snap-start shrink-0 w-72 md:w-auto">
               <TourCard tour={tour} locale={locale} />

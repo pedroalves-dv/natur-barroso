@@ -1,6 +1,8 @@
 import type { Tour } from "@/types/tour";
 
 export const tours: Tour[] = [
+  // Tour 1
+  // ==============================================================
   {
     slug: "rota-aldeias-graniticas",
     title: "Rota das Aldeias Graníticas",
@@ -109,6 +111,8 @@ export const tours: Tour[] = [
       languages: ["Português", "Inglês", "Espanhol"],
     },
   },
+  // Tour 2
+  // ==============================================================
   {
     slug: "trilho-pitoes-junias",
     title: "Trilho de Pitões das Júnias",
@@ -217,10 +221,12 @@ export const tours: Tour[] = [
       languages: ["Português", "Inglês", "Francês"],
     },
   },
+  // Tour 3
+  // ==============================================================
   {
     slug: "expedicao-4x4-barroso",
-    title: "Expedição 4×4 ao Barroso Profundo",
-    title_en: "4×4 Expedition into Deep Barroso",
+    title: "Expedição 4×4",
+    title_en: "4×4 Expedition",
     shortDescription:
       "Aos confins do território — pistas de terra, planaltos selvagens e aldeias sem asfalto.",
     shortDescription_en:
@@ -237,7 +243,6 @@ export const tours: Tour[] = [
     seasonAvailability: ["spring", "summer", "autumn", "winter"],
     coverImage:
       "https://images.unsplash.com/photo-1677847547358-b8e49e588d12?q=80&w=1170",
-    // https://images.unsplash.com/photo-1677847547358-b8e49e588d12?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
     overview:
       "Há uma versão do Barroso que não chega pelos mapas normais. Esta expedição de todo-o-terreno leva-o pelos caminhos esquecidos do planalto — rotas de pastores, pistas florestais e antigas vias de contrabando até à fronteira com a Galiza.\n\nNuma Toyota Land Cruiser com guia-piloto experiente, exploramos zonas inacessíveis de carro comum: lameiros de altitude onde pastam as vacas barrosãs, aldeias sem asfalto onde vivem os últimos pastores nómadas, e miradouros que nunca aparecem nos guias turísticos.",
     highlights: [
@@ -323,10 +328,12 @@ export const tours: Tour[] = [
       languages: ["Português", "Inglês"],
     },
   },
+  // Tour 4
+  // ==============================================================
   {
     slug: "fim-de-semana-geres",
-    title: "Fim de Semana no Coração do Gerês",
-    title_en: "Weekend in the Heart of Gerês",
+    title: "Fim de Semana no Parque Nacional",
+    title_en: "Weekend in the National Park",
     shortDescription:
       "Dois dias, uma noite, e a sensação de ter descoberto um Portugal que não sabia que existia.",
     shortDescription_en:
