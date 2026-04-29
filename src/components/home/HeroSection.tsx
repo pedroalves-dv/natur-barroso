@@ -10,7 +10,7 @@ export default async function HeroSection({ locale }: Props) {
   const t = await getTranslations("HomePage");
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-white">
+    <section className="relative min-h-screen flex flex-col justify-center text-white">
       <Image
         src="https://images.unsplash.com/photo-1627846556059-6273c6c60991?w=1920&q=85"
         alt="Green hills in Barroso"
@@ -27,20 +27,20 @@ export default async function HeroSection({ locale }: Props) {
         }}
       /> */}
 
-      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-20">
+      <div className="relative z-10 text-left px-4 md:px-6 max-w-7xl mx-auto pt-20 w-full">
         <h1 className="text-5xl md:text-7xl lg:text-8xl leading-[0.9] mb-6 drop-shadow-[0_2px_16px_rgba(0,0,0,0.8)]">
           <span className="font-serif drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
             {t("titleLine1")}
           </span>
           <br />
-          <span className="font-stack tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+          <span className="font-stack tracking-tight text-fog drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
             {t("titleLine2")}
           </span>
         </h1>
-        <p className="text-lg md:text-xl text-white/80 max-w-xl mx-auto mb-10 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+        <p className="text-lg md:text-xl text-fog/80 max-w-xl mb-10 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
           {t("subtitle")}
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-start">
           <Link
             href={`/${locale}/tours`}
             className="px-8 py-3.5 bg-amber text-white rounded-full font-medium hover:bg-amber/90 transition-colors text-center"

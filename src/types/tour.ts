@@ -54,13 +54,13 @@ export interface Tour {
 
 export const CATEGORY_CONFIG: Record<CategorySlug, { label: string; labelPt: string; color: string }> = {
   '4x4':       { label: '4×4 Off-Road',        labelPt: '4×4 Off-Road',          color: '#C8882A' },
-  hiking:      { label: 'Guided Hikes',         labelPt: 'Trilhos Guiados',       color: '#2D4A2F' },
+  hiking:      { label: 'Guided Hikes',         labelPt: 'Trilhos Guiados',       color: '#3a5c3d' },
   climbing:    { label: 'Rock Climbing',        labelPt: 'Escalada',              color: '#4A6B7C' },
   cultural:    { label: 'Cultural & Heritage',  labelPt: 'Cultural e Património', color: '#7C6138' },
   gastronomy:  { label: 'Taste of Barroso',     labelPt: 'Sabores do Barroso',    color: '#A0522D' },
   kayak:       { label: 'Rivers & Kayak',       labelPt: 'Rios e Kayak',          color: '#3A7CA5' },
   photography: { label: 'Photography Tours',    labelPt: 'Tours Fotográficos',    color: '#555550' },
-  wildlife:    { label: 'Wildlife & Nature',    labelPt: 'Fauna e Flora',         color: '#1A5C1C' },
+  wildlife:    { label: 'Wildlife & Nature',    labelPt: 'Fauna e Flora',         color: '#256b28' },
   groups:      { label: 'Schools & Groups',     labelPt: 'Escolas e Grupos',      color: '#5B4B8A' },
   multiday:    { label: 'Multi-Day',            labelPt: 'Multi-Dia',             color: '#9B6914' },
 };

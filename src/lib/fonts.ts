@@ -1,4 +1,9 @@
-import { DM_Sans, Instrument_Serif, Inter } from "next/font/google";
+import {
+  DM_Sans,
+  Instrument_Serif,
+  Inter,
+  JetBrains_Mono,
+} from "next/font/google";
 
 export const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -17,5 +22,11 @@ export const instrumentSerif = Instrument_Serif({
 export const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+export const jetBrains = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains",
   display: "swap",
 });

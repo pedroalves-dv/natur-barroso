@@ -7,8 +7,8 @@ export default async function TrustStrip() {
     {
       icon: (
         <svg
-          width="24"
-          height="24"
+          width="32"
+          height="32"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -25,8 +25,8 @@ export default async function TrustStrip() {
     {
       icon: (
         <svg
-          width="24"
-          height="24"
+          width="32"
+          height="32"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -41,8 +41,8 @@ export default async function TrustStrip() {
     {
       icon: (
         <svg
-          width="24"
-          height="24"
+          width="32"
+          height="32"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -60,8 +60,8 @@ export default async function TrustStrip() {
     {
       icon: (
         <svg
-          width="24"
-          height="24"
+          width="32"
+          height="32"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -79,16 +79,16 @@ export default async function TrustStrip() {
   ];
 
   return (
-    <section className="bg-forest text-fog py-6">
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
+    <section className="bg-granite/10 text-granite py-8">
+      <div className="px-4 md:px-6">
         <ul className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {items.map((item) => (
             <li
               key={item.label}
-              className="flex flex-col items-center gap-2 text-center md:flex-row md:justify-center md:text-left"
+              className="flex flex-col items-center gap-3 text-center md:flex-row md:justify-center md:text-left"
             >
               <span className="text-amber shrink-0">{item.icon}</span>
-              <span className="text-sm font-medium">{item.label}</span>
+              <span className="text-md font-medium">{item.label}</span>
             </li>
           ))}
         </ul>

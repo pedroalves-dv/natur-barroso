@@ -15,17 +15,10 @@ const NAV_LINK_KEYS = [
 ] as const;
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const t = useTranslations("Nav");
   const locale = useLocale();
   const pathname = usePathname();
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   // Close mobile menu on navigation
   useEffect(() => {
@@ -37,31 +30,17 @@ export default function Navbar() {
     return pathname === localePath || pathname.startsWith(`${localePath}/`);
   };
 
-  const otherLocale = locale === "pt" ? "en" : "pt";
-  const localeSwitchPath =
-    `/${otherLocale}${pathname.substring(`/${locale}`.length)}` ||
-    `/${otherLocale}`;
-
   return (
     <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-fog border-b border-granite/30 text-granite"
-            : "bg-transparent border-none text-white"
-        }`}
-      >
+      <header className="fixed top-0 left-0 right-0 z-50 bg-fog border-b border-granite/30 text-granite">
         <nav className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link href={`/${locale}`} aria-label="Natur Barroso — início">
-            <NaturBarrosoLogo
-              variant={isScrolled ? "dark" : "light"}
-              className="h-8 md:h-9 w-auto"
-            />
+            <NaturBarrosoLogo variant="dark" className="h-8 md:h-9 w-auto" />
           </Link>
 
           {/* Desktop nav */}
-          <ul className="hidden md:flex items-center gap-12">
+          <ul className="hidden md:flex items-center md:gap-8 lg:gap-12">
             {NAV_LINK_KEYS.map(({ href, key }) => (
               <li key={href}>
                 <Link
@@ -69,9 +48,7 @@ export default function Navbar() {
                   className={`text-md font-medium transition-colors ${
                     isActive(href)
                       ? "text-amber"
-                      : isScrolled
-                        ? "text-granite hover:text-forest"
-                        : "text-white/90 hover:text-white"
+                      : "text-granite hover:text-forest"
                   }`}
                 >
                   {t(key)}
@@ -82,21 +59,37 @@ export default function Navbar() {
 
           {/* Right controls */}
           <div className="flex items-center gap-3 md:gap-4">
-            <Link
-              href={localeSwitchPath}
-              className={`hidden md:block text-md font-medium tracking-wide transition-colors border border-fog/20 rounded-full px-4 py-2 ${
-                isScrolled
-                  ? "bg-granite/10 text-granite hover:bg-granite/20"
-                  : "bg-white/15 text-white hover:bg-white/25"
-              }`}
-              aria-label={`Switch to ${otherLocale.toUpperCase()}`}
-            >
-              {otherLocale.toUpperCase()}
-            </Link>
+            {/* PT/EN toggle */}
+            <div className="hidden md:flex items-stretch rounded-full border border-granite/25 p-1 text-xs font-medium text-granite">
+              {(["pt", "en"] as const).map((loc) => {
+                const isCurrentLocale = locale === loc;
+                const switchPath =
+                  `/${loc}${pathname.substring(`/${locale}`.length)}` ||
+                  `/${loc}`;
+                return isCurrentLocale ? (
+                  <span
+                    key={loc}
+                    className="flex items-center px-3 py-2 rounded-full font-semibold bg-granite text-fog"
+                    aria-current="true"
+                  >
+                    {loc.toUpperCase()}
+                  </span>
+                ) : (
+                  <Link
+                    key={loc}
+                    href={switchPath}
+                    className="flex items-center px-3 rounded-full text-granite/60 hover:text-granite transition-colors"
+                    aria-label={`Switch to ${loc.toUpperCase()}`}
+                  >
+                    {loc.toUpperCase()}
+                  </Link>
+                );
+              })}
+            </div>
 
             <Link
               href={`/${locale}/tours`}
-              className="hidden md:inline-flex items-center px-4 py-2 rounded-full text-md font-medium bg-amber text-white hover:bg-amber/90 transition-colors"
+              className="hidden md:inline-flex items-center justify-center px-4 py-2 rounded-full text-md font-medium bg-amber text-white hover:text-granite hover:bg-amber/80 transition-colors min-w-[9rem]"
             >
               {t("bookTour")}
             </Link>
@@ -108,15 +101,9 @@ export default function Navbar() {
               aria-label={t("menu")}
               aria-expanded={isMobileOpen}
             >
-              <span
-                className={`block w-5 h-0.5 mb-1.5 transition-colors ${isScrolled ? "bg-granite" : "bg-white"}`}
-              />
-              <span
-                className={`block w-5 h-0.5 mb-1.5 transition-colors ${isScrolled ? "bg-granite" : "bg-white"}`}
-              />
-              <span
-                className={`block w-5 h-0.5 transition-colors ${isScrolled ? "bg-granite" : "bg-white"}`}
-              />
+              <span className="block w-5 h-0.5 mb-1.5 bg-granite" />
+              <span className="block w-5 h-0.5 mb-1.5 bg-granite" />
+              <span className="block w-5 h-0.5 bg-granite" />
             </button>
           </div>
         </nav>
@@ -171,12 +158,32 @@ export default function Navbar() {
             >
               {t("bookTour")}
             </Link>
-            <Link
-              href={localeSwitchPath}
-              className="text-fog/50 font-medium text-sm hover:text-fog transition-colors"
-            >
-              {otherLocale.toUpperCase()}
-            </Link>
+            <div className="flex items-center rounded-full border border-fog/20 px-1 py-0.5">
+              {(["pt", "en"] as const).map((loc) => {
+                const isCurrentLocale = locale === loc;
+                const switchPath =
+                  `/${loc}${pathname.substring(`/${locale}`.length)}` ||
+                  `/${loc}`;
+                return isCurrentLocale ? (
+                  <span
+                    key={loc}
+                    className="px-3 py-1 rounded-full text-xs font-semibold bg-fog/20 text-fog"
+                    aria-current="true"
+                  >
+                    {loc.toUpperCase()}
+                  </span>
+                ) : (
+                  <Link
+                    key={loc}
+                    href={switchPath}
+                    className="px-3 py-1 rounded-full text-xs text-fog/50 hover:text-fog transition-colors"
+                    onClick={() => setIsMobileOpen(false)}
+                  >
+                    {loc.toUpperCase()}
+                  </Link>
+                );
+              })}
+            </div>
           </div>
         </div>
       )}

@@ -11,7 +11,7 @@ export default function FareHarborWidget({ tour, locale }: Props) {
   const isPt = locale === 'pt';
 
   return (
-    <div className="bg-white rounded-xl border border-fog shadow-sm p-6">
+    <div className="bg-white rounded-xl border border-granite/10 p-6">
       <p className="text-xs font-semibold uppercase tracking-widest text-granite/40 mb-3">
         {isPt ? 'Reservar' : 'Book now'}
       </p>

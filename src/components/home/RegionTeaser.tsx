@@ -10,14 +10,14 @@ export default async function RegionTeaser({ locale }: Props) {
   const t = await getTranslations("HomePage");
 
   return (
-    <section className="bg-granite text-fog overflow-hidden">
+    <section className="bg-granite text-fog overflow-hidden ">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2">
         {/* Text */}
-        <div className="flex flex-col justify-center px-8 py-16 md:px-12 lg:px-16">
-          <p className="text-xs font-semibold uppercase tracking-widest text-amber mb-4">
+        <div className="flex flex-col justify-center px-4 py-16 md:px-6">
+          <p className="text-md font-semibold uppercase tracking-wider text-amber mb-4">
             {t("regionTeaserEyebrow")}
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif leading-tight mb-6">
+          <h2 className="text-4xl md:text-6xl font-serif leading-tight tracking-[-0.015em] mb-6">
             {t("regionTeaserTitle")}
           </h2>
           <p className="text-fog/70 leading-relaxed mb-8 max-w-md">

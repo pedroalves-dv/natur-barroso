@@ -14,7 +14,12 @@ export default function TourCard({ tour, locale }: Props) {
   const isPt = locale === "pt";
 
   return (
-    <article className="group flex flex-col bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+    <article className="group relative flex flex-col bg-white rounded-2xl overflow-hidden border border-granite/10 hover:border-granite/70 hover:shadow-lg/3 transition-colors">
+      <Link
+        href={`/${locale}/tours/${tour.slug}`}
+        className="absolute inset-0 z-10"
+        aria-label={isPt ? tour.title : (tour.title_en ?? tour.title)}
+      />
       <div className="relative h-52 overflow-hidden">
         <Image
           src={tour.coverImage}
@@ -63,12 +68,9 @@ export default function TourCard({ tour, locale }: Props) {
             </span>
             €{minPrice}
           </span>
-          <Link
-            href={`/${locale}/tours/${tour.slug}`}
-            className="text-sm font-medium text-amber hover:text-forest transition-colors"
-          >
-            {isPt ? "Ver tour" : "View tour"} →
-          </Link>
+          <span className="text-sm font-medium text-amber group-hover:text-forest transition-colors">
+            {isPt ? "Ver" : "View"} →
+          </span>
         </div>
       </div>
     </article>

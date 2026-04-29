@@ -10,8 +10,8 @@
 
 @theme {
   /* Brand colours */
-  --color-forest: #2d4a2f;
-  --color-moss: #3d5c3a;
+  --color-forest: #3a5c3d;
+  --color-moss: #4d7050;
   /* --color-amber: #c8882a; */
   --color-amber: #ffb547;
   --color-granite: #2a2a28;
@@ -23,8 +23,12 @@
   --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
   --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
   --font-stack: "Stack", ui-sans-serif, system-ui, sans-serif;
+}
+
+test {
+  color: #4d7050;
 }
 
 @keyframes marquee {

@@ -72,8 +72,13 @@ export default async function JournalTeaser({ locale }: Props) {
           {POSTS.map((post) => (
             <article
               key={post.slug}
-              className="group flex flex-col bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
+              className="group relative flex flex-col bg-white rounded-2xl overflow-hidden border border-granite/10"
             >
+              <Link
+                href={`/${locale}/blog/${post.slug}`}
+                className="absolute inset-0 z-10"
+                aria-label={post.title}
+              />
               <div className="relative h-48 overflow-hidden">
                 <Image
                   src={post.image}
@@ -99,12 +104,9 @@ export default async function JournalTeaser({ locale }: Props) {
                 <p className="text-sm text-granite/60 leading-relaxed line-clamp-3 flex-1 mb-4">
                   {post.excerpt}
                 </p>
-                <Link
-                  href={`/${locale}/blog/${post.slug}`}
-                  className="text-sm font-medium text-amber hover:text-forest transition-colors mt-auto"
-                >
+                <span className="text-sm font-medium text-amber group-hover:text-forest transition-colors mt-auto">
                   {locale === "pt" ? "Ler artigo" : "Read post"} →
-                </Link>
+                </span>
               </div>
             </article>
           ))}

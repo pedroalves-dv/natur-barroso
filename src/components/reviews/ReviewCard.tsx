@@ -20,7 +20,7 @@ function StarIcon({ filled }: { filled: boolean }) {
 
 export default function ReviewCard({ review }: Props) {
   return (
-    <article className="bg-white rounded-xl p-6 shadow-sm flex flex-col gap-4">
+    <article className="bg-white rounded-xl p-6 border border-granite/10 flex flex-col gap-4">
       <div className="flex items-center gap-0.5">
         {Array.from({ length: 5 }).map((_, i) => (
           <StarIcon key={i} filled={i < review.rating} />
