@@ -43,13 +43,13 @@ export default async function HeroSection({ locale }: Props) {
         <div className="flex flex-col sm:flex-row gap-4 justify-start">
           <Link
             href={`/${locale}/tours`}
-            className="px-8 py-3.5 bg-amber text-white rounded-full font-medium hover:bg-amber/90 transition-colors text-center"
+            className="inline-flex items-center justify-center px-8 py-2 rounded-2xl text-md font-medium bg-amber border border-amber text-white hover:text-granite hover:border-granite/10 hover:bg-amber/60 transition-colors min-w-[9rem]"
           >
             {t("heroCtaPrimary")}
           </Link>
           <Link
             href={`/${locale}/region`}
-            className="px-8 py-3.5 border border-white/40 text-white rounded-full font-medium hover:bg-white/10 transition-colors text-center"
+            className="px-8 py-3.5 border border-white/40 text-white rounded-2xl font-medium hover:bg-white/10 transition-colors text-center"
           >
             {t("heroCtaSecondary")}
           </Link>

@@ -8,8 +8,8 @@ export default async function WhatsAppCTA() {
   const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Olá! Tenho interesse num tour da Natur Barroso.")}`;
 
   return (
-    <section className="py-20 bg-fog">
-      <div className="max-w-2xl mx-auto px-4 text-center">
+    <section className="py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-4 text-center">
         <div
           className="inline-flex items-center justify-center w-14 h-14 rounded-full mb-6"
           style={{ backgroundColor: "#25D36622" }}
@@ -26,7 +26,7 @@ export default async function WhatsAppCTA() {
           </svg>
         </div>
 
-        <h2 className="text-3xl md:text-5xl font-serif text-granite mb-4">
+        <h2 className="text-4xl md:text-6xl font-serif text-granite mb-4 tracking-[-0.01em]">
           {t("whatsappCtaTitle")}
         </h2>
         <p className="text-granite/60 leading-relaxed mb-8 max-w-md mx-auto">

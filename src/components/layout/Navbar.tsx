@@ -89,7 +89,7 @@ export default function Navbar() {
 
             <Link
               href={`/${locale}/tours`}
-              className="hidden md:inline-flex items-center justify-center px-4 py-2 rounded-full text-md font-medium bg-amber text-white hover:text-granite hover:bg-amber/80 transition-colors min-w-[9rem]"
+              className="hidden md:inline-flex items-center justify-center px-4 py-2 rounded-2xl text-md font-medium bg-amber border border-amber text-white hover:text-granite hover:border-granite/10 hover:bg-amber/60 transition-colors min-w-[9rem]"
             >
               {t("bookTour")}
             </Link>

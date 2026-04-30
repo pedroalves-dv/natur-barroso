@@ -51,7 +51,7 @@ export default function TourCard({ tour, locale }: Props) {
   const isPt = locale === "pt";
 
   return (
-    <article className="group relative flex flex-col bg-white rounded-2xl overflow-hidden border border-granite/10 hover:border-granite/40 hover:shadow-[0_5px_10px_rgba(42,42,40,0.08)] hover:-translate-y-1 transition-all duration-300 ease-out">
+    <article className="group relative flex flex-col bg-white rounded-xl overflow-hidden border border-granite/10 hover:border-granite/40 hover:shadow-[0_5px_10px_rgba(42,42,40,0.08)] hover:-translate-y-1 transition-all duration-300 ease-out">
       <Link
         href={`/${locale}/tours/${tour.slug}`}
         className="absolute inset-0 z-10"
@@ -95,7 +95,7 @@ export default function TourCard({ tour, locale }: Props) {
         <div className="mb-4 flex items-center gap-2 flex-wrap">
           <DifficultyPill difficulty={tour.difficulty} locale={locale} />
 
-          <span className="inline-flex items-center text-xs font-medium px-2.5 py-1 rounded-md bg-fog text-granite/65">
+          <span className="inline-flex items-center text-xs font-medium px-2.5 py-1 rounded-full bg-fog text-granite/65">
             <svg
               viewBox="0 0 12 12"
               className="w-3 h-3 opacity-50 mr-1"
@@ -110,7 +110,7 @@ export default function TourCard({ tour, locale }: Props) {
             {isPt ? tour.duration : (tour.duration_en ?? tour.duration)}
           </span>
 
-          <span className="inline-flex items-center text-xs font-medium px-2.5 py-1 rounded-md bg-fog text-granite/65">
+          <span className="inline-flex items-center text-xs font-medium px-2.5 py-1 rounded-full bg-fog text-granite/65">
             <svg
               viewBox="0 0 12 12"
               className="w-3 h-3 opacity-50 mr-1"
@@ -124,8 +124,8 @@ export default function TourCard({ tour, locale }: Props) {
           </span>
         </div>
 
-        <div className="mt-auto flex justify-end pt-4 border-t border-fog">
-          <span className="inline-flex items-center gap-1 text-sm font-semibold px-3 py-1.5 rounded-lg text-forest bg-forest/[0.08] group-hover:bg-forest group-hover:text-fog transition-colors">
+        <div className="flex justify-end pt-4 border-t border-granite/10 px-4 -mx-5">
+          <span className="inline-flex items-center gap-1 text-sm font-medium pl-4 pr-3 py-1.5 rounded-xl text-forest bg-forest/10 group-hover:bg-forest group-hover:text-fog transition-colors">
             {isPt ? "Ver" : "View"}
             <span className="transition-transform group-hover:translate-x-0.5">
               →

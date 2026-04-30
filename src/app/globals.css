@@ -31,15 +31,6 @@ test {
   color: #4d7050;
 }
 
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
 @layer base {
   html {
     @apply font-stack text-granite bg-fog;

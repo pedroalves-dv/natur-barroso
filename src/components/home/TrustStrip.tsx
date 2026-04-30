@@ -79,7 +79,7 @@ export default async function TrustStrip() {
   ];
 
   return (
-    <section className="bg-granite/10 text-granite py-8">
+    <section className="bg-moss/10 text-granite py-8">
       <div className="px-4 md:px-6">
         <ul className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {items.map((item) => (

@@ -1,47 +1,8 @@
 "use client";
 
-const REVIEWS = [
-  {
-    id: 1,
-    author: "Sophie van der Berg",
-    country: "Países Baixos",
-    rating: 5,
-    tour: "Trilho de Pitões das Júnias",
-    text: "Simplesmente inesquecível. O mosteiro em ruínas, a descida pelo baranco e a cascata no final — nenhuma fotografia faz jus. O guia sabia tudo sobre as plantas e os animais que encontrámos. O dia mais bonito das nossas férias em Portugal.",
-  },
-  {
-    id: 2,
-    author: "James & Clara Thornton",
-    country: "Reino Unido",
-    rating: 5,
-    tour: "Fim de Semana no Coração do Gerês",
-    text: "Viemos sem grandes expectativas e saímos completamente rendidos ao Gerês. A Ana conseguiu equilibrar um fim de semana de aventura com momentos de pura contemplação. O jantar da primeira noite com produtos locais foi uma surpresa enorme. Já estamos a planear voltar.",
-  },
-  {
-    id: 3,
-    author: "Carlos Mendieta",
-    country: "Espanha",
-    rating: 5,
-    tour: "Expedição 4×4 ao Barroso Profundo",
-    text: "Conheci o Pedro numa expedição de grupo e foi uma experiência fora do comum. Chegámos a lugares que nunca encontraríamos sozinhos. As histórias sobre os contrabandistas e a vida na fronteira deram uma dimensão completamente diferente à paisagem. Altamente recomendado.",
-  },
-  {
-    id: 4,
-    author: "Marieke Jansen",
-    country: "Bélgica",
-    rating: 5,
-    tour: "Rota das Aldeias Graníticas",
-    text: "Perfeito para uma manhã de caminhada tranquila mas com muito conteúdo. O Rui tem uma forma de contar a história das aldeias que nos faz sentir privilegiados por estar ali. A prova de Vinho dos Mortos no final foi o toque perfeito. Recomendo a qualquer pessoa que queira conhecer o Barroso de verdade.",
-  },
-  {
-    id: 5,
-    author: "Thomas Grünfeld",
-    country: "Alemanha",
-    rating: 5,
-    tour: "Trilho de Pitões das Júnias",
-    text: "Já fiz muitas caminhadas guiadas na Europa, mas esta ficou no top 3. O equilíbrio entre história, natureza e esforço físico é excelente. O guia foi paciente, bem-humorado e extremamente competente. Voltei para casa com a memória de uma cascata que não consigo esquecer.",
-  },
-];
+import { useState, useRef, useEffect, useCallback } from "react";
+import { featuredReviews } from "@/data/reviews";
+import type { Review } from "@/types/review";
 
 function StarIcon() {
   return (
@@ -57,47 +18,138 @@ function StarIcon() {
   );
 }
 
+function TestimonialCard({ review }: { review: Review }) {
+  return (
+    <article
+      aria-roledescription="slide"
+      className="bg-fog border border-granite/10 rounded-2xl p-6 flex flex-col gap-4 snap-start shrink-0 w-[calc(100%-2.5rem)] md:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.667rem)]"
+    >
+      <div className="flex gap-0.5">
+        {Array.from({ length: review.rating }).map((_, j) => (
+          <StarIcon key={j} />
+        ))}
+      </div>
+      <p className="text-granite/70 text-sm leading-relaxed flex-1">
+        &ldquo;{review.text}&rdquo;
+      </p>
+      <div>
+        <p className="text-granite text-sm font-semibold">{review.author}</p>
+        <p className="text-granite/50 text-xs">
+          {review.country} · {review.tour}
+        </p>
+      </div>
+    </article>
+  );
+}
+
 export default function Testimonials({ title }: { title: string }) {
-  const doubled = [...REVIEWS, ...REVIEWS];
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [dragging, setDragging] = useState(false);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollStart = useRef(0);
+
+  const scrollTo = useCallback((index: number) => {
+    const track = trackRef.current;
+    if (!track) return;
+    const card = track.children[index] as HTMLElement;
+    if (!card) return;
+    track.scrollTo({ left: card.offsetLeft, behavior: "smooth" });
+    setActiveIndex(index);
+  }, []);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
+            const idx = Array.from(track.children).indexOf(
+              entry.target as HTMLElement,
+            );
+            if (idx !== -1) setActiveIndex(idx);
+          }
+        });
+      },
+      { root: track, threshold: 0.6 },
+    );
+    Array.from(track.children).forEach((child) => observer.observe(child));
+    return () => observer.disconnect();
+  }, []);
+
+  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    isDragging.current = true;
+    startX.current = e.clientX;
+    scrollStart.current = trackRef.current?.scrollLeft ?? 0;
+    trackRef.current?.setPointerCapture(e.pointerId);
+    setDragging(true);
+  };
+
+  const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!isDragging.current || !trackRef.current) return;
+    trackRef.current.scrollLeft =
+      scrollStart.current - (e.clientX - startX.current);
+  };
+
+  const handlePointerUp = () => {
+    isDragging.current = false;
+    setDragging(false);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "ArrowLeft") scrollTo(Math.max(0, activeIndex - 1));
+    if (e.key === "ArrowRight")
+      scrollTo(Math.min(featuredReviews.length - 1, activeIndex + 1));
+  };
 
   return (
-    <section className="py-20 bg-moss overflow-hidden">
+    <section
+      aria-roledescription="carousel"
+      aria-label={title}
+      className="py-20 bg-moss/10 overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-4 md:px-6 mb-12">
-        <p className="text-xs font-semibold uppercase tracking-widest text-amber mb-2 text-center">
+        <p className="text-md font-semibold uppercase tracking-widest text-amber mb-2 text-left">
           TripAdvisor · Google Reviews
         </p>
-        <h2 className="text-3xl md:text-5xl font-serif text-fog text-center">
+        <h2 className="text-4xl md:text-6xl font-serif text-granite text-left tracking-[-0.01em]">
           {title}
         </h2>
       </div>
 
-      {/* Marquee track */}
-      <div className="group">
-        <div className="flex gap-5 [animation:marquee_160s_linear_infinite] group-hover:[animation-play-state:paused] w-max">
-          {doubled.map((review, i) => (
-            <article
-              key={`${review.id}-${i}`}
-              className="w-80 shrink-0 bg-forest rounded-xl p-6 flex flex-col gap-4"
-            >
-              <div className="flex gap-0.5">
-                {Array.from({ length: review.rating }).map((_, j) => (
-                  <StarIcon key={j} />
-                ))}
-              </div>
-              <p className="text-fog/80 text-sm leading-relaxed flex-1">
-                "{review.text}"
-              </p>
-              <div>
-                <p className="text-fog text-sm font-semibold">
-                  {review.author}
-                </p>
-                <p className="text-fog/50 text-xs">
-                  {review.country} · {review.tour}
-                </p>
-              </div>
-            </article>
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div
+          ref={trackRef}
+          tabIndex={0}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onPointerCancel={handlePointerUp}
+          onKeyDown={handleKeyDown}
+          className={`flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth select-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:cursor-default ${dragging ? "cursor-grabbing" : "cursor-grab"}`}
+        >
+          {featuredReviews.map((review) => (
+            <TestimonialCard key={review.id} review={review} />
           ))}
         </div>
+      </div>
+
+      <div className="flex items-center justify-center gap-2 mt-6 lg:hidden">
+        {featuredReviews.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => scrollTo(i)}
+            aria-label={`Go to review ${i + 1}`}
+            className={[
+              "h-2 rounded-full transition-all duration-300 ease-out",
+              i === activeIndex
+                ? "w-6 bg-forest"
+                : "w-2 bg-granite/25 hover:bg-granite/40",
+            ].join(" ")}
+          />
+        ))}
       </div>
     </section>
   );

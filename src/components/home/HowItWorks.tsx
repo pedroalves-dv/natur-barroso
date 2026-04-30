@@ -67,11 +67,11 @@ export default async function HowItWorks() {
   return (
     <section className="py-20 bg-fog">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="text-center mb-14">
-          <p className="text-xs font-semibold uppercase tracking-widest text-amber mb-2">
+        <div className="text-left mb-14">
+          <p className="text-md font-semibold uppercase tracking-wider text-granite/70 mb-2">
             {t("howItWorksEyebrow")}
           </p>
-          <h2 className="text-3xl md:text-5xl font-serif text-granite">
+          <h2 className="text-4xl md:text-6xl font-serif text-granite tracking-[-0.01em]">
             {t("howItWorksTitle")}
           </h2>
         </div>
@@ -82,13 +82,11 @@ export default async function HowItWorks() {
               key={step.number}
               className="relative flex flex-col items-start"
             >
-              {/* Connector line between steps */}
-
-              <div className="relative z-10 flex items-center gap-4 mb-5">
-                <div className="flex items-center justify-center w-14 h-14 rounded-full bg-forest/10 text-forest shrink-0">
+              <div className="relative z-10 flex items-center gap-4 mb-5 border border-granite/10 rounded-xl">
+                <div className="flex items-center justify-center text-forest shrink-0 border-r border-granite/10 py-6 px-8 rounded-l-xl">
                   {step.icon}
                 </div>
-                <span className="text-5xl font-serif text-granite/10 font-bold leading-none">
+                <span className="text-5xl font-serif text-granite/10 font-bold leading-none pr-6 pl-2">
                   {step.number}
                 </span>
               </div>
