@@ -162,7 +162,7 @@ export default async function RegionTeaser({ locale }: Props) {
         </div>
 
         {/* Photo + map markers */}
-        <div className="relative min-h-[400px] mx-6 mb-8 overflow-hidden lg:mx-0 lg:mb-0 lg:min-h-0">
+        <div className="relative min-h-[400px] mx-6 mb-4 overflow-hidden lg:mx-0 lg:mb-0 lg:min-h-0">
           <Image
             src="/images/region-teaser.jpg"
             alt="Barroso highland landscape"

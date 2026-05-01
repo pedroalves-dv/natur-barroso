@@ -50,7 +50,7 @@ export default function Navbar() {
         <nav className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link href={`/${locale}`} aria-label="Natur Barroso — início">
-            <NaturBarrosoLogo variant="dark" className="h-7 md:h-9 w-auto" />
+            <NaturBarrosoLogo variant="dark" className="h-6 md:h-9 w-auto" />
           </Link>
 
           {/* Desktop nav */}
@@ -139,7 +139,7 @@ export default function Navbar() {
         <div className="fixed inset-0 z-50 bg-granite flex flex-col">
           <div className="flex items-center justify-between px-4 h-16 shrink-0">
             <Link href={`/${locale}`} onClick={() => setIsMobileOpen(false)}>
-              <NaturBarrosoLogo variant="light" className="h-8 w-auto" />
+              <NaturBarrosoLogo variant="light" className="h-6 w-auto" />
             </Link>
             <button
               onClick={() => setIsMobileOpen(false)}
@@ -165,7 +165,7 @@ export default function Navbar() {
               <Link
                 key={href}
                 href={`/${locale}${href}`}
-                className={`text-2xl font-serif py-3 border-b border-fog/10 transition-colors ${
+                className={`text-3xl font-serif py-3 border-b border-fog/10 transition-colors ${
                   isActive(href) ? "text-amber" : "text-fog hover:text-amber"
                 }`}
                 onClick={() => setIsMobileOpen(false)}
@@ -178,7 +178,7 @@ export default function Navbar() {
           <div className="px-6 py-8 flex items-center gap-4 shrink-0">
             <Link
               href={`/${locale}/tours`}
-              className="btn-lg btn-amber flex-1 text-center"
+              className="py-2.5 rounded-lg btn-amber flex-1 text-center"
               onClick={() => setIsMobileOpen(false)}
             >
               {t("bookTour")}
@@ -203,7 +203,7 @@ export default function Navbar() {
                 return isCurrentLocale ? (
                   <span
                     key={loc}
-                    className="px-3 py-1 rounded-full text-xs font-semibold bg-fog/20 text-fog"
+                    className="px-3 py-2.5 rounded-full text-xs font-semibold bg-fog/20 text-fog"
                     aria-current="true"
                   >
                     {loc.toUpperCase()}
@@ -212,7 +212,7 @@ export default function Navbar() {
                   <Link
                     key={loc}
                     href={switchPath}
-                    className="px-3 py-1 rounded-full text-xs text-fog/50 hover:text-fog transition-colors"
+                    className="px-3 py-3 rounded-full text-xs text-fog/50 hover:text-fog transition-colors"
                     onClick={() => setIsMobileOpen(false)}
                   >
                     {loc.toUpperCase()}

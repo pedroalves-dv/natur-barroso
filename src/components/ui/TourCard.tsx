@@ -82,7 +82,7 @@ export default function TourCard({ tour, locale }: Props) {
         </div>
       </div>
 
-      <div className="flex flex-col flex-1 pt-5 pl-5 pr-5 pb-4">
+      <div className="flex flex-col flex-1 p-4">
         <h3 className="font-stack text-xl text-granite mb-2 leading-snug">
           {isPt ? tour.title : (tour.title_en ?? tour.title)}
         </h3>

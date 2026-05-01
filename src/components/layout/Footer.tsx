@@ -36,13 +36,13 @@ export default async function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Col 1 — Brand */}
           <div>
-            <Link href={`/${locale}`} className="inline-block mb-4">
-              <NaturBarrosoLogo variant="light" className="h-10 w-auto" />
+            <Link href={`/${locale}`} className="inline-block">
+              <NaturBarrosoLogo variant="light" className="h-8 md:h-9 w-auto" />
             </Link>
-            <p className="text-sm text-fog/60 leading-relaxed mt-4 max-w-xs">
+            <p className="text-sm text-fog/60 leading-relaxed my-4 max-w-xs">
               {t("tagline")}
             </p>
-            <div className="flex items-center gap-3 mt-6">
+            <div className="flex items-center gap-3 mt-12">
               <Link
                 href="/pt"
                 className={`text-sm font-medium transition-colors ${

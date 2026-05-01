@@ -125,7 +125,7 @@ export default function JournalTeaserTrack({
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
-            <div className="flex flex-col flex-1 pt-5 pl-5 pr-5 pb-4">
+            <div className="flex flex-col flex-1 p-4">
               <div className="flex items-center gap-3 mb-3">
                 <span className="text-xs font-medium text-amber">
                   {post.category}
