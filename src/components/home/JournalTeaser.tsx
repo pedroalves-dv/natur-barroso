@@ -62,7 +62,7 @@ export default async function JournalTeaser({ locale }: Props) {
           </div>
           <Link
             href={`/${locale}/blog`}
-            className="btn-lg btn-granite shrink-0"
+            className="btn-lg btn-granite-ghost shrink-0"
           >
             {t("journalCta")}&nbsp; →
           </Link>

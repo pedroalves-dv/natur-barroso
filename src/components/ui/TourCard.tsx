@@ -7,6 +7,7 @@ import DifficultyPill from "./DifficultyPill";
 interface Props {
   tour: Tour;
   locale: string;
+  featured?: boolean;
 }
 
 const SEASON_ORDER: Record<Season, number> = {
@@ -40,24 +41,28 @@ function SeasonPill({ seasons, isPt }: { seasons: Season[]; isPt: boolean }) {
   const start = isPt ? first.firstPt : first.firstEn;
   const end = isPt ? last.lastPt : last.lastEn;
   return (
-    <span className="text-[10px] font-medium tracking-wide px-2 py-1 rounded-full bg-fog/85 backdrop-blur text-granite/70">
+    <span className="text-xs font-medium tracking-wide px-2 py-1 rounded-full bg-fog/85 backdrop-blur text-granite/70">
       {start} – {end}
     </span>
   );
 }
 
-export default function TourCard({ tour, locale }: Props) {
+export default function TourCard({ tour, locale, featured }: Props) {
   const minPrice = Math.min(...tour.pricing.map((p) => p.price));
   const isPt = locale === "pt";
 
   return (
-    <article className="group relative flex flex-col h-full bg-white overflow-hidden border border-granite/10 hover:border-granite/40 hover:shadow-[0_5px_10px_rgba(42,42,40,0.03)] hover:-translate-y-1 transition-all duration-300 ease-out">
+    <article
+      className={`group relative flex h-full bg-white overflow-hidden border border-granite/10 hover:border-granite/40 hover:shadow-[0_5px_10px_rgba(42,42,40,0.03)] hover:-translate-y-1 transition-all duration-300 ease-out ${featured ? "flex-col lg:flex-row" : "flex-col"}`}
+    >
       <Link
         href={`/${locale}/tours/${tour.slug}`}
         className="absolute inset-0 z-10"
         aria-label={isPt ? tour.title : (tour.title_en ?? tour.title)}
       />
-      <div className="relative h-56 overflow-hidden">
+      <div
+        className={`relative overflow-hidden shrink-0 ${featured ? "h-56 lg:w-3/5 lg:h-full lg:min-h-72" : "h-56"}`}
+      >
         <Image
           src={tour.coverImage}
           alt={tour.title}
@@ -72,11 +77,13 @@ export default function TourCard({ tour, locale }: Props) {
         <div className="absolute top-3 right-3 z-20">
           <SeasonPill seasons={tour.seasonAvailability} isPt={isPt} />
         </div>
-        <div className="absolute bottom-3 right-3 text-right z-20">
-          <span className="block text-[10px] font-medium tracking-widest uppercase text-fog/70 leading-none mb-0.5">
+        <div
+          className={`absolute bottom-3 right-3 z-20 text-right ${featured ? "lg:hidden" : ""}`}
+        >
+          <span className="block text-[9px] font-medium tracking-widest uppercase text-fog/70 leading-none mb-0.5">
             {isPt ? "A partir de" : "From"}
           </span>
-          <span className="block font-serif text-5xl text-white leading-none">
+          <span className="block font-serif text-4xl text-fog leading-none">
             €{minPrice}
           </span>
         </div>
@@ -123,8 +130,17 @@ export default function TourCard({ tour, locale }: Props) {
             {isPt ? "pessoas" : "people"}
           </span>
         </div>
-
-        <div className="mt-auto flex justify-end pt-4 border-t border-granite/10 px-4 -mx-5">
+        {featured && (
+          <div className="hidden lg:block mt-auto text-right mb-2">
+            <span className="block text-[10px] font-medium tracking-widest uppercase text-granite/40 leading-none mb-1">
+              {isPt ? "A partir de" : "From"}
+            </span>
+            <span className="block font-serif text-6xl text-granite leading-none">
+              €{minPrice}
+            </span>
+          </div>
+        )}
+        <div className="mt-auto md:mt-0 flex justify-end pt-4 border-t border-granite/10 px-4 -mx-5">
           <span className="btn-sm btn-forest group-hover:bg-forest group-hover:text-fog">
             {isPt ? "Ver" : "View"}
             <span className="transition-transform group-hover:translate-x-0.5">

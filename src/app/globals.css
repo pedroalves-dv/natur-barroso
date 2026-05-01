@@ -36,8 +36,13 @@ test {
 }
 
 @keyframes nudge-down {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(6px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
 }
 
 @layer base {
@@ -77,20 +82,24 @@ test {
   }
   /* granite with arrow — asymmetric padding for icon breathing room */
   .btn-granite {
-    @apply pl-6 pr-5 py-2.5 bg-granite border border-granite/10 text-fog
+    @apply pl-6 pr-5 py-2 bg-granite border border-granite/10 text-fog
            hover:bg-moss/50 hover:text-granite;
   }
-
-  /* ── Small buttons ──────────────────────────────────────── */
-  .btn-sm {
-    @apply inline-flex items-center gap-1 text-sm font-medium rounded-md transition-colors;
-  }
-  /* forest ghost — base state only; hover is driven by parent group */
+  /* forest with arrow — base state only; hover is driven by parent group */
   .btn-forest {
-    @apply pl-4 pr-3 py-1.5 text-forest bg-forest/10;
+    @apply text-forest bg-forest/10;
   }
   /* ghost — white outline for use on dark/image backgrounds */
   .btn-ghost {
     @apply border border-white/40 text-white hover:bg-white/10;
+  }
+  /* granite ghost — white outline for use on dark/image backgrounds */
+  .btn-granite-ghost {
+    @apply border border-granite/60 text-granite hover:bg-moss/10;
+  }
+
+  /* ── Small buttons ──────────────────────────────────────── */
+  .btn-sm {
+    @apply pl-4 pr-3 py-1.5 inline-flex items-center gap-1 text-sm font-medium rounded-md transition-colors;
   }
 }

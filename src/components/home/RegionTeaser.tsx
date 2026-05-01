@@ -128,7 +128,7 @@ export default async function RegionTeaser({ locale }: Props) {
           <p className="text-xs md:text-base md:font-semibold uppercase tracking-wide md:tracking-wider text-amber md:mb-2">
             {t("regionTeaserEyebrow")}
           </p>
-          <h2 className="text-4xl md:text-6xl font-serif leading-tight tracking-[-0.01em] text-granite mb-2 md:mb-4">
+          <h2 className="text-4xl md:text-5xl font-serif leading-tight tracking-[-0.01em] text-granite mb-2 md:mb-4">
             {t("regionTeaserTitle")}
           </h2>
           <p className="text-granite/65 leading-relaxed max-w-md text-sm md:text-base">

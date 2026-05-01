@@ -91,9 +91,12 @@ export default function FeaturedToursTrack({ tours, locale }: Props) {
         onKeyDown={handleKeyDown}
         className={`flex gap-4 overflow-x-auto snap-x snap-mandatory select-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible md:pb-0 md:cursor-default ${dragging ? "cursor-grabbing" : "cursor-grab"}`}
       >
-        {tours.map((tour) => (
-          <div key={tour.slug} className="snap-start shrink-0 w-full md:w-auto">
-            <TourCard tour={tour} locale={locale} />
+        {tours.map((tour, i) => (
+          <div
+            key={tour.slug}
+            className={`snap-start shrink-0 w-full md:w-auto ${i === 0 ? "lg:col-span-2" : ""}`}
+          >
+            <TourCard tour={tour} locale={locale} featured={i === 0} />
           </div>
         ))}
       </div>
