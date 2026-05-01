@@ -109,7 +109,7 @@ messages/
 | --- | --- | --- | --- |
 | Forest | `#2D4A2F` | `bg-forest` / `text-forest` | Primary — deep green |
 | Moss | `#3D5C3A` | `bg-moss` / `text-moss` | Primary variant |
-| Amber | `#C8882A` | `bg-amber` / `text-amber` | Accent — golden hour |
+| Amber | `#ffb547` | `bg-amber` / `text-amber` | Accent — golden hour |
 | Granite | `#2A2A28` | `bg-granite` / `text-granite` | Neutral dark |
 | Fog | `#F5F2EC` | `bg-fog` / `text-fog` | Light background |
 | River | `#4A6B7C` | `bg-river` / `text-river` | Secondary accent |

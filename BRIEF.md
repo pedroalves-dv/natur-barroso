@@ -54,7 +54,7 @@ user designed a logo.
 ```css
 --color-forest:    #2D4A2F;   /* primary — deep forest green */
 --color-moss:      #3D5C3A;   /* primary variant */
---color-amber:     #C8882A;   /* accent — golden hour */
+--color-amber:     #ffb547;   /* accent — golden hour */
 --color-granite:   #2A2A28;   /* neutral dark */
 --color-fog:       #F5F2EC;   /* light background */
 --color-river:     #4A6B7C;   /* secondary accent — slate blue */
