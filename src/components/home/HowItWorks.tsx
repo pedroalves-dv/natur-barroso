@@ -80,7 +80,7 @@ export default async function HowItWorks({ locale }: Props) {
         {/* Header row */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 md:mb-20">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-widest text-amber mb-3">
+            <p className="text-xs md:text-base md:font-semibold uppercase tracking-wide md:tracking-wider text-fog/40 md:mb-2">
               {t("howItWorksEyebrow")}
             </p>
             <h2 className="text-4xl md:text-6xl font-serif leading-tight text-fog tracking-[-0.01em]">

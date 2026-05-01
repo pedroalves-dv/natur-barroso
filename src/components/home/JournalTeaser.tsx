@@ -53,7 +53,7 @@ export default async function JournalTeaser({ locale }: Props) {
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-2 md:gap-4 mb-4 md:mb-8">
           <div>
-            <p className="text-sm md:text-base font-semibold uppercase tracking-wider text-moss md:mb-2">
+            <p className="text-xs md:text-base md:font-semibold uppercase tracking-wide md:tracking-wider text-moss md:mb-2">
               {t("journalEyebrow")}
             </p>
             <h2 className="text-4xl md:text-6xl font-serif leading-tight text-granite tracking-[-0.01em]">

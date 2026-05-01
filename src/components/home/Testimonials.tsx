@@ -120,7 +120,7 @@ export default function Testimonials({
       <div className="max-w-7xl mx-auto px-4 md:px-6 mb-4 md:mb-8">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
           <div>
-            <p className="text-sm md:text-base font-semibold uppercase tracking-wider text-amber md:mb-2">
+            <p className="text-xs md:text-base md:font-semibold uppercase tracking-wide md:tracking-wider text-amber md:mb-2">
               TripAdvisor · Google Reviews
             </p>
             <h2 className="text-4xl md:text-6xl font-serif leading-tight text-granite tracking-[-0.01em]">
@@ -161,7 +161,7 @@ export default function Testimonials({
             className={[
               "h-2 rounded-full transition-all duration-300 ease-out",
               i === activeIndex
-                ? "w-6 bg-forest"
+                ? "w-6 bg-amber"
                 : "w-2 bg-granite/25 hover:bg-granite/40",
             ].join(" ")}
           />
