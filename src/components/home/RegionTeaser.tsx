@@ -124,18 +124,18 @@ export default async function RegionTeaser({ locale }: Props) {
     <section className="bg-moss/10 text-granite overflow-hidden">
       <div className="grid lg:grid-cols-2 min-h-[640px]">
         {/* Text + facts */}
-        <div className="flex flex-col justify-center px-6 pt-16 pb-10 md:pb-12 mb:py-16 lg:py-20 lg:pl-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))] lg:pr-16">
-          <p className="text-xs md:text-base md:font-semibold uppercase tracking-wide md:tracking-wider text-amber md:mb-2">
+        <div className="flex flex-col justify-center px-6 pt-24 pb-16 md:py-24 lg:pl-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))]">
+          <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-amber mb-3">
             {t("regionTeaserEyebrow")}
           </p>
-          <h2 className="text-4xl md:text-5xl font-serif leading-tight tracking-[-0.01em] text-granite mb-2 md:mb-4">
+          <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-granite mb-16">
             {t("regionTeaserTitle")}
           </h2>
           <p className="text-granite/65 leading-relaxed max-w-md text-sm md:text-base">
             {t("regionTeaserSubtitle")}
           </p>
 
-          <div className="grid grid-cols-2 gap-x-6 gap-y-4 mt-4 md:mt-8 md:mb-16">
+          <div className="grid grid-cols-2 gap-y-4 mt-4 md:mt-8 md:mb-16">
             {facts.map((f) => (
               <div className="pr-8 pt-4" key={f.num}>
                 <div className="flex items-center gap-2 mb-2">
@@ -162,7 +162,7 @@ export default async function RegionTeaser({ locale }: Props) {
         </div>
 
         {/* Photo + map markers */}
-        <div className="relative min-h-[400px] mx-6 mb-4 overflow-hidden lg:mx-0 lg:mb-0 lg:min-h-0">
+        <div className="relative min-h-[400px] mx-6 mb-4 overflow-hidden lg:mx-0 lg:mb-0 lg:min-h-0 ">
           <Image
             src="/images/region-teaser.jpg"
             alt="Barroso highland landscape"
@@ -195,14 +195,10 @@ export default async function RegionTeaser({ locale }: Props) {
               </div>
             </div>
           ))}
-
-          {/* <div className="absolute bottom-5 left-5 font-mono text-[10px] text-white/55 uppercase tracking-[0.12em]">
-            41°49′N 7°47′W · Trás-os-Montes
-          </div> */}
         </div>
       </div>
 
-      <div className="lg:hidden px-6 pb-10">
+      <div className="lg:hidden px-6 pb-10 mt-4 mb-12">
         <Link href={`/${locale}/region`} className="btn-lg btn-amber w-full">
           {t("regionTeaserCta")}&nbsp; →
         </Link>

@@ -1,6 +1,7 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CookieBanner from "@/components/ui/CookieBanner";
+import MobileContactBar from "@/components/layout/MobileContactBar";
 
 export default function LayoutWrapper({
   children,
@@ -13,6 +14,7 @@ export default function LayoutWrapper({
       <main>{children}</main>
       <Footer />
       <CookieBanner />
+      <MobileContactBar />
     </>
   );
 }

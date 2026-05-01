@@ -51,21 +51,23 @@ export default async function JournalTeaser({ locale }: Props) {
   return (
     <section className="py-20 bg-fog">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-2 md:gap-4 mb-4 md:mb-8">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-2 md:gap-4 mb-16">
           <div>
-            <p className="text-xs md:text-base md:font-semibold uppercase tracking-wide md:tracking-wider text-moss md:mb-2">
+            <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-forest mb-3">
               {t("journalEyebrow")}
             </p>
-            <h2 className="text-4xl md:text-6xl font-serif leading-tight text-granite tracking-[-0.01em]">
+            <h2 className="text-4xl md:text-6xl font-serif leading-[0.8] text-granite tracking-[-0.01em]">
               {t("journalTitle")}
             </h2>
           </div>
-          <Link
-            href={`/${locale}/blog`}
-            className="btn-lg btn-granite-ghost shrink-0"
-          >
-            {t("journalCta")}&nbsp; →
-          </Link>
+          <div className="hidden md:block shrink-0">
+            <Link
+              href={`/${locale}/blog`}
+              className="btn-lg btn-granite-ghost"
+            >
+              {t("journalCta")}&nbsp; →
+            </Link>
+          </div>
         </div>
 
         <JournalTeaserTrack
@@ -73,6 +75,12 @@ export default async function JournalTeaser({ locale }: Props) {
           locale={locale}
           readLabel={locale === "pt" ? "Ler artigo" : "Read post"}
         />
+
+        <div className="mt-8 md:hidden">
+          <Link href={`/${locale}/blog`} className="btn-lg btn-granite-ghost w-full">
+            {t("journalCta")}&nbsp; →
+          </Link>
+        </div>
       </div>
     </section>
   );
