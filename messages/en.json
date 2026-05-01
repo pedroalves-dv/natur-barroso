@@ -1,14 +1,15 @@
 {
   "Nav": {
     "tours": "Tours",
-    "region": "The Region",
+    "region": "Discover",
     "about": "About",
     "blog": "Journal",
     "faq": "FAQ",
     "contact": "Contact",
     "bookTour": "Book a Tour",
     "menu": "Menu",
-    "close": "Close"
+    "close": "Close",
+    "whatsapp": "Chat on WhatsApp"
   },
   "Footer": {
     "tagline": "Your adventure begins here.",
@@ -57,6 +58,7 @@
     "whatsappCtaTitle": "Prefer to talk it through?",
     "whatsappCtaBody": "No forms to fill in. Send us a WhatsApp message and we'll get back to you within the hour.",
     "whatsappCtaButton": "Message us on WhatsApp",
+    "bookTourCta": "Book a tour",
     "journalEyebrow": "Field notes",
     "journalTitle": "From our Journal",
     "journalCta": "View all articles"
@@ -108,9 +110,6 @@
     "accept": "Accept",
     "decline": "Decline",
     "learnMore": "Learn more"
-  },
-  "FloatingButton": {
-    "whatsappAriaLabel": "Chat with us on WhatsApp"
   },
   "AboutPage": {
     "eyebrow": "Our team",

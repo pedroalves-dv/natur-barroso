@@ -8,7 +8,8 @@
     "contact": "Contacto",
     "bookTour": "Reservar Tour",
     "menu": "Menu",
-    "close": "Fechar"
+    "close": "Fechar",
+    "whatsapp": "Chat no WhatsApp"
   },
   "Footer": {
     "tagline": "A sua aventura começa aqui.",
@@ -57,6 +58,7 @@
     "whatsappCtaTitle": "Prefere falar diretamente?",
     "whatsappCtaBody": "Não tem de preencher formulários. Envie-nos uma mensagem pelo WhatsApp e respondemos em menos de uma hora.",
     "whatsappCtaButton": "Falar connosco no WhatsApp",
+    "bookTourCta": "Reservar um tour",
     "journalEyebrow": "Diário de bordo",
     "journalTitle": "Do nosso Diário",
     "journalCta": "Ver todos os artigos"
@@ -108,9 +110,6 @@
     "accept": "Aceitar",
     "decline": "Recusar",
     "learnMore": "Saber mais"
-  },
-  "FloatingButton": {
-    "whatsappAriaLabel": "Fale connosco pelo WhatsApp"
   },
   "AboutPage": {
     "eyebrow": "A nossa equipa",

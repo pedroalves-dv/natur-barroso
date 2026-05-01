@@ -14,11 +14,15 @@
   --color-moss: #4d7050;
   /* --color-amber: #c8882a; */
   --color-amber: #ffb547;
+  --color-amber-hover: #fcc97d;
   --color-granite: #2a2a28;
   --color-fog: #f5f2ec;
   --color-river: #4a6b7c;
+  --color-whatsapp: #25d366;
 
   /* Typography */
+
+  --text-md: 1rem;
 
   --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
   --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
@@ -38,5 +42,40 @@ test {
 
   a {
     @apply transition-colors duration-200;
+  }
+}
+
+@layer utilities {
+  /* ── Large / normal buttons ─────────────────────────────── */
+  .btn-lg {
+    @apply inline-flex items-center justify-center px-6 py-2 rounded-lg text-md font-medium transition-colors min-w-[9rem];
+  }
+  /* amber on fog/light backgrounds — opacity lets fog bleed through */
+  .btn-amber {
+    @apply bg-amber border border-amber text-white
+           hover:bg-amber/60 hover:text-granite hover:border-granite/10;
+  }
+  /* amber on dark/image backgrounds — opaque pre-baked lighter hover */
+  .btn-amber-solid {
+    @apply bg-amber border border-amber text-white
+           hover:bg-amber-hover hover:text-granite hover:border-granite/10;
+  }
+  /* granite with arrow — asymmetric padding for icon breathing room */
+  .btn-granite {
+    @apply pl-6 pr-5 py-2.5 bg-granite border border-granite/10 text-fog
+           hover:bg-moss/50 hover:text-granite;
+  }
+
+  /* ── Small buttons ──────────────────────────────────────── */
+  .btn-sm {
+    @apply inline-flex items-center gap-1 text-sm font-medium rounded-md transition-colors;
+  }
+  /* forest ghost — base state only; hover is driven by parent group */
+  .btn-forest {
+    @apply pl-4 pr-3 py-1.5 text-forest bg-forest/10;
+  }
+  /* ghost — white outline for use on dark/image backgrounds */
+  .btn-ghost {
+    @apply px-6 py-2.5 border border-white/40 text-white hover:bg-white/10;
   }
 }

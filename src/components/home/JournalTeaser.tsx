@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
+import JournalTeaserTrack from "@/components/home/JournalTeaserTrack";
 
 const POSTS = [
   {
@@ -51,66 +51,28 @@ export default async function JournalTeaser({ locale }: Props) {
   return (
     <section className="py-20 bg-fog">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-2 md:gap-4 mb-6 md:mb-8">
           <div>
-            <p className="text-md font-semibold uppercase tracking-wider text-amber mb-2">
+            <p className="text-sm md:text-base font-semibold uppercase tracking-wider text-moss md:mb-2">
               {t("journalEyebrow")}
             </p>
-            <h2 className="text-4xl md:text-6xl font-serif text-granite tracking-[-0.01em]">
+            <h2 className="text-5xl md:text-6xl font-serif leading-tight text-granite tracking-[-0.01em]">
               {t("journalTitle")}
             </h2>
           </div>
           <Link
             href={`/${locale}/blog`}
-            className="shrink-0 text-sm font-medium text-forest hover:text-amber transition-colors"
+            className="btn-lg btn-granite shrink-0"
           >
-            {t("journalCta")} →
+            {t("journalCta")}&nbsp; →
           </Link>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {POSTS.map((post) => (
-            <article
-              key={post.slug}
-              className="group relative flex flex-col bg-white rounded-2xl overflow-hidden border border-granite/10"
-            >
-              <Link
-                href={`/${locale}/blog/${post.slug}`}
-                className="absolute inset-0 z-10"
-                aria-label={post.title}
-              />
-              <div className="relative h-48 overflow-hidden">
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-              <div className="flex flex-col flex-1 p-5">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-xs font-medium text-amber">
-                    {post.category}
-                  </span>
-                  <span className="text-xs text-granite/40">{post.date}</span>
-                  <span className="text-xs text-granite/40">
-                    {post.readTime}
-                  </span>
-                </div>
-                <h3 className="font-serif text-granite text-base leading-snug mb-3 line-clamp-2">
-                  {post.title}
-                </h3>
-                <p className="text-sm text-granite/60 leading-relaxed line-clamp-3 flex-1 mb-4">
-                  {post.excerpt}
-                </p>
-                <span className="text-sm font-medium text-amber group-hover:text-forest transition-colors mt-auto">
-                  {locale === "pt" ? "Ler artigo" : "Read post"} →
-                </span>
-              </div>
-            </article>
-          ))}
-        </div>
+        <JournalTeaserTrack
+          posts={POSTS}
+          locale={locale}
+          readLabel={locale === "pt" ? "Ler artigo" : "Read post"}
+        />
       </div>
     </section>
   );

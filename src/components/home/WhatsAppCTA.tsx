@@ -26,7 +26,7 @@ export default async function WhatsAppCTA() {
           </svg>
         </div>
 
-        <h2 className="text-4xl md:text-6xl font-serif text-granite mb-4 tracking-[-0.01em]">
+        <h2 className="text-5xl md:text-6xl font-serif leading-tight text-granite mb-4 tracking-[-0.01em]">
           {t("whatsappCtaTitle")}
         </h2>
         <p className="text-granite/60 leading-relaxed mb-8 max-w-md mx-auto">

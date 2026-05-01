@@ -7,11 +7,11 @@
 
 ## 1. Project Overview
 
-**Natur Barroso** is an outdoor animation and ecotourism company based in **Montalegre, Terras de Barroso**, operating within and around **Peneda-Gerês National Park** in northern Portugal (Trás-os-Montes region).
+**Natur Barroso** is an outdoor animation and ecotourism company based in **Montalegre, Portugal**, operating within and around **Peneda-Gerês National Park** in northern Portugal (Trás-os-Montes region).
 
 The goal is a **fully functional, bookable web platform** — not a brochure site. Visitors should be able to discover the region, browse tours, understand what they're booking, and complete a booking, all within the site.
 
-**Key differentiator:** Natur Barroso is local and rooted in Barroso — not a Porto-based day-trip operator. This authenticity is a core part of the brand and should come through in the copy, imagery, and structure.
+**Key differentiator:** Natur Barroso is local and rooted in Barroso — not a Porto-based day-trip operator. This authenticity is a core part of the brand and should come through in the copy, imagery, and structure. They offer both custom/all inclusive luxury experiences for holiday trips that has clients stay in Portugal's northern palaces and rustic escapades, as well as more adventurous tours that guide clients along amazing trails, historic villages, and offers all kids of outdoor activities.
 
 ---
 
@@ -47,12 +47,7 @@ The goal is a **fully functional, bookable web platform** — not a brochure sit
 
 ### 4.1 Logo
 
-Design a fresh **"Natur Barroso"** SVG wordmark as part of the build:
-
-- Clean humanist sans-serif base
-- Subtle nature mark: mountain silhouette, granite texture, or stylised oak/wolf motif (all native to the region)
-- Exported as SVG, used in nav and footer
-- Must work on dark and light backgrounds
+user designed a logo.
 
 ### 4.2 Colour Palette
 
@@ -74,7 +69,7 @@ Design a fresh **"Natur Barroso"** SVG wordmark as part of the build:
 
 ### 4.4 Tone of Voice
 
-Friendly but polished. Grounded and confident. Think: a knowledgeable local guide who is also a professional. Not poetic to the point of vagueness. Not casual slang. Somewhere between warm and premium — never posh.
+Friendly but polished. Grounded and confident. Think: a knowledgeable local guide who is also a professional. Not poetic to the point of vagueness. Not casual slang. Somewhere between warm and premium — never posh. Think high-end and avant garde hiking equipment brand mixed with luxury hotel while still being grounded.
 
 ---
 

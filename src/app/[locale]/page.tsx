@@ -22,8 +22,8 @@ export default async function HomePage({ params }: Props) {
       <TrustStrip />
       <FeaturedTours locale={locale} />
       <RegionTeaser locale={locale} />
-      <HowItWorks />
-      <Testimonials title={t('testimonialsTitle')} />
+      <HowItWorks locale={locale} />
+      <Testimonials title={t('testimonialsTitle')} locale={locale} />
       <WhatsAppCTA />
       <JournalTeaser locale={locale} />
     </>

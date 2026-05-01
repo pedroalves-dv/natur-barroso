@@ -11,7 +11,7 @@ export default function NaturBarrosoLogo({
 }: Props) {
   return (
     <img
-      src="/logo/logo-1.png"
+      src="/logo/logo-3.png"
       alt="Natur Barroso"
       className={`${className} ${variant === "light" ? "brightness-0 invert" : ""}`}
     />

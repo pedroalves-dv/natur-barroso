@@ -29,7 +29,7 @@ const SEASON_MONTHS: Record<
 function SeasonPill({ seasons, isPt }: { seasons: Season[]; isPt: boolean }) {
   if (seasons.length === 4) {
     return (
-      <span className="text-[10px] font-medium tracking-wide px-2 py-1 rounded-full bg-fog/85 backdrop-blur text-granite/70">
+      <span className="text-xs font-medium tracking-wide px-2 py-1 rounded-full bg-fog/85 backdrop-blur text-granite/70">
         {isPt ? "Todo o ano" : "Year-round"}
       </span>
     );
@@ -51,7 +51,7 @@ export default function TourCard({ tour, locale }: Props) {
   const isPt = locale === "pt";
 
   return (
-    <article className="group relative flex flex-col bg-white rounded-xl overflow-hidden border border-granite/10 hover:border-granite/40 hover:shadow-[0_5px_10px_rgba(42,42,40,0.08)] hover:-translate-y-1 transition-all duration-300 ease-out">
+    <article className="group relative flex flex-col bg-white overflow-hidden border border-granite/10 hover:border-granite/40 hover:shadow-[0_5px_10px_rgba(42,42,40,0.03)] hover:-translate-y-1 transition-all duration-300 ease-out">
       <Link
         href={`/${locale}/tours/${tour.slug}`}
         className="absolute inset-0 z-10"
@@ -76,7 +76,7 @@ export default function TourCard({ tour, locale }: Props) {
           <span className="block text-[10px] font-medium tracking-widest uppercase text-fog/70 leading-none mb-0.5">
             {isPt ? "A partir de" : "From"}
           </span>
-          <span className="block text-3xl text-white leading-none">
+          <span className="block font-serif text-5xl text-white leading-none">
             €{minPrice}
           </span>
         </div>
@@ -125,7 +125,7 @@ export default function TourCard({ tour, locale }: Props) {
         </div>
 
         <div className="flex justify-end pt-4 border-t border-granite/10 px-4 -mx-5">
-          <span className="inline-flex items-center gap-1 text-sm font-medium pl-4 pr-3 py-1.5 rounded-xl text-forest bg-forest/10 group-hover:bg-forest group-hover:text-fog transition-colors">
+          <span className="btn-sm btn-forest group-hover:bg-forest group-hover:text-fog">
             {isPt ? "Ver" : "View"}
             <span className="transition-transform group-hover:translate-x-0.5">
               →

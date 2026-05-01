@@ -6,6 +6,83 @@ interface Props {
   locale: string;
 }
 
+const FACT_ICONS = [
+  // 1525m — Larouco range
+  <svg
+    key="landplot"
+    xmlns="http://www.w3.org/2000/svg"
+    width="32"
+    height="32"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="m12 8 6-3-6-3v10" />
+    <path d="m8 11.99-5.5 3.14a1 1 0 0 0 0 1.74l8.5 4.86a2 2 0 0 0 2 0l8.5-4.86a1 1 0 0 0 0-1.74L16 12" />
+    <path d="m6.49 12.85 11.02 6.3" />
+    <path d="M17.51 12.85 6.5 19.15" />
+  </svg>,
+  // 2018 — UNESCO designation
+  <svg
+    key="award"
+    xmlns="http://www.w3.org/2000/svg"
+    width="32"
+    height="32"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526" />
+    <circle cx="12" cy="8" r="6" />
+  </svg>,
+  // 12+ — villages
+  <svg
+    key="landmark"
+    xmlns="http://www.w3.org/2000/svg"
+    width="32"
+    height="32"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M10 18v-7" />
+    <path d="M11.12 2.198a2 2 0 0 1 1.76.006l7.866 3.847c.476.233.31.949-.22.949H3.474c-.53 0-.695-.716-.22-.949z" />
+    <path d="M14 18v-7" />
+    <path d="M18 18v-7" />
+    <path d="M3 22h18" />
+    <path d="M6 18v-7" />
+  </svg>,
+  // 200+ — bird species
+  <svg
+    key="bird"
+    xmlns="http://www.w3.org/2000/svg"
+    width="32"
+    height="32"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M16 7h.01" />
+    <path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20" />
+    <path d="m20 7 2 .5-2 .5" />
+    <path d="M10 18v3" />
+    <path d="M14 17.75V21" />
+    <path d="M7 18a6 6 0 0 0 3.84-10.61" />
+  </svg>,
+];
+
 const MARKERS = [
   { name: "Pitões das Júnias", x: 42, y: 48 },
   { name: "Tourém", x: 10, y: 80 },
@@ -17,32 +94,55 @@ export default async function RegionTeaser({ locale }: Props) {
   const t = await getTranslations("HomePage");
 
   const facts = [
-    { num: "1525m", label: t("regionFact1Label"), desc: t("regionFact1Desc") },
-    { num: "2018", label: t("regionFact2Label"), desc: t("regionFact2Desc") },
-    { num: "12+", label: t("regionFact3Label"), desc: t("regionFact3Desc") },
-    { num: "200+", label: t("regionFact4Label"), desc: t("regionFact4Desc") },
+    {
+      num: "1525m",
+      label: t("regionFact1Label"),
+      desc: t("regionFact1Desc"),
+      icon: FACT_ICONS[0],
+    },
+    {
+      num: "2018",
+      label: t("regionFact2Label"),
+      desc: t("regionFact2Desc"),
+      icon: FACT_ICONS[1],
+    },
+    {
+      num: "12+",
+      label: t("regionFact3Label"),
+      desc: t("regionFact3Desc"),
+      icon: FACT_ICONS[2],
+    },
+    {
+      num: "200+",
+      label: t("regionFact4Label"),
+      desc: t("regionFact4Desc"),
+      icon: FACT_ICONS[3],
+    },
   ];
 
   return (
     <section className="bg-moss/10 text-granite overflow-hidden">
       <div className="grid lg:grid-cols-2 min-h-[640px]">
         {/* Text + facts */}
-        <div className="flex flex-col justify-center px-6 py-16 lg:py-20 lg:pl-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))] lg:pr-16">
-          <p className="text-md font-semibold uppercase tracking-wider text-amber mb-2">
+        <div className="flex flex-col justify-center px-6 pt-16 pb-10 md:pb-12 mb:py-16 lg:py-20 lg:pl-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))] lg:pr-16">
+          <p className="text-sm md:text-base font-semibold uppercase tracking-wider text-amber md:mb-2">
             {t("regionTeaserEyebrow")}
           </p>
-          <h2 className="text-4xl md:text-6xl font-serif leading-tight tracking-[-0.01em] mb-4">
+          <h2 className="text-5xl md:text-6xl font-serif leading-tight tracking-[-0.01em] text-granite mb-2 md:mb-4">
             {t("regionTeaserTitle")}
           </h2>
           <p className="text-granite/65 leading-relaxed max-w-md text-sm md:text-base">
             {t("regionTeaserSubtitle")}
           </p>
 
-          <div className="grid grid-cols-2 gap-x-6 gap-y-6 mt-10 mb-16">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-4 mt-4 md:mt-8 md:mb-16">
             {facts.map((f) => (
-              <div className=" pr-8 pb-4 pt-4" key={f.num}>
-                <div className="text-4xl font-stack text-amber leading-none mb-2">
-                  {f.num}
+              <div className="pr-8 pt-4" key={f.num}>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-amber shrink-0">{f.icon}</span>
+                  <span className="text-4xl font-stack text-amber leading-none">
+                    {f.num}
+                  </span>
                 </div>
                 <div className="text-sm font-medium text-granite/90 leading-snug mb-0.5">
                   {f.label}
@@ -54,17 +154,15 @@ export default async function RegionTeaser({ locale }: Props) {
             ))}
           </div>
 
-          <Link
-            href={`/${locale}/region`}
-            className="inline-flex w-fit items-center gap-2 px-6 py-2.5 rounded-full border border-granite text-granite font-medium hover:border-amber/60 hover:text-amber transition-colors text-md"
-          >
-            {t("regionTeaserCta")}
-            <span aria-hidden>→</span>
-          </Link>
+          <div className="hidden lg:block">
+            <Link href={`/${locale}/region`} className="btn-lg btn-amber">
+              {t("regionTeaserCta")}&nbsp; →
+            </Link>
+          </div>
         </div>
 
         {/* Photo + map markers */}
-        <div className="relative min-h-[400px] lg:min-h-0">
+        <div className="relative min-h-[400px] mx-6 mb-8 rounded-2xl overflow-hidden lg:mx-0 lg:mb-0 lg:rounded-none lg:min-h-0">
           <Image
             src="/images/region-teaser.jpg"
             alt="Barroso highland landscape"
@@ -72,9 +170,8 @@ export default async function RegionTeaser({ locale }: Props) {
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black/55 pointer-events-none" />
 
-          {MARKERS.map((m, i) => (
+          {MARKERS.map((m) => (
             <div
               key={m.name}
               className="absolute w-5 h-5"
@@ -89,23 +186,26 @@ export default async function RegionTeaser({ locale }: Props) {
               {/* Outer ring */}
               <span className="absolute inset-0 rounded-full border border-fog/50" />
               {/* Center dot */}
-              <span className="absolute top-1/2 left-1/2 w-[6px] h-[6px] rounded-full bg-fog -translate-x-1/2 -translate-y-1/2" />
+              <span className="absolute top-1/2 left-1/2 w-[10px] h-[10px] rounded-full bg-fog -translate-x-1/2 -translate-y-1/2" />
               {/* Waypoint label */}
-              <div className="absolute top-1/2 left-[calc(100%+8px)] -translate-y-1/2 flex flex-col leading-none gap-0.5 bg-fog px-2 py-1.5 pt-2 rounded-lg pointer-events-auto">
-                {/* <span className="text-[8px] font-mono text-granite/65 tracking-[0.18em] uppercase">
-                  WP{String(i + 1).padStart(2, "0")}
-                </span> */}
-                <span className="text-[10px] font-mono text-granite/85 tracking-wide whitespace-nowrap">
+              <div className="absolute top-1/2 left-[calc(100%+8px)] -translate-y-1/2 flex flex-col leading-none gap-0.5 bg-fog px-2 py-1.5 pt-2 rounded-md pointer-events-auto">
+                <span className="text-[10px] font-mono text-granite tracking-wide whitespace-nowrap">
                   {m.name}
                 </span>
               </div>
             </div>
           ))}
 
-          <div className="absolute bottom-5 left-5 font-mono text-[10px] text-white/55 uppercase tracking-[0.12em]">
+          {/* <div className="absolute bottom-5 left-5 font-mono text-[10px] text-white/55 uppercase tracking-[0.12em]">
             41°49′N 7°47′W · Trás-os-Montes
-          </div>
+          </div> */}
         </div>
+      </div>
+
+      <div className="lg:hidden px-6 pb-10">
+        <Link href={`/${locale}/region`} className="btn-lg btn-amber w-full">
+          {t("regionTeaserCta")}&nbsp; →
+        </Link>
       </div>
     </section>
   );

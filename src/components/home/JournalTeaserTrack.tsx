@@ -1,15 +1,30 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import { useState, useRef, useEffect, useCallback } from "react";
-import type { Tour } from "@/types/tour";
-import TourCard from "@/components/ui/TourCard";
 
-interface Props {
-  tours: Tour[];
-  locale: string;
+interface Post {
+  slug: string;
+  category: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  readTime: string;
+  image: string;
 }
 
-export default function FeaturedToursTrack({ tours, locale }: Props) {
+interface Props {
+  posts: Post[];
+  locale: string;
+  readLabel: string;
+}
+
+export default function JournalTeaserTrack({
+  posts,
+  locale,
+  readLabel,
+}: Props) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [dragging, setDragging] = useState(false);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -75,7 +90,7 @@ export default function FeaturedToursTrack({ tours, locale }: Props) {
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "ArrowLeft") scrollTo(Math.max(0, activeIndex - 1));
     if (e.key === "ArrowRight")
-      scrollTo(Math.min(tours.length - 1, activeIndex + 1));
+      scrollTo(Math.min(posts.length - 1, activeIndex + 1));
   };
 
   return (
@@ -89,21 +104,60 @@ export default function FeaturedToursTrack({ tours, locale }: Props) {
         onPointerCancel={handlePointerUp}
         onClickCapture={handleClickCapture}
         onKeyDown={handleKeyDown}
-        className={`flex gap-4 overflow-x-auto snap-x snap-mandatory select-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible md:pb-0 md:cursor-default ${dragging ? "cursor-grabbing" : "cursor-grab"}`}
+        className={`flex gap-4 overflow-x-auto snap-x snap-mandatory select-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-3 md:overflow-visible md:cursor-default ${dragging ? "cursor-grabbing" : "cursor-grab"}`}
       >
-        {tours.map((tour) => (
-          <div key={tour.slug} className="snap-start shrink-0 w-full md:w-auto">
-            <TourCard tour={tour} locale={locale} />
-          </div>
+        {posts.map((post) => (
+          <article
+            key={post.slug}
+            className="group relative flex flex-col bg-white overflow-hidden border border-granite/10 hover:border-granite/40 hover:shadow-[0_5px_10px_rgba(42,42,40,0.03)] hover:-translate-y-1 transition-all duration-300 ease-out snap-start shrink-0 w-full md:w-auto"
+          >
+            <Link
+              href={`/${locale}/blog/${post.slug}`}
+              className="absolute inset-0 z-10"
+              aria-label={post.title}
+            />
+            <div className="relative h-48 overflow-hidden">
+              <Image
+                src={post.image}
+                alt={post.title}
+                fill
+                className="object-cover transition-transform duration-500"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+            </div>
+            <div className="flex flex-col flex-1 p-5">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-xs font-medium text-amber">
+                  {post.category}
+                </span>
+                <span className="text-xs text-granite/40">{post.date}</span>
+                <span className="text-xs text-granite/40">{post.readTime}</span>
+              </div>
+              <h3 className="text-granite text-lg leading-snug mb-3 line-clamp-2">
+                {post.title}
+              </h3>
+              <p className="text-sm text-granite/60 leading-relaxed line-clamp-3 flex-1 mb-4">
+                {post.excerpt}
+              </p>
+              <div className="flex justify-end pt-4 border-t border-granite/10 px-4 -mx-5">
+                <span className="btn-sm btn-forest group-hover:bg-forest group-hover:text-fog">
+                  {readLabel}
+                  <span className="transition-transform group-hover:translate-x-0.5">
+                    →
+                  </span>
+                </span>
+              </div>
+            </div>
+          </article>
         ))}
       </div>
 
-      <div className="flex items-center justify-center gap-2 md:hidden mt-6">
-        {tours.map((_, i) => (
+      <div className="flex items-center justify-center gap-2 mt-6 md:hidden">
+        {posts.map((_, i) => (
           <button
             key={i}
             onClick={() => scrollTo(i)}
-            aria-label={`Go to tour ${i + 1}`}
+            aria-label={`Go to post ${i + 1}`}
             className={[
               "h-2 rounded-full transition-all duration-300 ease-out",
               i === activeIndex
