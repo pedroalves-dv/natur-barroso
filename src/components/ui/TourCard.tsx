@@ -51,7 +51,7 @@ export default function TourCard({ tour, locale }: Props) {
   const isPt = locale === "pt";
 
   return (
-    <article className="group relative flex flex-col bg-white overflow-hidden border border-granite/10 hover:border-granite/40 hover:shadow-[0_5px_10px_rgba(42,42,40,0.03)] hover:-translate-y-1 transition-all duration-300 ease-out">
+    <article className="group relative flex flex-col h-full bg-white overflow-hidden border border-granite/10 hover:border-granite/40 hover:shadow-[0_5px_10px_rgba(42,42,40,0.03)] hover:-translate-y-1 transition-all duration-300 ease-out">
       <Link
         href={`/${locale}/tours/${tour.slug}`}
         className="absolute inset-0 z-10"
@@ -82,8 +82,8 @@ export default function TourCard({ tour, locale }: Props) {
         </div>
       </div>
 
-      <div className="flex flex-col flex-1 p-5">
-        <h3 className="font-stack text-xl text-granite mb-4 leading-snug">
+      <div className="flex flex-col flex-1 pt-5 pl-5 pr-5 pb-4">
+        <h3 className="font-stack text-xl text-granite mb-2 leading-snug">
           {isPt ? tour.title : (tour.title_en ?? tour.title)}
         </h3>
         <p className="text-sm text-granite/60 mb-4 leading-relaxed line-clamp-2">
@@ -92,7 +92,7 @@ export default function TourCard({ tour, locale }: Props) {
             : (tour.shortDescription_en ?? tour.shortDescription)}
         </p>
 
-        <div className="mb-4 flex items-center gap-2 flex-wrap">
+        <div className="mb-4 flex items-center gap-1 flex-wrap">
           <DifficultyPill difficulty={tour.difficulty} locale={locale} />
 
           <span className="inline-flex items-center text-xs font-medium px-2.5 py-1 rounded-full bg-fog text-granite/65">
@@ -124,7 +124,7 @@ export default function TourCard({ tour, locale }: Props) {
           </span>
         </div>
 
-        <div className="flex justify-end pt-4 border-t border-granite/10 px-4 -mx-5">
+        <div className="mt-auto flex justify-end pt-4 border-t border-granite/10 px-4 -mx-5">
           <span className="btn-sm btn-forest group-hover:bg-forest group-hover:text-fog">
             {isPt ? "Ver" : "View"}
             <span className="transition-transform group-hover:translate-x-0.5">

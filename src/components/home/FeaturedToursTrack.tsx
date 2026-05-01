@@ -98,7 +98,7 @@ export default function FeaturedToursTrack({ tours, locale }: Props) {
         ))}
       </div>
 
-      <div className="flex items-center justify-center gap-2 md:hidden mt-6">
+      <div className="flex items-center justify-center gap-2 md:hidden mt-4">
         {tours.map((_, i) => (
           <button
             key={i}

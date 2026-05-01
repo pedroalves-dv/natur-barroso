@@ -23,7 +23,7 @@ function TestimonialCard({ review }: { review: Review }) {
   return (
     <article
       aria-roledescription="slide"
-      className="bg-fog border border-granite/10 rounded-lg p-6 flex flex-col gap-4 snap-start shrink-0 w-full md:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.667rem)]"
+      className="bg-fog border border-granite/10 rounded-lg px-6 pt-6 pb-4 flex flex-col gap-4 snap-start shrink-0 w-full md:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.667rem)]"
     >
       <div className="flex gap-0.5">
         {Array.from({ length: review.rating }).map((_, j) => (
@@ -123,7 +123,7 @@ export default function Testimonials({
             <p className="text-sm md:text-base font-semibold uppercase tracking-wider text-amber md:mb-2">
               TripAdvisor · Google Reviews
             </p>
-            <h2 className="text-5xl md:text-6xl font-serif leading-tight text-granite tracking-[-0.01em]">
+            <h2 className="text-4xl md:text-6xl font-serif leading-tight text-granite tracking-[-0.01em]">
               {title}
             </h2>
           </div>
@@ -152,7 +152,7 @@ export default function Testimonials({
         </div>
       </div>
 
-      <div className="flex items-center justify-center gap-2 mt-6 lg:hidden">
+      <div className="flex items-center justify-center gap-2 mt-4 lg:hidden">
         {featuredReviews.map((_, i) => (
           <button
             key={i}

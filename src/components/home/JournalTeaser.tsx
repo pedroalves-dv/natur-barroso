@@ -56,7 +56,7 @@ export default async function JournalTeaser({ locale }: Props) {
             <p className="text-sm md:text-base font-semibold uppercase tracking-wider text-moss md:mb-2">
               {t("journalEyebrow")}
             </p>
-            <h2 className="text-5xl md:text-6xl font-serif leading-tight text-granite tracking-[-0.01em]">
+            <h2 className="text-4xl md:text-6xl font-serif leading-tight text-granite tracking-[-0.01em]">
               {t("journalTitle")}
             </h2>
           </div>

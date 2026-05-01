@@ -32,7 +32,7 @@ export default async function HeroSection({ locale }: Props) {
           </span>
         </h1> */}
         <NaturBarrosoLogo className="invert drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] mb-8" />
-        <p className="flex items-center justify-centertext-lg md:text-xl text-fog/80 max-w-xl mb-10 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+        <p className="text-center text-lg md:text-xl text-fog/80 max-w-xl mb-10 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
           {t("subtitle")}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -45,9 +45,10 @@ export default async function HeroSection({ locale }: Props) {
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
-        <span className="text-xs uppercase tracking-widest">Scroll</span>
-        <div className="w-px h-8 bg-white/60" />
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-50 animate-nudge-down">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M6 9l6 6 6-6" />
+        </svg>
       </div>
     </section>
   );

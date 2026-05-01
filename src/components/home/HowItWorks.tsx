@@ -83,7 +83,7 @@ export default async function HowItWorks({ locale }: Props) {
             <p className="text-sm font-semibold uppercase tracking-widest text-amber mb-3">
               {t("howItWorksEyebrow")}
             </p>
-            <h2 className="text-5xl md:text-6xl font-serif leading-tight text-fog tracking-[-0.01em]">
+            <h2 className="text-4xl md:text-6xl font-serif leading-tight text-fog tracking-[-0.01em]">
               {t("howItWorksTitle")}
             </h2>
           </div>

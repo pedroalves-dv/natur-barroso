@@ -35,6 +35,11 @@ test {
   color: #4d7050;
 }
 
+@keyframes nudge-down {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(6px); }
+}
+
 @layer base {
   html {
     @apply font-stack text-granite bg-fog;
@@ -46,9 +51,19 @@ test {
 }
 
 @layer utilities {
+  .animate-nudge-down {
+    animation: nudge-down 1.6s ease-in-out infinite;
+  }
+
   /* ── Large / normal buttons ─────────────────────────────── */
   .btn-lg {
     @apply inline-flex items-center justify-center px-6 py-2 rounded-lg text-md font-medium transition-colors min-w-[9rem];
+    @media (max-width: 47.9375rem) {
+      padding: 0.375rem 1rem;
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      min-width: 7rem;
+    }
   }
   /* amber on fog/light backgrounds — opacity lets fog bleed through */
   .btn-amber {
@@ -76,6 +91,6 @@ test {
   }
   /* ghost — white outline for use on dark/image backgrounds */
   .btn-ghost {
-    @apply px-6 py-2.5 border border-white/40 text-white hover:bg-white/10;
+    @apply border border-white/40 text-white hover:bg-white/10;
   }
 }

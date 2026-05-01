@@ -79,16 +79,20 @@ export default async function TrustStrip() {
   ];
 
   return (
-    <section className="bg-moss/10 text-granite py-8">
+    <section className="bg-moss/10 text-granite py-6 md:py-8">
       <div className="px-4 md:px-6">
-        <ul className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <ul className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
           {items.map((item) => (
             <li
               key={item.label}
-              className="flex flex-col items-center gap-3 text-center md:flex-row md:justify-center md:text-left"
+              className="flex flex-row items-center justify-center gap-3"
             >
-              <span className="text-amber shrink-0">{item.icon}</span>
-              <span className="text-md font-medium">{item.label}</span>
+              <span className="text-amber shrink-0 [&>svg]:w-8 [&>svg]:h-8">
+                {item.icon}
+              </span>
+              <span className="text-sm md:text-md font-medium">
+                {item.label}
+              </span>
             </li>
           ))}
         </ul>

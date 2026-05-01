@@ -128,7 +128,7 @@ export default async function RegionTeaser({ locale }: Props) {
           <p className="text-sm md:text-base font-semibold uppercase tracking-wider text-amber md:mb-2">
             {t("regionTeaserEyebrow")}
           </p>
-          <h2 className="text-5xl md:text-6xl font-serif leading-tight tracking-[-0.01em] text-granite mb-2 md:mb-4">
+          <h2 className="text-4xl md:text-6xl font-serif leading-tight tracking-[-0.01em] text-granite mb-2 md:mb-4">
             {t("regionTeaserTitle")}
           </h2>
           <p className="text-granite/65 leading-relaxed max-w-md text-sm md:text-base">
@@ -162,7 +162,7 @@ export default async function RegionTeaser({ locale }: Props) {
         </div>
 
         {/* Photo + map markers */}
-        <div className="relative min-h-[400px] mx-6 mb-8 rounded-2xl overflow-hidden lg:mx-0 lg:mb-0 lg:rounded-none lg:min-h-0">
+        <div className="relative min-h-[400px] mx-6 mb-8 overflow-hidden lg:mx-0 lg:mb-0 lg:min-h-0">
           <Image
             src="/images/region-teaser.jpg"
             alt="Barroso highland landscape"

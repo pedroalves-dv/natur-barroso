@@ -125,7 +125,7 @@ export default function JournalTeaserTrack({
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
-            <div className="flex flex-col flex-1 p-5">
+            <div className="flex flex-col flex-1 pt-5 pl-5 pr-5 pb-4">
               <div className="flex items-center gap-3 mb-3">
                 <span className="text-xs font-medium text-amber">
                   {post.category}
@@ -139,7 +139,7 @@ export default function JournalTeaserTrack({
               <p className="text-sm text-granite/60 leading-relaxed line-clamp-3 flex-1 mb-4">
                 {post.excerpt}
               </p>
-              <div className="flex justify-end pt-4 border-t border-granite/10 px-4 -mx-5">
+              <div className="mt-auto flex justify-end pt-4 border-t border-granite/10 px-4 -mx-5">
                 <span className="btn-sm btn-forest group-hover:bg-forest group-hover:text-fog">
                   {readLabel}
                   <span className="transition-transform group-hover:translate-x-0.5">
@@ -152,7 +152,7 @@ export default function JournalTeaserTrack({
         ))}
       </div>
 
-      <div className="flex items-center justify-center gap-2 mt-6 md:hidden">
+      <div className="flex items-center justify-center gap-2 mt-4 md:hidden">
         {posts.map((_, i) => (
           <button
             key={i}

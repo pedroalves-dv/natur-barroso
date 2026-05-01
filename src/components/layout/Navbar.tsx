@@ -50,7 +50,7 @@ export default function Navbar() {
         <nav className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link href={`/${locale}`} aria-label="Natur Barroso — início">
-            <NaturBarrosoLogo variant="dark" className="h-8 md:h-9 w-auto" />
+            <NaturBarrosoLogo variant="dark" className="h-7 md:h-9 w-auto" />
           </Link>
 
           {/* Desktop nav */}
