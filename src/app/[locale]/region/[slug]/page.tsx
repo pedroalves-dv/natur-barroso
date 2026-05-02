@@ -99,7 +99,7 @@ export default async function RegionSubPage({ params }: Props) {
       </section>
 
       {/* How to get there + map */}
-      <section className="py-16 bg-granite text-fog">
+      <section className="py-20 bg-granite text-fog">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
@@ -117,10 +117,16 @@ export default async function RegionSubPage({ params }: Props) {
       {relatedTours.length > 0 && (
         <section className="py-20 bg-fog">
           <div className="max-w-7xl mx-auto px-4 md:px-6">
-            <p className="text-xs font-semibold uppercase tracking-widest text-amber mb-2">
-              {t('toursEyebrow')}
-            </p>
-            <h2 className="text-3xl font-serif text-granite mb-10">{t('toursTitle')}</h2>
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+              <div>
+                <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-amber mb-3">
+                  {t('toursEyebrow')}
+                </p>
+                <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-granite">
+                  {t('toursTitle')}
+                </h2>
+              </div>
+            </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {relatedTours.map((tour) => (
                 <TourCard key={tour.slug} tour={tour} locale={locale} />

@@ -27,7 +27,7 @@ export default async function ReviewsPage({ params }: Props) {
       {/* Hero aggregate */}
       <section className="pt-32 pb-16 bg-granite text-fog">
         <div className="max-w-7xl mx-auto px-4 md:px-6 text-center">
-          <p className="text-xs font-semibold uppercase tracking-widest text-amber mb-4">
+          <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-amber mb-3">
             {t("sources")}
           </p>
           <div className="flex items-center justify-center gap-2 mb-3">
@@ -46,12 +46,12 @@ export default async function ReviewsPage({ params }: Props) {
           </div>
           <p className="text-5xl font-serif mb-2">{t("aggregateRating")}</p>
           <p className="text-fog/60 text-sm">{t("reviewCount")}</p>
-          <h1 className="text-3xl md:text-4xl font-serif mt-8">{t("title")}</h1>
+          <h1 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] mt-8">{t("title")}</h1>
         </div>
       </section>
 
       {/* Featured pull-quotes */}
-      <section className="py-16 bg-moss">
+      <section className="py-20 bg-moss/10">
         <div className="max-w-7xl mx-auto px-4 md:px-6 grid md:grid-cols-3 gap-6">
           {featuredReviews.map((review) => (
             <blockquote
@@ -89,7 +89,7 @@ export default async function ReviewsPage({ params }: Props) {
       </section>
 
       {/* Full reviews grid */}
-      <section className="py-16 bg-fog">
+      <section className="py-20 bg-fog">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {reviews.map((review) => (
@@ -100,21 +100,23 @@ export default async function ReviewsPage({ params }: Props) {
       </section>
 
       {/* Leave a review CTA */}
-      <section className="py-16 bg-white">
+      <section className="py-20 bg-white">
         <div className="max-w-xl mx-auto px-4 md:px-6 text-center">
-          <h2 className="font-serif text-2xl text-granite mb-4">
-            {t("leaveReviewTitle")}
-          </h2>
+          <div className="mb-16">
+            <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-granite">
+              {t("leaveReviewTitle")}
+            </h2>
+          </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#"
-              className="px-6 py-3 bg-granite text-fog rounded-full text-sm font-medium hover:bg-moss transition-colors"
+              className="btn-lg btn-amber"
             >
               {t("googleBtn")}
             </a>
             <a
               href="#"
-              className="px-6 py-3 border border-granite/20 text-granite rounded-full text-sm font-medium hover:border-granite/40 transition-colors"
+              className="btn-lg btn-granite-ghost"
             >
               {t("tripAdvisorBtn")}
             </a>

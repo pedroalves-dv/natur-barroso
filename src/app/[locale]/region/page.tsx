@@ -98,10 +98,10 @@ export default async function RegionPage({ params }: Props) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-granite/80 via-granite/20 to-transparent" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 pb-16 w-full">
-          <p className="text-xs font-semibold uppercase tracking-widest text-amber mb-4">
+          <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-amber mb-3">
             {t("eyebrow")}
           </p>
-          <h1 className="font-serif text-fog text-4xl md:text-6xl leading-tight max-w-2xl mb-6">
+          <h1 className="font-serif text-fog text-4xl md:text-6xl leading-[0.8] tracking-[-0.01em] max-w-2xl mb-6">
             {t("title")}
           </h1>
           <p className="text-fog/70 max-w-lg leading-relaxed">
@@ -113,12 +113,16 @@ export default async function RegionPage({ params }: Props) {
       {/* Why Barroso */}
       <section className="py-20 bg-fog">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <p className="text-xs font-semibold uppercase tracking-widest text-amber mb-2">
-            {t("whyEyebrow")}
-          </p>
-          <h2 className="text-3xl md:text-4xl font-serif text-granite mb-12">
-            {t("whyTitle")}
-          </h2>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+            <div>
+              <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-amber mb-3">
+                {t("whyEyebrow")}
+              </p>
+              <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-granite">
+                {t("whyTitle")}
+              </h2>
+            </div>
+          </div>
           <div className="grid md:grid-cols-3 gap-8">
             {WHY_CARDS.map((card) => (
               <div key={card.icon} className="flex flex-col gap-3">
@@ -138,12 +142,16 @@ export default async function RegionPage({ params }: Props) {
       {/* Places grid */}
       <section className="py-20 bg-granite">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <p className="text-xs font-semibold uppercase tracking-widest text-amber mb-2">
-            {t("placesEyebrow")}
-          </p>
-          <h2 className="text-3xl md:text-4xl font-serif text-fog mb-12">
-            {t("placesTitle")}
-          </h2>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+            <div>
+              <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-amber mb-3">
+                {t("placesEyebrow")}
+              </p>
+              <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-fog">
+                {t("placesTitle")}
+              </h2>
+            </div>
+          </div>
           <div className="grid md:grid-cols-3 gap-6">
             {regionPlaces.map((place) => (
               <RegionCard
@@ -160,9 +168,11 @@ export default async function RegionPage({ params }: Props) {
       {/* Seasonal guide */}
       <section className="py-20 bg-fog">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="text-3xl font-serif text-granite mb-10">
-            {t("seasonTitle")}
-          </h2>
+          <div className="mb-16">
+            <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-granite">
+              {t("seasonTitle")}
+            </h2>
+          </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {SEASONS.map((s) => (
               <div
@@ -186,7 +196,11 @@ export default async function RegionPage({ params }: Props) {
       {/* Getting here */}
       <section className="py-20 bg-granite text-fog">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="text-3xl font-serif mb-10">{t("gettingHereTitle")}</h2>
+          <div className="mb-16">
+            <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-fog">
+              {t("gettingHereTitle")}
+            </h2>
+          </div>
           <div className="grid md:grid-cols-3 gap-8 text-sm">
             <div>
               <p className="text-amber font-semibold mb-2">

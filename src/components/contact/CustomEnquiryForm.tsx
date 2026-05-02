@@ -229,7 +229,7 @@ export default function CustomEnquiryForm({ locale, labels }: Props) {
         <button
           type="submit"
           disabled={status === "loading"}
-          className="px-8 py-3 bg-amber text-white rounded-full text-sm font-medium hover:bg-amber/90 transition-colors disabled:opacity-60 self-start"
+          className="btn-lg btn-amber-solid disabled:opacity-60 self-start"
         >
           {status === "loading" ? labels.submitting : labels.submitBtn}
         </button>

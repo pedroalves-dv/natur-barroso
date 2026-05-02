@@ -27,16 +27,16 @@ export default async function FAQPage({ params }: Props) {
       {/* Header */}
       <section className="pt-32 pb-16 bg-fog">
         <div className="max-w-3xl mx-auto px-4 md:px-6">
-          <p className="text-xs font-semibold uppercase tracking-widest text-amber mb-2">
+          <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-amber mb-3">
             {t('eyebrow')}
           </p>
-          <h1 className="text-4xl md:text-5xl font-serif text-granite mb-4">{t('title')}</h1>
+          <h1 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-granite">{t('title')}</h1>
           <p className="text-granite/60 leading-relaxed">{t('subtitle')}</p>
         </div>
       </section>
 
       {/* Accordion */}
-      <section className="py-10 pb-20 bg-fog">
+      <section className="py-20 bg-fog">
         <div className="max-w-3xl mx-auto px-4 md:px-6">
           <FAQAccordion items={faqItems} locale={locale} />
 
@@ -45,7 +45,7 @@ export default async function FAQPage({ params }: Props) {
             <p className="text-granite/60 text-sm mb-4">{t('contactCta')}</p>
             <Link
               href={`/${locale}/contact`}
-              className="px-8 py-3 border border-forest text-forest rounded-full text-sm font-medium hover:bg-forest hover:text-white transition-colors"
+              className="btn-lg btn-granite-ghost"
             >
               {locale === 'pt' ? 'Ir para contacto' : 'Go to contact'}
             </Link>

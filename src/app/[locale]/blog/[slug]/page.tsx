@@ -114,9 +114,11 @@ export default async function BlogPostPage({ params }: Props) {
 
       {/* Related */}
       {related.length > 0 && (
-        <section className="py-16 bg-white">
+        <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 md:px-6">
-            <h2 className="text-2xl font-serif text-granite mb-8">{relatedLabel}</h2>
+            <div className="mb-16">
+              <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-granite">{relatedLabel}</h2>
+            </div>
             <div className="grid md:grid-cols-2 gap-8">
               {related.map((p) => (
                 <BlogCard key={p.slug} post={p} locale={locale} readPostLabel={readPostLabel} />
