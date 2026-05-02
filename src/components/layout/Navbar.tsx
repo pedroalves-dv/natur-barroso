@@ -10,7 +10,7 @@ const NAV_LINK_KEYS = [
   { href: "/tours", key: "tours" },
   { href: "/region", key: "region" },
   { href: "/about", key: "about" },
-  { href: "/blog", key: "blog" },
+  // { href: "/blog", key: "blog" },
   { href: "/contact", key: "contact" },
 ] as const;
 
@@ -52,7 +52,7 @@ export default function Navbar() {
         <nav className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link href={`/${locale}`} aria-label="Natur Barroso — início">
-            <NaturBarrosoLogo variant="dark" className="h-6 md:h-9 w-auto" />
+            <NaturBarrosoLogo variant="dark" className="h-5 md:h-7 w-auto" />
           </Link>
 
           {/* Desktop nav */}
@@ -143,7 +143,7 @@ export default function Navbar() {
         <div className="fixed inset-0 z-50 bg-granite flex flex-col">
           <div className="flex items-center justify-between px-4 h-16 shrink-0">
             <Link href={`/${locale}`} onClick={() => setIsMobileOpen(false)}>
-              <NaturBarrosoLogo variant="light" className="h-6 w-auto" />
+              <NaturBarrosoLogo variant="light" className="h-5 w-auto" />
             </Link>
             <button
               onClick={() => setIsMobileOpen(false)}

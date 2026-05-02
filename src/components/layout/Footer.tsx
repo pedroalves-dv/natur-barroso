@@ -37,7 +37,7 @@ export default async function Footer() {
           {/* Col 1 — Brand */}
           <div>
             <Link href={`/${locale}`} className="inline-block">
-              <NaturBarrosoLogo variant="light" className="h-8 md:h-9 w-auto" />
+              <NaturBarrosoLogo variant="light" className="h-5 md:h-7 w-auto" />
             </Link>
             <p className="text-sm text-fog/60 leading-relaxed my-4 max-w-xs">
               {t("tagline")}

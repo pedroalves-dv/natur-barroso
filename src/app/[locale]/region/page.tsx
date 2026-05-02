@@ -2,7 +2,7 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { regionPlaces } from "@/data/region";
-import RegionCard from "@/components/region/RegionCard";
+import RegionCardsTrack from "@/components/region/RegionCardsTrack";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -22,31 +22,31 @@ const SEASONS = [
     season: "Primavera",
     months: "Mar – Mai",
     note: "Cascatas em pleno. Flores silvestres. Ideal para caminhadas.",
-    color: "#2D9B4F",
+    image: "/images/waterfall.jpg",
   },
   {
     season: "Verão",
     months: "Jun – Ago",
     note: "Banhos nas cascatas e rios. Dias longos. Reservar com antecedência.",
-    color: "#ffb547",
+    image: "/images/summer.jpg",
   },
   {
     season: "Outono",
     months: "Set – Nov",
     note: "Melhor para fauna e fotografia. Menos turistas. Castanhas e vindimas.",
-    color: "#7C6138",
+    image: "/images/autumn.jpg",
   },
   {
     season: "Inverno",
     months: "Dez – Fev",
     note: "Planalto nevado. Caudais máximos. Expedições 4×4 especiais.",
-    color: "#4A6B7C",
+    image: "/images/winter.jpg",
   },
 ];
 
 const WHY_CARDS = [
   {
-    icon: "🐺",
+    image: "/images/wildlife.jpg",
     titlePt: "Fauna singular",
     titleEn: "Singular wildlife",
     bodyPt:
@@ -55,7 +55,7 @@ const WHY_CARDS = [
       "One of Portugal's last Iberian wolf packs. Roe deer, wild boar and over 200 bird species.",
   },
   {
-    icon: "🏰",
+    image: "/images/hotel.jpg",
     titlePt: "Cultura e história",
     titleEn: "Culture & history",
     bodyPt:
@@ -64,14 +64,23 @@ const WHY_CARDS = [
       "Medieval castles, ruined monasteries and granite villages where time still rules.",
   },
   {
-    icon: "🍷",
-    titlePt: "Gastronomia única",
-    titleEn: "Unique gastronomy",
+    image: "/images/restaurant.jpg",
+    titlePt: "Gastronomia de excelência",
+    titleEn: "Fine gastronomy",
     bodyPt:
-      "Vinho dos Mortos, carne barrosã, mel de urze, queijo de cabra. Uma cozinha que é puro território.",
+      "Vinho do Douro, carne barrosã, mel de urze, queijo de cabra. O berço de uma cozinha de renome mundial.",
     bodyEn:
-      "Vinho dos Mortos, Barrosã beef, heather honey, goat cheese. A cuisine that is pure territory.",
+      "Vinho do Douro, Barrosã beef, heather honey, goat cheese. The home of a world reknown cuisine.",
   },
+  // {
+  //   image: "/images/hotel-1.jpg",
+  //   titlePt: "Alojamento único",
+  //   titleEn: "Unique accommodation",
+  //   bodyPt:
+  //     "Vinho dos Mortos, carne barrosã, mel de urze, queijo de cabra. Uma cozinha que é puro território.",
+  //   bodyEn:
+  //     "Vinho dos Mortos, Barrosã beef, heather honey, goat cheese. A cuisine that is pure territory.",
+  // },
 ];
 
 export default async function RegionPage({ params }: Props) {
@@ -83,30 +92,48 @@ export default async function RegionPage({ params }: Props) {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[70vh] flex items-end">
+      <section className="relative min-h-[100vh] flex items-center md:items-end">
         <Image
-          src="https://images.unsplash.com/photo-1627846556059-6273c6c60991?w=1920&q=85"
+          src="/images/view.jpg"
           alt={
             isPt
               ? "Paisagem do planalto barrosano"
               : "Barroso plateau landscape"
           }
           fill
-          className="object-cover"
+          className="object-cover object-[center_70%]"
           priority
           sizes="100vw"
         />
+        {/* Image overlay gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-granite/80 via-granite/20 to-transparent" />
+        {/* Hero content  */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 pb-16 w-full">
-          <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-amber mb-3">
+          <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-fog/50 mb-3">
             {t("eyebrow")}
           </p>
-          <h1 className="font-serif text-fog text-4xl md:text-6xl leading-[0.8] tracking-[-0.01em] max-w-2xl mb-6">
+          <h1 className="font-serif text-fog text-5xl md:text-7xl leading-[0.8] tracking-[-0.01em] max-w-2xl mb-6">
             {t("title")}
           </h1>
-          <p className="text-fog/70 max-w-lg leading-relaxed">
+          <p className="text-sm text-fog/70 max-w-lg leading-relaxed">
             {t("subtitle")}
           </p>
+        </div>
+        {/* Scroll chevron indicator  */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-50 animate-nudge-down">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="white"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M6 9l6 6 6-6" />
+          </svg>
         </div>
       </section>
 
@@ -115,7 +142,7 @@ export default async function RegionPage({ params }: Props) {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
             <div>
-              <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-amber mb-3">
+              <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-granite/30 mb-3">
                 {t("whyEyebrow")}
               </p>
               <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-granite">
@@ -123,14 +150,22 @@ export default async function RegionPage({ params }: Props) {
               </h2>
             </div>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-4">
             {WHY_CARDS.map((card) => (
-              <div key={card.icon} className="flex flex-col gap-3">
-                <span className="text-3xl">{card.icon}</span>
-                <h3 className="font-serif text-granite text-xl">
+              <div key={card.titleEn} className="flex flex-col">
+                <div className="relative aspect-[4/4] overflow-hidden mb-4">
+                  <Image
+                    src={card.image}
+                    alt=""
+                    fill
+                    className="object-cover object-[center_28%]"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+                <h3 className="font-serif text-granite text-3xl leading-[0.8] mb-2">
                   {isPt ? card.titlePt : card.titleEn}
                 </h3>
-                <p className="text-granite/60 text-sm leading-relaxed">
+                <p className="text-granite/60 text-sm leading-relaxed tracking-wide mb-4 max-w-lg">
                   {isPt ? card.bodyPt : card.bodyEn}
                 </p>
               </div>
@@ -139,52 +174,59 @@ export default async function RegionPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Places grid */}
-      <section className="py-20 bg-granite">
+      {/* Explore the region / Places Grid */}
+      <section className="py-20 bg-fog">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
             <div>
-              <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-amber mb-3">
+              <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-granite/30 mb-3">
                 {t("placesEyebrow")}
               </p>
-              <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-fog">
+              <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-granite">
                 {t("placesTitle")}
               </h2>
             </div>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {regionPlaces.map((place) => (
-              <RegionCard
-                key={place.slug}
-                place={place}
-                locale={locale}
-                exploreLabel={isPt ? "Explorar" : "Explore"}
-              />
-            ))}
-          </div>
+          <RegionCardsTrack
+            places={regionPlaces}
+            locale={locale}
+            exploreLabel={isPt ? "Explorar" : "Explore"}
+          />
         </div>
       </section>
 
       {/* Seasonal guide */}
       <section className="py-20 bg-fog">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-granite">
-              {t("seasonTitle")}
-            </h2>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+            <div>
+              <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-granite/30 mb-3">
+                {t("seasonEyebrow")}
+              </p>
+              <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-granite">
+                {t("seasonTitle")}
+              </h2>
+            </div>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid md:grid-cols-2 gap-4">
             {SEASONS.map((s) => (
-              <div
-                key={s.season}
-                className="rounded-xl p-5 border border-granite/10 flex flex-col gap-2"
-                style={{ borderLeftColor: s.color, borderLeftWidth: 3 }}
-              >
-                <p className="font-semibold text-granite">{s.season}</p>
-                <p className="text-xs text-granite/40 font-medium">
-                  {s.months}
-                </p>
-                <p className="text-sm text-granite/60 leading-relaxed">
+              <div key={s.season} className="flex flex-col">
+                <div className="relative aspect-[16/9] overflow-hidden mb-4">
+                  <Image
+                    src={s.image}
+                    alt={s.season}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <span className="absolute top-3 left-3 text-xs font-medium tracking-wide px-2 py-1 rounded-full bg-fog/85 backdrop-blur text-granite/70">
+                    {s.months}
+                  </span>
+                </div>
+                <h3 className="font-serif text-granite text-3xl leading-[0.8] mb-2">
+                  {s.season}
+                </h3>
+                <p className="text-granite/60 text-sm leading-relaxed tracking-wide max-w-lg">
                   {s.note}
                 </p>
               </div>

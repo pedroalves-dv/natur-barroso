@@ -140,7 +140,7 @@ export default function JournalTeaserTrack({
                 {post.excerpt}
               </p>
               <div className="mt-auto flex justify-end pt-4 border-t border-granite/10 px-4 -mx-5">
-                <span className="btn-sm btn-forest group-hover:bg-forest group-hover:text-fog">
+                <span className="btn-sm btn-granite-ghost group-hover:bg-fog">
                   {readLabel}
                   <span className="transition-transform group-hover:translate-x-0.5">
                     →

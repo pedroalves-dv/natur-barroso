@@ -121,10 +121,10 @@ export default async function RegionTeaser({ locale }: Props) {
   ];
 
   return (
-    <section className="bg-moss/10 text-granite overflow-hidden">
+    <section className="bg-fog text-granite overflow-hidden pt-24 pb-16 md:py-24 max-w-7xl mx-auto px-6 ">
       <div className="grid lg:grid-cols-2 min-h-[640px]">
         {/* Text + facts */}
-        <div className="flex flex-col justify-center px-6 pt-24 pb-16 md:py-24 lg:pl-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))]">
+        <div className="flex flex-col justify-center mb-auto">
           <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-amber mb-3">
             {t("regionTeaserEyebrow")}
           </p>

@@ -53,7 +53,7 @@ export default function TourCard({ tour, locale, featured }: Props) {
 
   return (
     <article
-      className={`group relative flex h-full bg-white overflow-hidden border border-granite/10 hover:border-granite/40 hover:shadow-[0_5px_10px_rgba(42,42,40,0.03)] hover:-translate-y-1 transition-all duration-300 ease-out ${featured ? "flex-col lg:flex-row" : "flex-col"}`}
+      className={`group relative flex h-full bg-white overflow-hidden border-granite/10 hover:border-granite/40 hover:shadow-[0_5px_10px_rgba(42,42,40,0.03)] hover:-translate-y-1 transition-all duration-300 ease-out ${featured ? "flex-col lg:flex-row" : "flex-col"}`}
     >
       <Link
         href={`/${locale}/tours/${tour.slug}`}
@@ -90,7 +90,7 @@ export default function TourCard({ tour, locale, featured }: Props) {
       </div>
 
       <div className="flex flex-col flex-1 p-4">
-        <h3 className="font-stack text-xl text-granite mb-2 leading-snug">
+        <h3 className="font-serif text-3xl text-granite mb-2 leading-snug">
           {isPt ? tour.title : (tour.title_en ?? tour.title)}
         </h3>
         <p className="text-sm text-granite/60 mb-4 leading-relaxed line-clamp-2">
@@ -140,8 +140,8 @@ export default function TourCard({ tour, locale, featured }: Props) {
             </span>
           </div>
         )}
-        <div className="mt-auto md:mt-0 flex justify-end pt-4 border-t border-granite/10 px-4 -mx-5">
-          <span className="btn-sm btn-forest group-hover:bg-forest group-hover:text-fog">
+        <div className="mt-auto md:mt-0 flex justify-end pt-4  px-4 -mx-5">
+          <span className="btn-sm btn-granite-ghost group-hover:bg-fog">
             {isPt ? "Ver" : "View"}
             <span className="transition-transform group-hover:translate-x-0.5">
               →
