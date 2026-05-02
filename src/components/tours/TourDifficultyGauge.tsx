@@ -1,4 +1,4 @@
-import { DIFFICULTY_CONFIG, type Difficulty } from '@/types/tour';
+import { DIFFICULTY_CONFIG, type Difficulty } from "@/types/tour";
 
 interface Props {
   difficulty: Difficulty;
@@ -6,10 +6,14 @@ interface Props {
   title: string;
 }
 
-const LEVELS: Difficulty[] = ['easy', 'moderate', 'challenging', 'expert'];
+const LEVELS: Difficulty[] = ["easy", "moderate", "challenging", "expert"];
 
-export default function TourDifficultyGauge({ difficulty, locale, title }: Props) {
-  const isPt = locale === 'pt';
+export default function TourDifficultyGauge({
+  difficulty,
+  locale,
+  title,
+}: Props) {
+  const isPt = locale === "pt";
   const currentLevel = DIFFICULTY_CONFIG[difficulty].level;
   const currentConfig = DIFFICULTY_CONFIG[difficulty];
 
@@ -25,8 +29,8 @@ export default function TourDifficultyGauge({ difficulty, locale, title }: Props
               key={level}
               className="flex-1 h-2.5 rounded-full transition-colors"
               style={{
-                backgroundColor: active ? currentConfig.color : '#E8E4DC',
-                opacity: active ? (0.4 + (cfg.level / 4) * 0.6) : 1,
+                backgroundColor: active ? currentConfig.color : "#E8E4DC",
+                opacity: active ? 0.4 + (cfg.level / 4) * 0.6 : 1,
               }}
             />
           );
@@ -38,7 +42,7 @@ export default function TourDifficultyGauge({ difficulty, locale, title }: Props
           return (
             <span
               key={level}
-              className={level === difficulty ? 'font-semibold' : ''}
+              className={level === difficulty ? "" : ""}
               style={level === difficulty ? { color: cfg.color } : {}}
             >
               {isPt ? cfg.labelPt : cfg.label}
@@ -55,23 +59,26 @@ export default function TourDifficultyGauge({ difficulty, locale, title }: Props
   );
 }
 
-function getDifficultyDescription(difficulty: Difficulty, isPt: boolean): string {
+function getDifficultyDescription(
+  difficulty: Difficulty,
+  isPt: boolean,
+): string {
   const descriptions: Record<Difficulty, { pt: string; en: string }> = {
     easy: {
-      pt: 'Adequado a todas as idades e condições físicas. Terreno plano ou com pequeno desnível.',
-      en: 'Suitable for all ages and fitness levels. Flat or gently undulating terrain.',
+      pt: "Adequado a todas as idades e condições físicas. Terreno plano ou com pequeno desnível.",
+      en: "Suitable for all ages and fitness levels. Flat or gently undulating terrain.",
     },
     moderate: {
-      pt: 'Recomendamos praticar caminhada com alguma regularidade. Pode incluir subidas e troços rochosos.',
-      en: 'We recommend regular walking. May include ascents and rocky sections.',
+      pt: "Recomendamos praticar caminhada com alguma regularidade. Pode incluir subidas e troços rochosos.",
+      en: "We recommend regular walking. May include ascents and rocky sections.",
     },
     challenging: {
-      pt: 'Para participantes com boa condição física e experiência em caminhada de montanha.',
-      en: 'For participants with good fitness and mountain hiking experience.',
+      pt: "Para participantes com boa condição física e experiência em caminhada de montanha.",
+      en: "For participants with good fitness and mountain hiking experience.",
     },
     expert: {
-      pt: 'Nível avançado. Requer excelente condição física e experiência técnica em montanha.',
-      en: 'Advanced level. Requires excellent fitness and technical mountain experience.',
+      pt: "Nível avançado. Requer excelente condição física e experiência técnica em montanha.",
+      en: "Advanced level. Requires excellent fitness and technical mountain experience.",
     },
   };
   return isPt ? descriptions[difficulty].pt : descriptions[difficulty].en;

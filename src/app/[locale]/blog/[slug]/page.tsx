@@ -1,12 +1,12 @@
-import { notFound } from 'next/navigation';
-import { setRequestLocale } from 'next-intl/server';
-import type { Metadata } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
-import { posts, getPostBySlug, getRelatedPosts } from '@/data/posts';
-import { getGuideBySlug } from '@/data/guides';
-import { POST_CATEGORY_CONFIG } from '@/types/post';
-import BlogCard from '@/components/blog/BlogCard';
+import { notFound } from "next/navigation";
+import { setRequestLocale } from "next-intl/server";
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { posts, getPostBySlug, getRelatedPosts } from "@/data/posts";
+import { getGuideBySlug } from "@/data/guides";
+import { POST_CATEGORY_CONFIG } from "@/types/post";
+import BlogCard from "@/components/blog/BlogCard";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
@@ -33,17 +33,17 @@ export default async function BlogPostPage({ params }: Props) {
 
   const guide = getGuideBySlug(post.authorSlug);
   const related = getRelatedPosts(slug);
-  const isPt = locale === 'pt';
+  const isPt = locale === "pt";
 
   const categoryLabel =
-    locale === 'pt'
+    locale === "pt"
       ? POST_CATEGORY_CONFIG[post.category].labelPt
       : POST_CATEGORY_CONFIG[post.category].label;
 
-  const backLabel = isPt ? '← Todos os artigos' : '← All articles';
-  const authorLabel = isPt ? 'Por' : 'By';
-  const relatedLabel = isPt ? 'Outros artigos' : 'More from the journal';
-  const readPostLabel = isPt ? 'Ler artigo' : 'Read post';
+  const backLabel = isPt ? "← Todos os artigos" : "← All articles";
+  const authorLabel = isPt ? "Por" : "By";
+  const relatedLabel = isPt ? "Outros artigos" : "More from the journal";
+  const readPostLabel = isPt ? "Ler artigo" : "Read post";
 
   return (
     <>
@@ -66,7 +66,7 @@ export default async function BlogPostPage({ params }: Props) {
             {backLabel}
           </Link>
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-xs font-semibold uppercase tracking-wider text-amber">
+            <span className="text-xs  uppercase tracking-wider text-amber">
               {categoryLabel}
             </span>
             <span className="text-fog/50 text-xs">{post.date}</span>
@@ -104,7 +104,7 @@ export default async function BlogPostPage({ params }: Props) {
               />
               <div>
                 <p className="text-xs text-granite/40 mb-0.5">{authorLabel}</p>
-                <p className="font-semibold text-granite">{guide.name}</p>
+                <p className=" text-granite">{guide.name}</p>
                 <p className="text-sm text-granite/60">{guide.role}</p>
               </div>
             </div>
@@ -117,11 +117,18 @@ export default async function BlogPostPage({ params }: Props) {
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 md:px-6">
             <div className="mb-16">
-              <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-granite">{relatedLabel}</h2>
+              <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-granite">
+                {relatedLabel}
+              </h2>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
               {related.map((p) => (
-                <BlogCard key={p.slug} post={p} locale={locale} readPostLabel={readPostLabel} />
+                <BlogCard
+                  key={p.slug}
+                  post={p}
+                  locale={locale}
+                  readPostLabel={readPostLabel}
+                />
               ))}
             </div>
           </div>

@@ -109,7 +109,7 @@ export default function JournalTeaserTrack({
         {posts.map((post) => (
           <article
             key={post.slug}
-            className="group relative flex flex-col bg-white overflow-hidden border border-granite/10 hover:border-granite/40 hover:shadow-[0_5px_10px_rgba(42,42,40,0.03)] hover:-translate-y-1 transition-all duration-300 ease-out snap-start shrink-0 w-full md:w-auto"
+            className="group relative flex flex-col bg-white overflow-hidden hover:shadow-[0_5px_10px_rgba(42,42,40,0.03)] hover:-translate-y-1 transition-all duration-300 ease-out snap-start shrink-0 w-full md:w-auto"
           >
             <Link
               href={`/${locale}/blog/${post.slug}`}
@@ -133,13 +133,13 @@ export default function JournalTeaserTrack({
                 <span className="text-xs text-granite/40">{post.date}</span>
                 <span className="text-xs text-granite/40">{post.readTime}</span>
               </div>
-              <h3 className="text-granite text-lg leading-snug mb-3 line-clamp-2">
+              <h3 className="text-granite font-serif text-2xl leading-snug mb-3 line-clamp-2">
                 {post.title}
               </h3>
               <p className="text-sm text-granite/60 leading-relaxed line-clamp-3 flex-1 mb-4">
                 {post.excerpt}
               </p>
-              <div className="mt-auto flex justify-end pt-4 border-t border-granite/10 px-4 -mx-5">
+              <div className="mt-auto flex justify-end pt-4 px-4 -mx-5">
                 <span className="btn-sm btn-granite-ghost group-hover:bg-fog">
                   {readLabel}
                   <span className="transition-transform group-hover:translate-x-0.5">

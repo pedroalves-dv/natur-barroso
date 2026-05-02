@@ -34,7 +34,7 @@ function TestimonialCard({ review }: { review: Review }) {
         &ldquo;{review.text}&rdquo;
       </p>
       <div>
-        <p className="text-granite text-sm font-semibold">{review.author}</p>
+        <p className="text-granite text-sm ">{review.author}</p>
         <p className="text-granite/50 text-xs">
           {review.country} · {review.tour}
         </p>
@@ -117,7 +117,7 @@ export default function Testimonials({
       aria-label={title}
       className="py-20 bg-moss/10 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-6 mb-16">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 mb-8 md:mb-16">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
           <div>
             <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-amber mb-3">

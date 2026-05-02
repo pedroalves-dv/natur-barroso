@@ -119,14 +119,14 @@ export default function CustomEnquiryForm({ locale, labels }: Props) {
   }
 
   return (
-    <div className="bg-granite text-fog rounded-2xl p-6 md:p-8">
-      <h2 className="font-serif text-xl mb-1">{labels.title}</h2>
+    <div className="bg-granite text-fog rounded-lg p-6 md:p-8">
+      <h2 className="font-serif text-3xl text-fog mb-1">{labels.title}</h2>
       <p className="text-fog/60 text-sm mb-6">{labels.subtitle}</p>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <div className="grid sm:grid-cols-2 gap-4">
           <div className="flex flex-col gap-1.5">
-            <label className="text-xs font-semibold uppercase tracking-wider text-fog/50">
+            <label className="text-xs  uppercase tracking-wider text-fog/50">
               {labels.nameLabel} *
             </label>
             <input
@@ -136,7 +136,7 @@ export default function CustomEnquiryForm({ locale, labels }: Props) {
             />
           </div>
           <div className="flex flex-col gap-1.5">
-            <label className="text-xs font-semibold uppercase tracking-wider text-fog/50">
+            <label className="text-xs  uppercase tracking-wider text-fog/50">
               {labels.emailLabel} *
             </label>
             <input
@@ -149,7 +149,7 @@ export default function CustomEnquiryForm({ locale, labels }: Props) {
         </div>
 
         <div className="flex flex-col gap-1.5">
-          <label className="text-xs font-semibold uppercase tracking-wider text-fog/50">
+          <label className="text-xs  uppercase tracking-wider text-fog/50">
             {labels.activityLabel}
           </label>
           <select
@@ -166,7 +166,7 @@ export default function CustomEnquiryForm({ locale, labels }: Props) {
 
         <div className="grid sm:grid-cols-2 gap-4">
           <div className="flex flex-col gap-1.5">
-            <label className="text-xs font-semibold uppercase tracking-wider text-fog/50">
+            <label className="text-xs  uppercase tracking-wider text-fog/50">
               {labels.groupSizeLabel}
             </label>
             <input
@@ -179,7 +179,7 @@ export default function CustomEnquiryForm({ locale, labels }: Props) {
             />
           </div>
           <div className="flex flex-col gap-1.5">
-            <label className="text-xs font-semibold uppercase tracking-wider text-fog/50">
+            <label className="text-xs  uppercase tracking-wider text-fog/50">
               {labels.datesLabel}
             </label>
             <input
@@ -191,7 +191,7 @@ export default function CustomEnquiryForm({ locale, labels }: Props) {
         </div>
 
         <div className="flex flex-col gap-1.5">
-          <label className="text-xs font-semibold uppercase tracking-wider text-fog/50">
+          <label className="text-xs  uppercase tracking-wider text-fog/50">
             {labels.budgetLabel}
           </label>
           <select
@@ -207,7 +207,7 @@ export default function CustomEnquiryForm({ locale, labels }: Props) {
         </div>
 
         <div className="flex flex-col gap-1.5">
-          <label className="text-xs font-semibold uppercase tracking-wider text-fog/50">
+          <label className="text-xs  uppercase tracking-wider text-fog/50">
             {labels.requirementsLabel}
           </label>
           <textarea
@@ -229,7 +229,7 @@ export default function CustomEnquiryForm({ locale, labels }: Props) {
         <button
           type="submit"
           disabled={status === "loading"}
-          className="btn-lg btn-amber-solid disabled:opacity-60 self-start"
+          className="btn-lg bg-fog border border-fog/40 text-granite hover:bg-fog/10 hover:text-fog cursor-pointer transition-colors disabled:opacity-60 self-start"
         >
           {status === "loading" ? labels.submitting : labels.submitBtn}
         </button>

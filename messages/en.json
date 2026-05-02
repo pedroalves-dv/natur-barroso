@@ -6,7 +6,7 @@
     "blog": "Journal",
     "faq": "FAQ",
     "contact": "Contact",
-    "bookTour": "Book a tour",
+    "bookTour": "Book",
     "menu": "Menu",
     "close": "Close",
     "whatsapp": "Chat on WhatsApp"
@@ -22,7 +22,7 @@
     "followUs": "Follow us"
   },
   "HomePage": {
-    "titleLine1": "Terras de Barroso.",
+    "title": "Curated Exploration.",
     "titleLine2": "Where Portugal goes wild.",
     "subtitle": "Guided tours in the heart of Peneda-Gerês National Park.",
     "heroCtaPrimary": "Explore our tours",
@@ -72,8 +72,8 @@
     "journalCta": "View all articles"
   },
   "ToursPage": {
-    "eyebrow": "Natur Barroso",
-    "title": "All tours",
+    "eyebrow": "Explore",
+    "title": "Curated Routes",
     "subtitle": "Find the right experience — from half-day walks to multi-day expeditions.",
     "filterTitle": "Filters",
     "filterCategory": "Category",

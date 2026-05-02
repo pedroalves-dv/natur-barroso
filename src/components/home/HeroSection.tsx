@@ -11,7 +11,8 @@ export default async function HeroSection({ locale }: Props) {
   const t = await getTranslations("HomePage");
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center text-white">
+    <section className="relative min-h-screen flex items-center md:items-end text-white">
+      {/* Hero */}
       <Image
         src="/images/discover.jpg"
         alt="Green hills in Barroso"
@@ -20,33 +21,26 @@ export default async function HeroSection({ locale }: Props) {
         priority
         sizes="100vw"
       />
+      {/* Image overlay gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-granite/80 via-granite/20 to-transparent" />
-
-      <div className="flex flex-col items-center justify-center relative z-10 px-4 md:px-6 max-w-3xl mx-auto pt-20 w-full">
-        {/* <h1 className="text-5xl md:text-7xl lg:text-8xl leading-[0.9] mb-6 drop-shadow-[0_2px_16px_rgba(0,0,0,0.8)]">
-          <span className="font-serif drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
-            {t("titleLine1")}
-          </span>
-          <br />
-          <span className="font-stack tracking-tight text-fog drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
-            {t("titleLine2")}
-          </span>
-        </h1> */}
-        <NaturBarrosoLogo className="invert-[0.9] mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.1)]" />
-
-        <p className="text-center text-lg md:text-xl text-fog/80 max-w-xl mb-24 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
-          {t("subtitle")}
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href={`/${locale}/tours`} className="btn-lg btn-amber-solid">
+      {/* Hero content  */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 md:pb-16 w-full flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="flex flex-col">
+          <NaturBarrosoLogo className="invert-[0.9] drop-shadow-[0_2px_8px_rgba(0,0,0,0.1)] max-w-[240px] mb-6" />
+          <p className="text-sm text-fog/70 max-w-lg leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+            {t("subtitle")}
+          </p>
+        </div>
+        <div className="flex flex-row gap-3 justify-between md:items-stretch shrink-0">
+          <Link href={`/${locale}/tours`} className="btn-lg btn-fog">
             {t("heroCtaPrimary")}
           </Link>
-          <Link href={`/${locale}/region`} className="btn-lg btn-ghost ">
+          <Link href={`/${locale}/region`} className="btn-lg btn-ghost">
             {t("heroCtaSecondary")}
           </Link>
         </div>
       </div>
-
+      {/* Scroll chevron indicator  */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-50 animate-nudge-down">
         <svg
           width="24"

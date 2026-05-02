@@ -122,13 +122,13 @@ export default async function RegionTeaser({ locale }: Props) {
 
   return (
     <section className="bg-fog text-granite overflow-hidden pt-24 pb-16 md:py-24 max-w-7xl mx-auto px-6 ">
-      <div className="grid lg:grid-cols-2 min-h-[640px]">
+      <div className="grid lg:grid-cols-2 gap-8 lg:gap-0 min-h-[640px]">
         {/* Text + facts */}
         <div className="flex flex-col justify-center mb-auto">
           <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-amber mb-3">
             {t("regionTeaserEyebrow")}
           </p>
-          <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-granite mb-16">
+          <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-granite mb-8 md:mb-16">
             {t("regionTeaserTitle")}
           </h2>
           <p className="text-granite/65 leading-relaxed max-w-md text-sm md:text-base">
@@ -162,7 +162,7 @@ export default async function RegionTeaser({ locale }: Props) {
         </div>
 
         {/* Photo + map markers */}
-        <div className="relative min-h-[400px] mx-6 mb-4 overflow-hidden lg:mx-0 lg:mb-0 lg:min-h-0 ">
+        <div className="relative min-h-[400px] mb-4 overflow-hidden lg:mb-0 lg:min-h-0 ">
           <Image
             src="/images/region-teaser.jpg"
             alt="Barroso highland landscape"
@@ -198,7 +198,7 @@ export default async function RegionTeaser({ locale }: Props) {
         </div>
       </div>
 
-      <div className="lg:hidden px-6 pb-10 mt-4 mb-12">
+      <div className="lg:hidden mt-4">
         <Link href={`/${locale}/region`} className="btn-lg btn-amber w-full">
           {t("regionTeaserCta")}&nbsp; →
         </Link>

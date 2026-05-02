@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import type { Guide } from '@/types/guide';
+import Image from "next/image";
+import type { Guide } from "@/types/guide";
 
 interface Props {
   guide: Guide;
@@ -7,8 +7,8 @@ interface Props {
 }
 
 export default function GuideCard({ guide, locale }: Props) {
-  const specialtiesLabel = locale === 'pt' ? 'Especialidades' : 'Specialties';
-  const languagesLabel = locale === 'pt' ? 'Línguas' : 'Languages';
+  const specialtiesLabel = locale === "pt" ? "Especialidades" : "Specialties";
+  const languagesLabel = locale === "pt" ? "Línguas" : "Languages";
 
   return (
     <article className="bg-white rounded-2xl overflow-hidden border border-granite/10">
@@ -22,7 +22,9 @@ export default function GuideCard({ guide, locale }: Props) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-granite/60 to-transparent" />
         <div className="absolute bottom-4 left-5 right-5">
-          <p className="text-fog font-serif text-xl leading-tight">{guide.name}</p>
+          <p className="text-fog font-serif text-xl leading-tight">
+            {guide.name}
+          </p>
           <p className="text-amber text-xs font-medium mt-0.5">{guide.role}</p>
         </div>
       </div>
@@ -31,7 +33,7 @@ export default function GuideCard({ guide, locale }: Props) {
         <p className="text-granite/70 text-sm leading-relaxed">{guide.bio}</p>
 
         <div>
-          <p className="text-xs font-semibold uppercase tracking-widest text-granite/40 mb-2">
+          <p className="text-xs  uppercase tracking-widest text-granite/40 mb-2">
             {specialtiesLabel}
           </p>
           <div className="flex flex-wrap gap-1.5">
@@ -47,10 +49,12 @@ export default function GuideCard({ guide, locale }: Props) {
         </div>
 
         <div>
-          <p className="text-xs font-semibold uppercase tracking-widest text-granite/40 mb-2">
+          <p className="text-xs  uppercase tracking-widest text-granite/40 mb-2">
             {languagesLabel}
           </p>
-          <p className="text-sm text-granite/60">{guide.languages.join(' · ')}</p>
+          <p className="text-sm text-granite/60">
+            {guide.languages.join(" · ")}
+          </p>
         </div>
       </div>
     </article>

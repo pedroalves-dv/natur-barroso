@@ -31,7 +31,7 @@ export default async function Footer() {
 
   return (
     <footer className="bg-granite text-fog">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 pt-16 pb-24">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 pt-16 pb-16 md:pb-24">
         {/* 4-column grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Col 1 — Brand */}
@@ -65,7 +65,7 @@ export default async function Footer() {
 
           {/* Col 2 — Quick Nav */}
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-widest text-fog/40 mb-5 font-sans">
+            <h3 className="text-xs  uppercase tracking-widest text-fog/40 mb-5 font-sans">
               {t("quickNav")}
             </h3>
             <ul className="space-y-3">
@@ -84,7 +84,7 @@ export default async function Footer() {
 
           {/* Col 3 — Tour Categories */}
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-widest text-fog/40 mb-5 font-sans">
+            <h3 className="text-xs  uppercase tracking-widest text-fog/40 mb-5 font-sans">
               {t("tourCategories")}
             </h3>
             <ul className="space-y-3">
@@ -103,7 +103,7 @@ export default async function Footer() {
 
           {/* Col 4 — Contact + Socials */}
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-widest text-fog/40 mb-5 font-sans">
+            <h3 className="text-xs  uppercase tracking-widest text-fog/40 mb-5 font-sans">
               {t("contact")}
             </h3>
             <ul className="space-y-3 mb-8">
@@ -135,7 +135,7 @@ export default async function Footer() {
                 </a>
               </li>
             </ul>
-            <p className="text-xs font-semibold uppercase tracking-widest text-fog/40 mb-3 font-sans">
+            <p className="text-xs  uppercase tracking-widest text-fog/40 mb-3 font-sans">
               {t("followUs")}
             </p>
             <div className="flex gap-4">

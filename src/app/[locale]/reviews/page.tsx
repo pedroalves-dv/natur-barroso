@@ -46,7 +46,9 @@ export default async function ReviewsPage({ params }: Props) {
           </div>
           <p className="text-5xl font-serif mb-2">{t("aggregateRating")}</p>
           <p className="text-fog/60 text-sm">{t("reviewCount")}</p>
-          <h1 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] mt-8">{t("title")}</h1>
+          <h1 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] mt-8">
+            {t("title")}
+          </h1>
         </div>
       </section>
 
@@ -76,9 +78,7 @@ export default async function ReviewsPage({ params }: Props) {
                 "{review.text}"
               </p>
               <footer>
-                <p className="text-fog text-sm font-semibold">
-                  {review.author}
-                </p>
+                <p className="text-fog text-sm ">{review.author}</p>
                 <p className="text-fog/50 text-xs">
                   {review.country} · {review.tour}
                 </p>
@@ -108,16 +108,10 @@ export default async function ReviewsPage({ params }: Props) {
             </h2>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="#"
-              className="btn-lg btn-amber"
-            >
+            <a href="#" className="btn-lg btn-amber">
               {t("googleBtn")}
             </a>
-            <a
-              href="#"
-              className="btn-lg btn-granite-ghost"
-            >
+            <a href="#" className="btn-lg btn-granite-ghost">
               {t("tripAdvisorBtn")}
             </a>
           </div>

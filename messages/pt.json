@@ -6,7 +6,7 @@
     "blog": "Diário",
     "faq": "FAQ",
     "contact": "Contacto",
-    "bookTour": "Reservar Tour",
+    "bookTour": "Reservar",
     "menu": "Menu",
     "close": "Fechar",
     "whatsapp": "Chat no WhatsApp"
@@ -22,7 +22,7 @@
     "followUs": "Siga-nos"
   },
   "HomePage": {
-    "titleLine1": "Terras de Barroso.",
+    "title": "Terras de Barroso.",
     "titleLine2": "Onde a natureza manda.",
     "subtitle": "Tours guiados no coração do Parque Nacional Peneda-Gerês.",
     "heroCtaPrimary": "Explorar os tours",
@@ -71,8 +71,8 @@
     "journalCta": "Ver todos os artigos"
   },
   "ToursPage": {
-    "eyebrow": "Natur Barroso",
-    "title": "Todos os tours",
+    "eyebrow": "Explora",
+    "title": "Rotas selecionadas",
     "subtitle": "Encontre a experiência certa para si — de meios-dias a expedições multi-dia.",
     "filterTitle": "Filtros",
     "filterCategory": "Categoria",

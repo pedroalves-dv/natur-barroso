@@ -168,7 +168,7 @@ text-2xl font-stack text-granite
 
 **Footer column headings:**
 ```
-text-xs font-semibold uppercase tracking-widest text-fog/40 mb-5 font-sans
+text-xs  uppercase tracking-widest text-fog/40 mb-5 font-sans
 ```
 
 **Footer / nav links:**
@@ -190,7 +190,7 @@ text-3xl font-serif py-3 border-b border-fog/10  /* active: text-amber / default
 - Card meta pills: `text-xs font-medium`
 - SeasonPill text: `text-xs font-medium tracking-wide`
 - Journal card meta: `text-xs` (category in `text-amber`, date/readTime in `text-granite/40`)
-- Testimonial author: `text-sm font-semibold text-granite`
+- Testimonial author: `text-sm  text-granite`
 - Testimonial source: `text-xs text-granite/50`
 - Map waypoint labels: `text-[10px] font-mono text-granite tracking-wide`
 
@@ -440,7 +440,7 @@ Note: uses `rounded-lg` (unlike TourCard/JournalCard which have no border-radius
   <p className="text-granite/70 text-sm leading-relaxed flex-1">"{text}"</p>
 
   <div>
-    <p className="text-granite text-sm font-semibold">{author}</p>
+    <p className="text-granite text-sm ">{author}</p>
     <p className="text-granite/50 text-xs">{country} · {tour}</p>
   </div>
 </article>
@@ -597,7 +597,7 @@ Internal layout: `max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-betwe
 
 **Desktop right controls (left to right):**
 1. Language toggle pill: `rounded-full border border-granite/25 p-1 text-xs font-medium`
-   - Active locale: `px-3 py-2 rounded-full font-semibold bg-granite text-fog`
+   - Active locale: `px-3 py-2 rounded-full  bg-granite text-fog`
    - Inactive: `px-3 rounded-full text-granite/60 hover:text-granite`
 2. WhatsApp icon button: `w-10 h-10 rounded-full hover:opacity-80` with `style={{ backgroundColor: "#25D366" }}`
 3. Book CTA: `btn-lg btn-amber min-w-[9rem]`
@@ -624,7 +624,7 @@ Grid: `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12`
 
 **Column heading pattern:**
 ```
-text-xs font-semibold uppercase tracking-widest text-fog/40 mb-5 font-sans
+text-xs  uppercase tracking-widest text-fog/40 mb-5 font-sans
 ```
 
 **Link pattern:**

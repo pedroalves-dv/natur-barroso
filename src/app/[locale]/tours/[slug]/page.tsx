@@ -120,9 +120,7 @@ export default async function TourDetailPage({ params }: Props) {
                   className="w-16 h-16 rounded-full object-cover shrink-0"
                 />
                 <div>
-                  <p className="font-semibold text-granite mb-0.5">
-                    {tour.guide.name}
-                  </p>
+                  <p className=" text-granite mb-0.5">{tour.guide.name}</p>
                   <p className="text-xs text-granite/50 mb-3">
                     {tour.guide.languages.join(" · ")}
                   </p>

@@ -88,7 +88,7 @@ export default function Navbar() {
                 return isCurrentLocale ? (
                   <span
                     key={loc}
-                    className="flex items-center px-3 py-2 rounded-full font-semibold bg-granite text-fog"
+                    className="flex items-center px-3 py-2 rounded-full  bg-granite text-fog"
                     aria-current="true"
                   >
                     {loc.toUpperCase()}
@@ -118,7 +118,7 @@ export default function Navbar() {
 
             <Link
               href={`/${locale}/tours`}
-              className="hidden md:inline-flex btn-lg btn-granite min-w-[9rem]"
+              className="hidden md:inline-flex btn-lg-nav btn-granite"
             >
               {t("bookTour")}
             </Link>
@@ -179,25 +179,9 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <div className="px-6 py-8 flex items-center gap-4 shrink-0">
-            <Link
-              href={`/${locale}/tours`}
-              className="py-2.5 rounded-lg btn-amber flex-1 text-center"
-              onClick={() => setIsMobileOpen(false)}
-            >
-              {t("bookTour")}
-            </Link>
-            <a
-              href="https://wa.me/351960000000"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={t("whatsapp")}
-              className="inline-flex items-center justify-center w-12 h-12 rounded-full shrink-0 hover:opacity-80 transition-opacity"
-              style={{ backgroundColor: "#25D366" }}
-              onClick={() => setIsMobileOpen(false)}
-            >
-              <NavWhatsAppIcon />
-            </a>
+          {/* Button group  */}
+          <div className="px-6 py-8 flex items-center justify-between  gap-4 shrink-0">
+            {/* Locale switcher  */}
             <div className="flex items-center rounded-full border border-fog/20 px-1 py-0.5">
               {(["pt", "en"] as const).map((loc) => {
                 const isCurrentLocale = locale === loc;
@@ -207,7 +191,7 @@ export default function Navbar() {
                 return isCurrentLocale ? (
                   <span
                     key={loc}
-                    className="px-3 py-2.5 rounded-full text-xs font-semibold bg-fog/20 text-fog"
+                    className="px-3 py-2.5 rounded-full text-xs  bg-fog/20 text-fog"
                     aria-current="true"
                   >
                     {loc.toUpperCase()}
@@ -224,6 +208,27 @@ export default function Navbar() {
                 );
               })}
             </div>
+
+            {/* WhatsApp button  */}
+            <a
+              href="https://wa.me/351960000000"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t("whatsapp")}
+              className="inline-flex items-center justify-center w-12 h-12 rounded-full shrink-0 hover:opacity-80 transition-opacity"
+              style={{ backgroundColor: "#25D366" }}
+              onClick={() => setIsMobileOpen(false)}
+            >
+              <NavWhatsAppIcon />
+            </a>
+            {/* Book button  */}
+            <Link
+              href={`/${locale}/tours`}
+              className="btn-lg-nav btn-fog"
+              onClick={() => setIsMobileOpen(false)}
+            >
+              {t("bookTour")}
+            </Link>
           </div>
         </div>
       )}

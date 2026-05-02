@@ -41,7 +41,7 @@ export default function ReviewCard({ review }: Props) {
 
       <div className="flex items-end justify-between gap-2 pt-2 border-t border-granite/8">
         <div>
-          <p className="text-granite text-sm font-semibold">{review.author}</p>
+          <p className="text-granite text-sm ">{review.author}</p>
           <p className="text-granite/50 text-xs">
             {review.country} · {review.tour}
           </p>

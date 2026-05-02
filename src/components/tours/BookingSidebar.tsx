@@ -20,9 +20,7 @@ export default function BookingSidebar({
 
       {/* What to bring */}
       <div className="bg-white rounded-xl border border-fog p-6">
-        <h3 className="text-sm font-semibold text-granite mb-4">
-          {whatToBringTitle}
-        </h3>
+        <h3 className="text-sm  text-granite mb-4">{whatToBringTitle}</h3>
         <ul className="flex flex-col gap-2">
           {tour.whatToBring.map((item) => (
             <li
@@ -50,7 +48,7 @@ export default function BookingSidebar({
 
       {/* Guide snapshot */}
       <div className="bg-white rounded-xl border border-fog p-6">
-        <p className="text-xs font-semibold uppercase tracking-widest text-granite/40 mb-3">
+        <p className="text-xs  uppercase tracking-widest text-granite/40 mb-3">
           {isPt ? "O seu guia" : "Your guide"}
         </p>
         <div className="flex items-center gap-3 mb-3">
@@ -61,9 +59,7 @@ export default function BookingSidebar({
             className="w-10 h-10 rounded-full object-cover"
           />
           <div>
-            <p className="text-sm font-semibold text-granite">
-              {tour.guide.name}
-            </p>
+            <p className="text-sm  text-granite">{tour.guide.name}</p>
             <p className="text-xs text-granite/50">
               {tour.guide.languages.join(" · ")}
             </p>

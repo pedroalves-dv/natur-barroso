@@ -72,7 +72,7 @@ export default function ToursFilter({ tours, locale, labels }: Props) {
   const FilterPanel = (
     <div className="flex flex-col gap-6">
       <div className="flex items-center justify-between">
-        <h2 className="text-sm font-semibold uppercase tracking-widest text-granite/50">
+        <h2 className="text-sm  uppercase tracking-widest text-granite/50">
           {labels.filterTitle}
         </h2>
         {hasActiveFilters && (
@@ -87,7 +87,7 @@ export default function ToursFilter({ tours, locale, labels }: Props) {
 
       {/* Category */}
       <div>
-        <p className="text-xs font-semibold uppercase tracking-wider text-granite/40 mb-2">
+        <p className="text-xs  uppercase tracking-wider text-granite/40 mb-2">
           {labels.filterCategory}
         </p>
         <div className="flex flex-col gap-1">
@@ -119,7 +119,7 @@ export default function ToursFilter({ tours, locale, labels }: Props) {
 
       {/* Difficulty */}
       <div>
-        <p className="text-xs font-semibold uppercase tracking-wider text-granite/40 mb-2">
+        <p className="text-xs  uppercase tracking-wider text-granite/40 mb-2">
           {labels.filterDifficulty}
         </p>
         <div className="flex flex-col gap-1">
@@ -151,7 +151,7 @@ export default function ToursFilter({ tours, locale, labels }: Props) {
 
       {/* Duration */}
       <div>
-        <p className="text-xs font-semibold uppercase tracking-wider text-granite/40 mb-2">
+        <p className="text-xs  uppercase tracking-wider text-granite/40 mb-2">
           {labels.filterDuration}
         </p>
         <div className="flex flex-col gap-1">
@@ -219,7 +219,7 @@ export default function ToursFilter({ tours, locale, labels }: Props) {
               <p className="text-sm text-granite/40">{labels.noResultsHint}</p>
             </div>
           ) : (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-2">
               {filtered.map((tour) => (
                 <TourCard key={tour.slug} tour={tour} locale={locale} />
               ))}
@@ -237,9 +237,7 @@ export default function ToursFilter({ tours, locale, labels }: Props) {
           />
           <div className="relative ml-auto w-72 bg-fog h-full overflow-y-auto p-6 flex flex-col">
             <div className="flex items-center justify-between mb-6">
-              <span className="font-semibold text-granite">
-                {labels.filterTitle}
-              </span>
+              <span className=" text-granite">{labels.filterTitle}</span>
               <button
                 onClick={() => setDrawerOpen(false)}
                 className="p-1 text-granite/60 hover:text-granite"

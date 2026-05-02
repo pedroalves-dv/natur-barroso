@@ -140,7 +140,7 @@ export default async function RegionPage({ params }: Props) {
       {/* Why Barroso */}
       <section className="py-20 bg-fog">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8 md:mb-16">
             <div>
               <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-granite/30 mb-3">
                 {t("whyEyebrow")}
@@ -153,12 +153,12 @@ export default async function RegionPage({ params }: Props) {
           <div className="grid md:grid-cols-3 gap-4">
             {WHY_CARDS.map((card) => (
               <div key={card.titleEn} className="flex flex-col">
-                <div className="relative aspect-[4/4] overflow-hidden mb-4">
+                <div className="relative aspect-[4/3] overflow-hidden mb-4">
                   <Image
                     src={card.image}
                     alt=""
                     fill
-                    className="object-cover object-[center_28%]"
+                    className="object-cover object-[center_30%]"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
@@ -177,7 +177,7 @@ export default async function RegionPage({ params }: Props) {
       {/* Explore the region / Places Grid */}
       <section className="py-20 bg-fog">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8 md:mb-16">
             <div>
               <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-granite/30 mb-3">
                 {t("placesEyebrow")}
@@ -198,7 +198,7 @@ export default async function RegionPage({ params }: Props) {
       {/* Seasonal guide */}
       <section className="py-20 bg-fog">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8 md:mb-16">
             <div>
               <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-granite/30 mb-3">
                 {t("seasonEyebrow")}
@@ -236,36 +236,32 @@ export default async function RegionPage({ params }: Props) {
       </section>
 
       {/* Getting here */}
-      <section className="py-20 bg-granite text-fog">
+      <section className="py-20 bg-fog text-granite">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-fog">
+          <div className="mb-8 md:mb-16">
+            <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-granite">
               {t("gettingHereTitle")}
             </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-8 text-sm">
             <div>
-              <p className="text-amber font-semibold mb-2">
-                Porto → Montalegre
-              </p>
-              <p className="text-fog/70">A24 / IP3 · 100 km · 1h30</p>
+              <p className="text-amber mb-2">Porto → Montalegre</p>
+              <p className="text-granite/70">A24 / IP3 · 100 km · 1h30</p>
             </div>
             <div>
-              <p className="text-amber font-semibold mb-2">
-                Lisboa → Montalegre
-              </p>
-              <p className="text-fog/70">A23 / IP3 · 420 km · 3h45</p>
+              <p className="text-amber mb-2">Lisboa → Montalegre</p>
+              <p className="text-granite/70">A23 / IP3 · 420 km · 3h45</p>
             </div>
             <div>
-              <p className="text-amber font-semibold mb-2">
+              <p className="text-amber mb-2">
                 {isPt ? "Aeroporto mais próximo" : "Nearest airport"}
               </p>
-              <p className="text-fog/70">Porto OPO · 90 km · 1h10</p>
+              <p className="text-granite/70">Porto OPO · 90 km · 1h10</p>
             </div>
           </div>
 
           {/* Map placeholder */}
-          <div className="mt-10 w-full h-64 rounded-2xl bg-fog/5 border border-fog/10 flex items-center justify-center">
+          <div className="mt-10 w-full h-64 rounded-2xl bg-granite/5 border border-fog/10 flex items-center justify-center">
             <p className="text-fog/30 text-sm">{t("mapPlaceholder")}</p>
           </div>
         </div>

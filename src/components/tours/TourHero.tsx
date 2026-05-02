@@ -1,9 +1,9 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import type { Tour } from '@/types/tour';
-import { SEASON_LABELS } from '@/types/tour';
-import CategoryBadge from '@/components/ui/CategoryBadge';
-import DifficultyPill from '@/components/ui/DifficultyPill';
+import Image from "next/image";
+import Link from "next/link";
+import type { Tour } from "@/types/tour";
+import { SEASON_LABELS } from "@/types/tour";
+import CategoryBadge from "@/components/ui/CategoryBadge";
+import DifficultyPill from "@/components/ui/DifficultyPill";
 
 interface Props {
   tour: Tour;
@@ -12,11 +12,11 @@ interface Props {
 }
 
 export default function TourHero({ tour, locale, backLabel }: Props) {
-  const isPt = locale === 'pt';
+  const isPt = locale === "pt";
   const minPrice = Math.min(...tour.pricing.map((p) => p.price));
   const seasons = tour.seasonAvailability
     .map((s) => (isPt ? SEASON_LABELS[s].pt : SEASON_LABELS[s].en))
-    .join(' · ');
+    .join(" · ");
 
   return (
     <section className="relative min-h-[70vh] flex flex-col justify-end text-white">
@@ -53,15 +53,22 @@ export default function TourHero({ tour, locale, backLabel }: Props) {
         </h1>
 
         <p className="text-white/80 text-lg mb-6 max-w-xl leading-relaxed">
-          {isPt ? tour.shortDescription : (tour.shortDescription_en ?? tour.shortDescription)}
+          {isPt
+            ? tour.shortDescription
+            : (tour.shortDescription_en ?? tour.shortDescription)}
         </p>
 
         <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/70">
-          <span>⏱ {isPt ? tour.duration : (tour.duration_en ?? tour.duration)}</span>
-          <span>👥 {tour.groupSize.min}–{tour.groupSize.max} {isPt ? 'pessoas' : 'people'}</span>
+          <span>
+            ⏱ {isPt ? tour.duration : (tour.duration_en ?? tour.duration)}
+          </span>
+          <span>
+            👥 {tour.groupSize.min}–{tour.groupSize.max}{" "}
+            {isPt ? "pessoas" : "people"}
+          </span>
           <span>🌿 {seasons}</span>
-          <span className="text-white font-semibold">
-            {isPt ? 'A partir de' : 'From'} €{minPrice}
+          <span className="text-white ">
+            {isPt ? "A partir de" : "From"} €{minPrice}
           </span>
         </div>
       </div>

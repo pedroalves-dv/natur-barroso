@@ -12,11 +12,11 @@ export default async function WhatsAppCTA() {
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="mb-16">
+        <div className="mb-8 md:mb-16">
           <p className="text-[10px] md:text-base uppercase tracking-wide text-whatsapp mb-3">
             {t("whatsappCtaCEyebrow")}
           </p>
-          <h2 className="text-4xl md:text-6xl font-serif leading-[0.8] tracking-[-0.01em] text-granite mb-4">
+          <h2 className="text-4xl md:text-6xl font-serif leading-[0.8] tracking-[-0.01em] text-granite mb-8 md:mb-16">
             {t("whatsappCtaTitle")}
           </h2>
           <p className="text-granite/60 text-sm md:text-base leading-relaxed max-w-xl">
@@ -40,8 +40,8 @@ export default async function WhatsAppCTA() {
               className="btn-lg bg-whatsapp border border-whatsapp text-white hover:bg-whatsapp/50 hover:text-granite w-full md:w-auto gap-3"
             >
               <svg
-                width="20"
-                height="20"
+                width="24"
+                height="24"
                 viewBox="0 0 24 24"
                 fill="currentColor"
                 aria-hidden="true"

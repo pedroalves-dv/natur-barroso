@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import type { ItineraryStep } from '@/types/tour';
+import { useState } from "react";
+import type { ItineraryStep } from "@/types/tour";
 
 interface Props {
   steps: ItineraryStep[];
@@ -23,10 +23,12 @@ export default function TourItinerary({ steps, title }: Props) {
               aria-expanded={open === i}
             >
               <div className="flex items-center gap-3">
-                <span className="shrink-0 w-6 h-6 rounded-full bg-forest/10 text-forest text-xs font-semibold flex items-center justify-center">
+                <span className="shrink-0 w-6 h-6 rounded-full bg-forest/10 text-forest text-xs  flex items-center justify-center">
                   {i + 1}
                 </span>
-                <span className="font-medium text-granite text-sm">{step.title}</span>
+                <span className="font-medium text-granite text-sm">
+                  {step.title}
+                </span>
               </div>
               <svg
                 width="16"
@@ -35,7 +37,7 @@ export default function TourItinerary({ steps, title }: Props) {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
-                className={`shrink-0 transition-transform duration-200 text-granite/40 ${open === i ? 'rotate-180' : ''}`}
+                className={`shrink-0 transition-transform duration-200 text-granite/40 ${open === i ? "rotate-180" : ""}`}
                 aria-hidden="true"
               >
                 <polyline points="6 9 12 15 18 9" />
