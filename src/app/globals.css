@@ -79,6 +79,7 @@ test {
       min-width: 7rem;
     }
   }
+
   /* amber on fog/light backgrounds — opacity lets fog bleed through */
   .btn-amber {
     @apply bg-amber border border-amber text-white

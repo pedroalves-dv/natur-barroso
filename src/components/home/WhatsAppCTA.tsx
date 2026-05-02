@@ -11,7 +11,7 @@ export default async function WhatsAppCTA() {
 
   return (
     <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
+      <div className="max-w-[90rem] mx-auto px-4 md:px-6">
         <div className="mb-8 md:mb-16">
           <p className="text-[10px] md:text-base uppercase tracking-wide text-whatsapp mb-3">
             {t("whatsappCtaCEyebrow")}
@@ -19,7 +19,7 @@ export default async function WhatsAppCTA() {
           <h2 className="text-4xl md:text-6xl font-serif leading-[0.8] tracking-[-0.01em] text-granite mb-8 md:mb-16">
             {t("whatsappCtaTitle")}
           </h2>
-          <p className="text-granite/60 text-sm md:text-base leading-relaxed max-w-xl">
+          <p className="text-granite/60 text-sm md:text-base leading-relaxed max-w-lg">
             {t("whatsappCtaBody")}
           </p>
         </div>
@@ -30,7 +30,7 @@ export default async function WhatsAppCTA() {
             <h3 className="text-3xl md:text-4xl font-serif text-granite leading-[0.8] tracking-[-0.01em] mb-3">
               {t("whatsappCtaWhatsappHeading")}
             </h3>
-            <p className="text-granite/60 text-sm leading-relaxed mb-6">
+            <p className="text-granite/60 text-sm leading-relaxed mb-6 max-w-lg">
               {t("whatsappCtaWhatsappDesc")}
             </p>
             <a
@@ -58,7 +58,7 @@ export default async function WhatsAppCTA() {
             <h3 className="text-3xl md:text-4xl font-serif text-granite leading-[0.8] tracking-[-0.01em] mb-3">
               {t("whatsappCtaCallHeading")}
             </h3>
-            <p className="text-granite/60 text-sm leading-relaxed mb-2">
+            <p className="text-granite/60 text-sm leading-relaxed mb-2 max-w-lg">
               {t("whatsappCtaCallDesc")}
             </p>
             <p className="text-granite text-2xl font-stack mb-6">

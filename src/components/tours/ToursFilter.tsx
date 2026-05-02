@@ -175,7 +175,7 @@ export default function ToursFilter({ tours, locale, labels }: Props) {
   );
 
   return (
-    <div className="max-w-7xl mx-auto px-4 md:px-6 py-10">
+    <div className="max-w-[90rem] mx-auto px-4 md:px-6 py-10">
       {/* Mobile: filter button */}
       <div className="flex items-center justify-between mb-6 md:hidden">
         <p className="text-sm text-granite/60">

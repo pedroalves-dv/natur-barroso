@@ -75,7 +75,7 @@ export default async function AboutPage({ params }: Props) {
     <>
       {/* Hero */}
       <section className="relative bg-granite text-fog overflow-hidden">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 min-h-[60vh]">
+        <div className="max-w-[90rem] mx-auto grid md:grid-cols-2 min-h-[60vh]">
           <div className="flex flex-col justify-center px-8 py-20 md:px-12 lg:px-16">
             <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-amber mb-3">
               {t("eyebrow")}
@@ -107,7 +107,7 @@ export default async function AboutPage({ params }: Props) {
 
       {/* Story */}
       <section className="py-20 bg-fog">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="max-w-[90rem] mx-auto px-4 md:px-6">
           <div className="max-w-3xl">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
               <div>
@@ -132,7 +132,7 @@ export default async function AboutPage({ params }: Props) {
 
       {/* Guides */}
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="max-w-[90rem] mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
             <div>
               <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-amber mb-3">
@@ -153,7 +153,7 @@ export default async function AboutPage({ params }: Props) {
 
       {/* Values */}
       <section className="py-20 bg-moss text-fog">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="max-w-[90rem] mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
             <div>
               <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-amber mb-3">
@@ -178,7 +178,7 @@ export default async function AboutPage({ params }: Props) {
 
       {/* Certifications */}
       <section className="py-12 bg-fog border-t border-granite/8">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="max-w-[90rem] mx-auto px-4 md:px-6">
           <p className="text-xs  uppercase tracking-widest text-granite/40 mb-6 text-center">
             {t("certTitle")}
           </p>

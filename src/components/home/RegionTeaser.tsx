@@ -121,7 +121,7 @@ export default async function RegionTeaser({ locale }: Props) {
   ];
 
   return (
-    <section className="bg-fog text-granite overflow-hidden pt-24 pb-16 md:py-24 max-w-7xl mx-auto px-6 ">
+    <section className="bg-fog text-granite overflow-hidden pt-24 pb-16 md:py-24 max-w-[90rem] mx-auto px-6 ">
       <div className="grid lg:grid-cols-2 gap-8 lg:gap-0 min-h-[640px]">
         {/* Text + facts */}
         <div className="flex flex-col justify-center mb-auto">

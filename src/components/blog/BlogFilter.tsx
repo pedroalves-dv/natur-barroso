@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useState, useMemo } from 'react';
-import type { Post, PostCategory } from '@/types/post';
-import { POST_CATEGORY_CONFIG } from '@/types/post';
-import BlogCard from './BlogCard';
+import { useState, useMemo } from "react";
+import type { Post, PostCategory } from "@/types/post";
+import { POST_CATEGORY_CONFIG } from "@/types/post";
+import BlogCard from "./BlogCard";
 
 interface Props {
   posts: Post[];
@@ -16,8 +16,8 @@ interface Props {
 }
 
 export default function BlogFilter({ posts, locale, labels }: Props) {
-  const [category, setCategory] = useState<PostCategory | ''>('');
-  const isPt = locale === 'pt';
+  const [category, setCategory] = useState<PostCategory | "">("");
+  const isPt = locale === "pt";
 
   const usedCategories = [...new Set(posts.map((p) => p.category))];
 
@@ -27,15 +27,15 @@ export default function BlogFilter({ posts, locale, labels }: Props) {
   }, [posts, category]);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 md:px-6 pb-20">
+    <div className="max-w-[90rem] mx-auto px-4 md:px-6 pb-20">
       {/* Category filter strip */}
       <div className="flex flex-wrap gap-2 mb-10">
         <button
-          onClick={() => setCategory('')}
+          onClick={() => setCategory("")}
           className={`text-sm py-1.5 px-3 rounded transition-colors ${
-            category === ''
-              ? 'bg-forest/10 text-forest font-medium'
-              : 'text-granite/70 hover:text-granite'
+            category === ""
+              ? "bg-forest/10 text-forest font-medium"
+              : "text-granite/70 hover:text-granite"
           }`}
         >
           {labels.allCategories}
@@ -49,8 +49,8 @@ export default function BlogFilter({ posts, locale, labels }: Props) {
               onClick={() => setCategory(cat)}
               className={`text-sm py-1.5 px-3 rounded transition-colors ${
                 category === cat
-                  ? 'bg-forest/10 text-forest font-medium'
-                  : 'text-granite/70 hover:text-granite'
+                  ? "bg-forest/10 text-forest font-medium"
+                  : "text-granite/70 hover:text-granite"
               }`}
             >
               {label}
@@ -64,7 +64,12 @@ export default function BlogFilter({ posts, locale, labels }: Props) {
       ) : (
         <div className="grid md:grid-cols-3 gap-8">
           {filtered.map((post) => (
-            <BlogCard key={post.slug} post={post} locale={locale} readPostLabel={labels.readPost} />
+            <BlogCard
+              key={post.slug}
+              post={post}
+              locale={locale}
+              readPostLabel={labels.readPost}
+            />
           ))}
         </div>
       )}

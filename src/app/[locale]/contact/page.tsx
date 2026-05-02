@@ -36,14 +36,14 @@ export default async function ContactPage({ params }: Props) {
     <>
       {/* Header */}
       <section className="pt-32 pb-16 md:pb-20 bg-fog">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="max-w-[90rem] mx-auto px-4 md:px-6">
           <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-granite/30 mb-3">
             {t("eyebrow")}
           </p>
           <h1 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-granite mb-6">
             {t("title")}
           </h1>
-          <p className="text-sm text-granite/60 max-w-xl leading-relaxed">
+          <p className="text-sm text-granite/60 max-w-lg leading-relaxed">
             {t("subtitle")}
           </p>
         </div>
@@ -51,7 +51,7 @@ export default async function ContactPage({ params }: Props) {
 
       {/* Forms */}
       <section className="pb-16 md:pb-24 bg-fog">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="max-w-[90rem] mx-auto px-4 md:px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* General contact form */}
             <ContactForm
@@ -85,7 +85,7 @@ export default async function ContactPage({ params }: Props) {
 
       {/* WhatsApp CTA */}
       <section className="pt-8 bg-fog">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="max-w-[90rem] mx-auto px-4 md:px-6">
           <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-granite mb-6">
             {t("whatsappTitle")}
           </h2>
@@ -114,7 +114,7 @@ export default async function ContactPage({ params }: Props) {
 
       {/* Contact info */}
       <section className="pt-10 pb-20 bg-fog">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="max-w-[90rem] mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-3 gap-10">
             <div>
               <p className="text-xs  uppercase tracking-widest text-granite/40 mb-3">

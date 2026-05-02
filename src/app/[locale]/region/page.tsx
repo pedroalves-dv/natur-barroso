@@ -108,7 +108,7 @@ export default async function RegionPage({ params }: Props) {
         {/* Image overlay gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-granite/80 via-granite/20 to-transparent" />
         {/* Hero content  */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 pb-16 w-full">
+        <div className="relative z-10 max-w-[90rem] mx-auto px-4 md:px-6 pb-16 w-full">
           <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-fog/50 mb-3">
             {t("eyebrow")}
           </p>
@@ -139,7 +139,7 @@ export default async function RegionPage({ params }: Props) {
 
       {/* Why Barroso */}
       <section className="py-20 bg-fog">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="max-w-[90rem] mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8 md:mb-16">
             <div>
               <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-granite/30 mb-3">
@@ -176,7 +176,7 @@ export default async function RegionPage({ params }: Props) {
 
       {/* Explore the region / Places Grid */}
       <section className="py-20 bg-fog">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="max-w-[90rem] mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8 md:mb-16">
             <div>
               <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-granite/30 mb-3">
@@ -197,7 +197,7 @@ export default async function RegionPage({ params }: Props) {
 
       {/* Seasonal guide */}
       <section className="py-20 bg-fog">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="max-w-[90rem] mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8 md:mb-16">
             <div>
               <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-granite/30 mb-3">
@@ -237,7 +237,7 @@ export default async function RegionPage({ params }: Props) {
 
       {/* Getting here */}
       <section className="py-20 bg-fog text-granite">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="max-w-[90rem] mx-auto px-4 md:px-6">
           <div className="mb-8 md:mb-16">
             <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-granite">
               {t("gettingHereTitle")}

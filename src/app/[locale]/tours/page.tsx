@@ -42,14 +42,16 @@ export default async function ToursPage({ params }: Props) {
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-granite/80 via-granite/20 to-transparent" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 pb-16 w-full">
+        <div className="relative z-10 max-w-[90rem] mx-auto px-4 md:px-6 pb-16 w-full">
           <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-fog/50 mb-3">
             {t("eyebrow")}
           </p>
           <h1 className="font-serif text-fog text-5xl md:text-7xl leading-[0.8] tracking-[-0.01em] max-w-2xl mb-6">
             {t("title")}
           </h1>
-          <p className="text-sm text-fog/70 max-w-lg leading-relaxed">{t("subtitle")}</p>
+          <p className="text-sm text-fog/70 max-w-lg leading-relaxed">
+            {t("subtitle")}
+          </p>
         </div>
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-50 animate-nudge-down">
           <svg

@@ -26,7 +26,7 @@ export default async function ReviewsPage({ params }: Props) {
     <>
       {/* Hero aggregate */}
       <section className="pt-32 pb-16 bg-granite text-fog">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 text-center">
+        <div className="max-w-[90rem] mx-auto px-4 md:px-6 text-center">
           <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-amber mb-3">
             {t("sources")}
           </p>
@@ -54,7 +54,7 @@ export default async function ReviewsPage({ params }: Props) {
 
       {/* Featured pull-quotes */}
       <section className="py-20 bg-moss/10">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 grid md:grid-cols-3 gap-6">
+        <div className="max-w-[90rem] mx-auto px-4 md:px-6 grid md:grid-cols-3 gap-6">
           {featuredReviews.map((review) => (
             <blockquote
               key={review.id}
@@ -90,7 +90,7 @@ export default async function ReviewsPage({ params }: Props) {
 
       {/* Full reviews grid */}
       <section className="py-20 bg-fog">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="max-w-[90rem] mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {reviews.map((review) => (
               <ReviewCard key={review.id} review={review} />
@@ -101,7 +101,7 @@ export default async function ReviewsPage({ params }: Props) {
 
       {/* Leave a review CTA */}
       <section className="py-20 bg-white">
-        <div className="max-w-xl mx-auto px-4 md:px-6 text-center">
+        <div className="max-w-lg mx-auto px-4 md:px-6 text-center">
           <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-granite">
               {t("leaveReviewTitle")}

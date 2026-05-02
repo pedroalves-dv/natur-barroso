@@ -19,7 +19,7 @@ export default function TourHero({ tour, locale, backLabel }: Props) {
     .join(" · ");
 
   return (
-    <section className="relative min-h-[70vh] flex flex-col justify-end text-white">
+    <section className="relative min-h-[100vh] flex items-center md:items-end">
       <Image
         src={tour.coverImage}
         alt={tour.title}
@@ -28,49 +28,63 @@ export default function TourHero({ tour, locale, backLabel }: Props) {
         priority
         sizes="100vw"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-granite/90 via-granite/30 to-granite/20" />
+      <div className="absolute inset-0 bg-gradient-to-t from-granite/80 via-granite/20 to-transparent" />
 
-      {/* Back link */}
-      <div className="absolute top-24 left-0 right-0 z-10">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <Link
-            href={`/${locale}/tours`}
-            className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
-          >
-            ← {backLabel}
-          </Link>
-        </div>
-      </div>
+      <div className="relative z-10 max-w-[90rem] mx-auto px-4 md:px-6 pb-16 w-full">
+        {/* Back link */}
+        <Link
+          href={`/${locale}/tours`}
+          className="btn-lg btn-ghost inline-flex items-center gap-2 text-md text-fog/70 hover:text-fog transition-colors mb-6"
+        >
+          ← {backLabel}
+        </Link>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 pb-10 md:pb-14 w-full">
-        <div className="flex flex-wrap gap-2 mb-4">
+        {/* category + difficulty pill */}
+        {/* <div className="flex flex-wrap gap-2 mb-4">
           <CategoryBadge category={tour.category} locale={locale} />
           <DifficultyPill difficulty={tour.difficulty} locale={locale} />
-        </div>
+        </div> */}
 
-        <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif leading-tight mb-4 max-w-3xl">
+        <h1 className="font-serif text-fog text-5xl md:text-7xl leading-[0.8] tracking-[-0.01em] max-w-2xl mb-6">
           {isPt ? tour.title : (tour.title_en ?? tour.title)}
         </h1>
 
-        <p className="text-white/80 text-lg mb-6 max-w-xl leading-relaxed">
+        <p className="text-sm text-fog/70 max-w-lg leading-relaxed mb-6">
           {isPt
             ? tour.shortDescription
             : (tour.shortDescription_en ?? tour.shortDescription)}
         </p>
 
-        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/70">
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-fog/60">
           <span>
-            ⏱ {isPt ? tour.duration : (tour.duration_en ?? tour.duration)}
+            {isPt ? tour.duration : (tour.duration_en ?? tour.duration)}
           </span>
           <span>
-            👥 {tour.groupSize.min}–{tour.groupSize.max}{" "}
+            {tour.groupSize.min}–{tour.groupSize.max}{" "}
             {isPt ? "pessoas" : "people"}
           </span>
-          <span>🌿 {seasons}</span>
-          <span className="text-white ">
+          <span>{seasons}</span>
+          <span className="text-fog">
             {isPt ? "A partir de" : "From"} €{minPrice}
           </span>
         </div>
+      </div>
+
+      {/* Scroll chevron */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-50 animate-nudge-down">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="white"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M6 9l6 6 6-6" />
+        </svg>
       </div>
     </section>
   );

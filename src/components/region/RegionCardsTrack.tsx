@@ -51,7 +51,6 @@ export default function RegionCardsTrack({ places, locale, exploreLabel }: Props
     hasMoved.current = false;
     startX.current = e.clientX;
     scrollStart.current = trackRef.current?.scrollLeft ?? 0;
-    trackRef.current?.setPointerCapture(e.pointerId);
     setDragging(true);
   };
 

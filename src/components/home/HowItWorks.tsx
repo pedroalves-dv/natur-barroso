@@ -28,7 +28,7 @@ export default async function HowItWorks({ locale }: Props) {
 
   return (
     <section className="py-24 bg-granite overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
+      <div className="max-w-[90rem] mx-auto px-4 md:px-6">
         {/* Header row */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8 md:mb-16">
           <div>
@@ -40,10 +40,7 @@ export default async function HowItWorks({ locale }: Props) {
             </h2>
           </div>
           <div className="hidden md:block">
-            <Link
-              href={`/${locale}/tours`}
-              className="btn-lg btn-ghost"
-            >
+            <Link href={`/${locale}/tours`} className="btn-lg btn-ghost">
               {t("viewAllTours")}&nbsp; →
             </Link>
           </div>

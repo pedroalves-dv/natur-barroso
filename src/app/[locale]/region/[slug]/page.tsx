@@ -1,11 +1,11 @@
-import { notFound } from 'next/navigation';
-import { setRequestLocale, getTranslations } from 'next-intl/server';
-import type { Metadata } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
-import { regionPlaces, getRegionPlaceBySlug } from '@/data/region';
-import { tours } from '@/data/tours';
-import TourCard from '@/components/ui/TourCard';
+import { notFound } from "next/navigation";
+import { setRequestLocale, getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { regionPlaces, getRegionPlaceBySlug } from "@/data/region";
+import { tours } from "@/data/tours";
+import TourCard from "@/components/ui/TourCard";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
@@ -30,19 +30,23 @@ export default async function RegionSubPage({ params }: Props) {
   const place = getRegionPlaceBySlug(slug);
   if (!place) notFound();
 
-  const t = await getTranslations('RegionPage');
-  const isPt = locale === 'pt';
+  const t = await getTranslations("RegionPage");
+  const isPt = locale === "pt";
 
-  const relatedTours = tours.filter((tour) => place.relatedTourSlugs.includes(tour.slug));
+  const relatedTours = tours.filter((tour) =>
+    place.relatedTourSlugs.includes(tour.slug),
+  );
 
-  const backLabel = isPt ? '← A Região' : '← The Region';
-  const howToGetThereLabel = isPt ? 'Como chegar' : 'How to get there';
-  const mapPlaceholder = isPt ? 'Mapa interativo disponível em breve' : 'Interactive map coming soon';
+  const backLabel = isPt ? "← A Região" : "← The Region";
+  const howToGetThereLabel = isPt ? "Como chegar" : "How to get there";
+  const mapPlaceholder = isPt
+    ? "Mapa interativo disponível em breve"
+    : "Interactive map coming soon";
 
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[60vh] flex items-end">
+      <section className="relative min-h-[100vh] flex items-center md:items-end">
         <Image
           src={place.coverImage}
           alt={place.name}
@@ -52,24 +56,44 @@ export default async function RegionSubPage({ params }: Props) {
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-granite/80 via-granite/20 to-transparent" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 pb-14 w-full">
+        <div className="relative z-10 max-w-[90rem] mx-auto px-4 md:px-6 pb-16 w-full">
+          {/* Back Link */}
           <Link
             href={`/${locale}/region`}
-            className="inline-block text-fog/70 text-sm mb-6 hover:text-fog transition-colors"
+            className="btn-lg btn-ghost inline-flex items-center gap-2 text-md text-fog/70 hover:text-fog transition-colors mb-6"
           >
             {backLabel}
           </Link>
-          <h1 className="font-serif text-fog text-4xl md:text-5xl lg:text-6xl leading-tight mb-4">
+          {/* Hero Text */}
+          <h1 className="font-serif text-fog text-5xl md:text-7xl leading-[0.8] tracking-[-0.01em] max-w-2xl mb-6">
             {place.name}
           </h1>
-          <p className="text-fog/70 text-lg max-w-2xl">{place.tagline}</p>
+          <p className="text-sm text-fog/70 max-w-lg leading-relaxed">
+            {place.tagline}
+          </p>
+        </div>
+        {/* Scroll chevron */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-50 animate-nudge-down">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="white"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M6 9l6 6 6-6" />
+          </svg>
         </div>
       </section>
 
       {/* Description */}
       <section className="py-20 bg-fog">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="max-w-3xl flex flex-col gap-6">
+        <div className="max-w-[90rem] mx-auto px-4 md:px-6">
+          <div className="max-w-xl flex flex-col gap-6">
             {place.description.map((para, i) => (
               <p key={i} className="text-granite/80 leading-relaxed text-lg">
                 {para}
@@ -81,10 +105,13 @@ export default async function RegionSubPage({ params }: Props) {
 
       {/* Gallery */}
       <section className="pb-16 bg-fog">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="max-w-[90rem] mx-auto px-4 md:px-6">
           <div className="grid grid-cols-3 gap-3">
             {place.gallery.map((img, i) => (
-              <div key={i} className="relative aspect-square rounded-xl overflow-hidden">
+              <div
+                key={i}
+                className="relative aspect-square rounded-xl overflow-hidden"
+              >
                 <Image
                   src={img}
                   alt={`${place.name} ${i + 1}`}
@@ -100,11 +127,13 @@ export default async function RegionSubPage({ params }: Props) {
 
       {/* How to get there + map */}
       <section className="py-20 bg-granite text-fog">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="max-w-[90rem] mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
               <h2 className="font-serif text-2xl mb-4">{howToGetThereLabel}</h2>
-              <p className="text-fog/70 leading-relaxed text-sm">{place.howToGetThere}</p>
+              <p className="text-fog/70 leading-relaxed text-sm">
+                {place.howToGetThere}
+              </p>
             </div>
             <div className="w-full h-52 rounded-xl bg-fog/5 border border-fog/10 flex items-center justify-center">
               <p className="text-fog/30 text-sm">{mapPlaceholder}</p>
@@ -116,14 +145,14 @@ export default async function RegionSubPage({ params }: Props) {
       {/* Related tours */}
       {relatedTours.length > 0 && (
         <section className="py-20 bg-fog">
-          <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="max-w-[90rem] mx-auto px-4 md:px-6">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
               <div>
                 <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-amber mb-3">
-                  {t('toursEyebrow')}
+                  {t("toursEyebrow")}
                 </p>
                 <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-granite">
-                  {t('toursTitle')}
+                  {t("toursTitle")}
                 </h2>
               </div>
             </div>

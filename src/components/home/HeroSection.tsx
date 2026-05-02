@@ -24,7 +24,7 @@ export default async function HeroSection({ locale }: Props) {
       {/* Image overlay gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-granite/80 via-granite/20 to-transparent" />
       {/* Hero content  */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 md:pb-16 w-full flex flex-col md:flex-row md:items-end justify-between gap-8">
+      <div className="relative z-10 max-w-[90rem] mx-auto px-4 md:px-6 md:pb-16 w-full flex flex-col md:flex-row md:items-end justify-between gap-8">
         <div className="flex flex-col">
           <NaturBarrosoLogo className="invert-[0.9] drop-shadow-[0_2px_8px_rgba(0,0,0,0.1)] max-w-[240px] mb-6" />
           <p className="text-sm text-fog/70 max-w-lg leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">

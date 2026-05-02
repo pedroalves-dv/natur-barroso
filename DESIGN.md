@@ -136,7 +136,7 @@ text-4xl font-stack text-amber leading-none
 
 **Hero subtitle:**
 ```
-text-lg md:text-xl text-fog/80 max-w-xl leading-relaxed
+text-lg md:text-xl text-fog/80 max-w-lg leading-relaxed
 ```
 
 **Body / description text (standard):**
@@ -207,7 +207,7 @@ text-3xl font-serif py-3 border-b border-fog/10  /* active: text-amber / default
 
 Standard content container used in all sections:
 ```
-max-w-7xl mx-auto px-4 md:px-6
+max-w-[90rem] mx-auto px-4 md:px-6
 ```
 Max width: 80rem (1280px). Horizontal padding: 1rem mobile, 1.5rem desktop.
 
@@ -593,7 +593,7 @@ bg-fog border-b border-granite/30 text-granite
 Height: h-16 md:h-20
 ```
 
-Internal layout: `max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between`
+Internal layout: `max-w-[90rem] mx-auto px-4 md:px-6 flex items-center justify-between`
 
 **Desktop right controls (left to right):**
 1. Language toggle pill: `rounded-full border border-granite/25 p-1 text-xs font-medium`
@@ -618,7 +618,7 @@ bg-granite text-fog
 pt-16 pb-24
 ```
 
-Container: `max-w-7xl mx-auto px-4 md:px-6`
+Container: `max-w-[90rem] mx-auto px-4 md:px-6`
 
 Grid: `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12`
 
@@ -767,13 +767,13 @@ Pattern: fog ↔ moss/10 ↔ white (light variants), with a single `bg-granite` 
 {/* Footer rendered by layout */}
 ```
 
-No vertical gaps between sections — background color changes provide visual separation. All sections are full-width `<section>` elements; content is constrained by `max-w-7xl mx-auto px-4 md:px-6` inside.
+No vertical gaps between sections — background color changes provide visual separation. All sections are full-width `<section>` elements; content is constrained by `max-w-[90rem] mx-auto px-4 md:px-6` inside.
 
 ### Standard section template:
 
 ```tsx
 <section className="py-20 bg-{color}">
-  <div className="max-w-7xl mx-auto px-4 md:px-6">
+  <div className="max-w-[90rem] mx-auto px-4 md:px-6">
 
     {/* Section header */}
     <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
