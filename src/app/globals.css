@@ -12,13 +12,13 @@
   /* Brand colours */
   --color-forest: #3a5c3d;
   --color-moss: #4d7050;
-  /* --color-amber: #ffb547; */
   --color-amber: #ffb547;
   --color-amber-hover: #fcc97d;
   --color-granite: #2a2a28;
   --color-fog: #f5f2ec;
   --color-river: #4a6b7c;
   --color-whatsapp: #25d366;
+  --color-whatsapp-hover: #5ade8a;
 
   /* Typography */
 
@@ -82,8 +82,8 @@ test {
   }
   /* granite with arrow — asymmetric padding for icon breathing room */
   .btn-granite {
-    @apply pl-6 pr-5 py-2 bg-granite border border-granite/10 text-fog
-           hover:bg-moss/50 hover:text-granite;
+    @apply bg-granite border border-granite/10 text-fog
+           hover:bg-moss/40 hover:border-granite/60 hover:text-granite;
   }
   /* forest with arrow — base state only; hover is driven by parent group */
   .btn-forest {

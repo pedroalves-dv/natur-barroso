@@ -46,7 +46,7 @@ export default async function Footer() {
               <Link
                 href="/pt"
                 className={`text-sm font-medium transition-colors ${
-                  locale === "pt" ? "text-amber" : "text-fog/40 hover:text-fog"
+                  locale === "pt" ? "text-fog" : "text-fog/40 hover:text-fog"
                 }`}
               >
                 PT
@@ -55,7 +55,7 @@ export default async function Footer() {
               <Link
                 href="/en"
                 className={`text-sm font-medium transition-colors ${
-                  locale === "en" ? "text-amber" : "text-fog/40 hover:text-fog"
+                  locale === "en" ? "text-fog" : "text-fog/40 hover:text-fog"
                 }`}
               >
                 EN
@@ -128,7 +128,7 @@ export default async function Footer() {
                   href="https://wa.me/351960000000"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm px-3 py-1.5 rounded-md text-white mt-1 bg-whatsapp hover:bg-whatsapp/70 transition-colors"
+                  className="inline-flex items-center gap-2 text-sm px-3 py-1.5 rounded-md text-white mt-1 bg-whatsapp border border-whatsapp hover:bg-whatsapp-hover hover:text-granite transition-colors"
                 >
                   <FooterWhatsAppIcon />
                   WhatsApp

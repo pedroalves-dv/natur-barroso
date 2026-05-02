@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useState, useMemo } from 'react';
-import type { Tour, CategorySlug, Difficulty } from '@/types/tour';
-import { CATEGORY_CONFIG, DIFFICULTY_CONFIG } from '@/types/tour';
-import TourCard from '@/components/ui/TourCard';
+import { useState, useMemo } from "react";
+import type { Tour, CategorySlug, Difficulty } from "@/types/tour";
+import { CATEGORY_CONFIG, DIFFICULTY_CONFIG } from "@/types/tour";
+import TourCard from "@/components/ui/TourCard";
 
 interface Props {
   tours: Tour[];
@@ -28,14 +28,14 @@ interface Props {
   };
 }
 
-type DurationFilter = 'half-day' | 'full-day' | 'multi-day' | '';
+type DurationFilter = "half-day" | "full-day" | "multi-day" | "";
 
 export default function ToursFilter({ tours, locale, labels }: Props) {
-  const [category, setCategory] = useState<CategorySlug | ''>('');
-  const [difficulty, setDifficulty] = useState<Difficulty | ''>('');
-  const [duration, setDuration] = useState<DurationFilter>('');
+  const [category, setCategory] = useState<CategorySlug | "">("");
+  const [difficulty, setDifficulty] = useState<Difficulty | "">("");
+  const [duration, setDuration] = useState<DurationFilter>("");
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const isPt = locale === 'pt';
+  const isPt = locale === "pt";
 
   const filtered = useMemo(() => {
     return tours.filter((t) => {
@@ -43,20 +43,28 @@ export default function ToursFilter({ tours, locale, labels }: Props) {
       if (difficulty && t.difficulty !== difficulty) return false;
       if (duration) {
         const d = t.duration.toLowerCase();
-        if (duration === 'half-day' && !d.includes('meio')) return false;
-        if (duration === 'full-day' && !(d.includes('dia completo') || (d.includes('dia') && !d.includes('dias') && !d.includes('meio')))) return false;
-        if (duration === 'multi-day' && !d.includes('dias')) return false;
+        if (duration === "half-day" && !d.includes("meio")) return false;
+        if (
+          duration === "full-day" &&
+          !(
+            d.includes("dia completo") ||
+            (d.includes("dia") && !d.includes("dias") && !d.includes("meio"))
+          )
+        )
+          return false;
+        if (duration === "multi-day" && !d.includes("dias")) return false;
       }
       return true;
     });
   }, [tours, category, difficulty, duration]);
 
-  const hasActiveFilters = category !== '' || difficulty !== '' || duration !== '';
+  const hasActiveFilters =
+    category !== "" || difficulty !== "" || duration !== "";
 
   function clearAll() {
-    setCategory('');
-    setDifficulty('');
-    setDuration('');
+    setCategory("");
+    setDifficulty("");
+    setDuration("");
   }
 
   const usedCategories = [...new Set(tours.map((t) => t.category))];
@@ -84,8 +92,8 @@ export default function ToursFilter({ tours, locale, labels }: Props) {
         </p>
         <div className="flex flex-col gap-1">
           <button
-            onClick={() => setCategory('')}
-            className={`text-left text-sm py-1.5 px-2 rounded transition-colors ${category === '' ? 'bg-forest/10 text-forest font-medium' : 'text-granite/70 hover:text-granite'}`}
+            onClick={() => setCategory("")}
+            className={`text-left text-sm py-1.5 px-2 rounded transition-colors ${category === "" ? "bg-forest/10 text-forest font-medium" : "text-granite/70 hover:text-granite"}`}
           >
             {labels.allCategories}
           </button>
@@ -95,8 +103,12 @@ export default function ToursFilter({ tours, locale, labels }: Props) {
               <button
                 key={cat}
                 onClick={() => setCategory(cat)}
-                className={`text-left text-sm py-1.5 px-2 rounded transition-colors ${category === cat ? 'font-medium' : 'text-granite/70 hover:text-granite'}`}
-                style={category === cat ? { backgroundColor: cfg.color + '15', color: cfg.color } : {}}
+                className={`text-left text-sm py-1.5 px-2 rounded transition-colors ${category === cat ? "font-medium" : "text-granite/70 hover:text-granite"}`}
+                style={
+                  category === cat
+                    ? { backgroundColor: cfg.color + "15", color: cfg.color }
+                    : {}
+                }
               >
                 {isPt ? cfg.labelPt : cfg.label}
               </button>
@@ -112,8 +124,8 @@ export default function ToursFilter({ tours, locale, labels }: Props) {
         </p>
         <div className="flex flex-col gap-1">
           <button
-            onClick={() => setDifficulty('')}
-            className={`text-left text-sm py-1.5 px-2 rounded transition-colors ${difficulty === '' ? 'bg-forest/10 text-forest font-medium' : 'text-granite/70 hover:text-granite'}`}
+            onClick={() => setDifficulty("")}
+            className={`text-left text-sm py-1.5 px-2 rounded transition-colors ${difficulty === "" ? "bg-forest/10 text-forest font-medium" : "text-granite/70 hover:text-granite"}`}
           >
             {labels.allDifficulties}
           </button>
@@ -123,8 +135,12 @@ export default function ToursFilter({ tours, locale, labels }: Props) {
               <button
                 key={d}
                 onClick={() => setDifficulty(d)}
-                className={`text-left text-sm py-1.5 px-2 rounded transition-colors ${difficulty === d ? 'font-medium' : 'text-granite/70 hover:text-granite'}`}
-                style={difficulty === d ? { backgroundColor: cfg.color + '15', color: cfg.color } : {}}
+                className={`text-left text-sm py-1.5 px-2 rounded transition-colors ${difficulty === d ? "font-medium" : "text-granite/70 hover:text-granite"}`}
+                style={
+                  difficulty === d
+                    ? { backgroundColor: cfg.color + "15", color: cfg.color }
+                    : {}
+                }
               >
                 {isPt ? cfg.labelPt : cfg.label}
               </button>
@@ -140,15 +156,15 @@ export default function ToursFilter({ tours, locale, labels }: Props) {
         </p>
         <div className="flex flex-col gap-1">
           {[
-            { value: '' as DurationFilter, label: labels.allDurations },
-            { value: 'half-day' as DurationFilter, label: labels.halfDay },
-            { value: 'full-day' as DurationFilter, label: labels.fullDay },
-            { value: 'multi-day' as DurationFilter, label: labels.multiDay },
+            { value: "" as DurationFilter, label: labels.allDurations },
+            { value: "half-day" as DurationFilter, label: labels.halfDay },
+            { value: "full-day" as DurationFilter, label: labels.fullDay },
+            { value: "multi-day" as DurationFilter, label: labels.multiDay },
           ].map((opt) => (
             <button
-              key={opt.value || 'all'}
+              key={opt.value || "all"}
               onClick={() => setDuration(opt.value)}
-              className={`text-left text-sm py-1.5 px-2 rounded transition-colors ${duration === opt.value ? 'bg-forest/10 text-forest font-medium' : 'text-granite/70 hover:text-granite'}`}
+              className={`text-left text-sm py-1.5 px-2 rounded transition-colors ${duration === opt.value ? "bg-forest/10 text-forest font-medium" : "text-granite/70 hover:text-granite"}`}
             >
               {opt.label}
             </button>
@@ -163,13 +179,21 @@ export default function ToursFilter({ tours, locale, labels }: Props) {
       {/* Mobile: filter button */}
       <div className="flex items-center justify-between mb-6 md:hidden">
         <p className="text-sm text-granite/60">
-          {filtered.length} {isPt ? 'tours' : 'tours'}
+          {filtered.length} {isPt ? "tours" : "tours"}
         </p>
         <button
           onClick={() => setDrawerOpen(true)}
           className="flex items-center gap-2 text-sm font-medium text-granite border border-granite/20 rounded-full px-4 py-2 hover:border-granite/40 transition-colors"
         >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            aria-hidden="true"
+          >
             <line x1="4" y1="6" x2="20" y2="6" />
             <line x1="8" y1="12" x2="20" y2="12" />
             <line x1="12" y1="18" x2="20" y2="18" />
@@ -195,7 +219,7 @@ export default function ToursFilter({ tours, locale, labels }: Props) {
               <p className="text-sm text-granite/40">{labels.noResultsHint}</p>
             </div>
           ) : (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {filtered.map((tour) => (
                 <TourCard key={tour.slug} tour={tour} locale={locale} />
               ))}
@@ -207,16 +231,28 @@ export default function ToursFilter({ tours, locale, labels }: Props) {
       {/* Mobile filter drawer */}
       {drawerOpen && (
         <div className="fixed inset-0 z-50 flex md:hidden">
-          <div className="absolute inset-0 bg-granite/40" onClick={() => setDrawerOpen(false)} />
+          <div
+            className="absolute inset-0 bg-granite/40"
+            onClick={() => setDrawerOpen(false)}
+          />
           <div className="relative ml-auto w-72 bg-fog h-full overflow-y-auto p-6 flex flex-col">
             <div className="flex items-center justify-between mb-6">
-              <span className="font-semibold text-granite">{labels.filterTitle}</span>
+              <span className="font-semibold text-granite">
+                {labels.filterTitle}
+              </span>
               <button
                 onClick={() => setDrawerOpen(false)}
                 className="p-1 text-granite/60 hover:text-granite"
                 aria-label={labels.closeFilters}
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M18 6L6 18M6 6l12 12" />
                 </svg>
               </button>
@@ -226,7 +262,9 @@ export default function ToursFilter({ tours, locale, labels }: Props) {
               onClick={() => setDrawerOpen(false)}
               className="mt-8 w-full py-3 bg-forest text-white rounded-full text-sm font-medium hover:bg-moss transition-colors"
             >
-              {isPt ? `Ver ${filtered.length} tours` : `View ${filtered.length} tours`}
+              {isPt
+                ? `Ver ${filtered.length} tours`
+                : `View ${filtered.length} tours`}
             </button>
           </div>
         </div>
