@@ -28,14 +28,14 @@ export default async function HowItWorks({ locale }: Props) {
 
   return (
     <section className="py-24 bg-granite overflow-hidden">
-      <div className="max-w-[90rem] mx-auto px-4 md:px-6">
+      <div className="container-wide">
         {/* Header row */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8 md:mb-16">
+        <div className="section-header">
           <div>
-            <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-fog/30 mb-3">
+            <p className="eyebrow text-fog/30">
               {t("howItWorksEyebrow")}
             </p>
-            <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] text-fog tracking-[-0.01em]">
+            <h2 className="section-title text-fog">
               {t("howItWorksTitle")}
             </h2>
           </div>

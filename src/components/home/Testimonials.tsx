@@ -117,13 +117,13 @@ export default function Testimonials({
       aria-label={title}
       className="py-20 bg-moss/10 overflow-hidden"
     >
-      <div className="max-w-[90rem] mx-auto px-4 md:px-6 mb-8 md:mb-16">
+      <div className="container-wide mb-8 md:mb-12">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
           <div>
-            <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-amber mb-3">
+            <p className="eyebrow text-amber">
               TripAdvisor · Google Reviews
             </p>
-            <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] text-granite tracking-[-0.01em]">
+            <h2 className="section-title">
               {title}
             </h2>
           </div>
@@ -135,7 +135,7 @@ export default function Testimonials({
         </div>
       </div>
 
-      <div className="max-w-[90rem] mx-auto px-4 md:px-6">
+      <div className="container-wide">
         <div
           ref={trackRef}
           tabIndex={0}
@@ -168,7 +168,7 @@ export default function Testimonials({
         ))}
       </div>
 
-      <div className="mt-8 md:hidden max-w-[90rem] mx-auto px-4 md:px-6">
+      <div className="mt-8 md:hidden container-wide">
         <Link href={`/${locale}/tours`} className="btn-lg btn-amber w-full">
           {locale === "pt" ? "Reservar um tour" : "Book a tour"}
         </Link>

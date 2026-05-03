@@ -25,11 +25,11 @@ export default async function BlogPage({ params }: Props) {
     <>
       {/* Header */}
       <section className="pt-32 pb-16 bg-fog">
-        <div className="max-w-[90rem] mx-auto px-4 md:px-6">
-          <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-amber mb-3">
+        <div className="container-wide">
+          <p className="eyebrow text-amber">
             {t("eyebrow")}
           </p>
-          <h1 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-granite">
+          <h1 className="section-title">
             {t("title")}
           </h1>
           <p className="text-granite/60 max-w-lg leading-relaxed">

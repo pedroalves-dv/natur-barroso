@@ -12,9 +12,9 @@ export default function SimilarTours({ tours, locale, title }: Props) {
 
   return (
     <section className="py-20 bg-fog border-t border-granite/10">
-      <div className="max-w-[90rem] mx-auto px-4 md:px-6">
-        <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-granite">
+      <div className="container-wide">
+        <div className="mb-8 md:mb-12">
+          <h2 className="section-title">
             {title}
           </h2>
         </div>

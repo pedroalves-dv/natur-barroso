@@ -13,13 +13,13 @@ export default async function FeaturedTours({ locale }: Props) {
 
   return (
     <section className="py-20 bg-fog">
-      <div className="max-w-[90rem] mx-auto px-4 md:px-6">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8 md:mb-12">
+      <div className="container-wide">
+        <div className="section-header">
           <div>
-            <p className="text-[10px] md:text-sm uppercase tracking-wide text-granite/40 mb-3">
+            <p className="eyebrow text-granite/40">
               {t("featuredToursEyebrow")}
             </p>
-            <h2 className="text-4xl md:text-5xl leading-[0.8] font-serif text-granite">
+            <h2 className="section-title">
               {t("featuredToursTitle")}
             </h2>
           </div>

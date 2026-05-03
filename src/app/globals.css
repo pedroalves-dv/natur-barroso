@@ -57,6 +57,24 @@ test {
   }
 }
 
+@layer components {
+  .container-wide {
+    @apply max-w-[90rem] mx-auto px-4 md:px-6;
+  }
+
+  .eyebrow {
+    @apply text-[10px] md:text-sm uppercase tracking-wide mb-3;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-serif leading-[0.8] text-granite;
+  }
+
+  .section-header {
+    @apply flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8 md:mb-12;
+  }
+}
+
 @layer utilities {
   .animate-nudge-down {
     animation: nudge-down 1.6s ease-in-out infinite;

@@ -77,10 +77,10 @@ export default async function AboutPage({ params }: Props) {
       <section className="relative bg-granite text-fog overflow-hidden">
         <div className="max-w-[90rem] mx-auto grid md:grid-cols-2 min-h-[60vh]">
           <div className="flex flex-col justify-center px-8 py-20 md:px-12 lg:px-16">
-            <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-amber mb-3">
+            <p className="eyebrow text-amber">
               {t("eyebrow")}
             </p>
-            <h1 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] mb-6">
+            <h1 className="section-title text-fog mb-6">
               {t("title")}
             </h1>
             <p className="text-fog/70 leading-relaxed max-w-md">
@@ -107,14 +107,14 @@ export default async function AboutPage({ params }: Props) {
 
       {/* Story */}
       <section className="py-20 bg-fog">
-        <div className="max-w-[90rem] mx-auto px-4 md:px-6">
+        <div className="container-wide">
           <div className="max-w-3xl">
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+            <div className="section-header">
               <div>
-                <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-amber mb-3">
+                <p className="eyebrow text-amber">
                   {t("storyEyebrow")}
                 </p>
-                <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-granite">
+                <h2 className="section-title">
                   {t("storyTitle")}
                 </h2>
               </div>
@@ -132,13 +132,13 @@ export default async function AboutPage({ params }: Props) {
 
       {/* Guides */}
       <section className="py-20 bg-white">
-        <div className="max-w-[90rem] mx-auto px-4 md:px-6">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+        <div className="container-wide">
+          <div className="section-header">
             <div>
-              <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-amber mb-3">
+              <p className="eyebrow text-amber">
                 {t("guidesEyebrow")}
               </p>
-              <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-granite">
+              <h2 className="section-title">
                 {t("guidesTitle")}
               </h2>
             </div>
@@ -153,13 +153,13 @@ export default async function AboutPage({ params }: Props) {
 
       {/* Values */}
       <section className="py-20 bg-moss text-fog">
-        <div className="max-w-[90rem] mx-auto px-4 md:px-6">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+        <div className="container-wide">
+          <div className="section-header">
             <div>
-              <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-amber mb-3">
+              <p className="eyebrow text-amber">
                 {t("valuesEyebrow")}
               </p>
-              <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-fog">
+              <h2 className="section-title text-fog">
                 {t("valuesTitle")}
               </h2>
             </div>
@@ -178,7 +178,7 @@ export default async function AboutPage({ params }: Props) {
 
       {/* Certifications */}
       <section className="py-12 bg-fog border-t border-granite/8">
-        <div className="max-w-[90rem] mx-auto px-4 md:px-6">
+        <div className="container-wide">
           <p className="text-xs  uppercase tracking-widest text-granite/40 mb-6 text-center">
             {t("certTitle")}
           </p>

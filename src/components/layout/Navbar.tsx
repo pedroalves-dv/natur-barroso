@@ -10,7 +10,6 @@ const NAV_LINK_KEYS = [
   { href: "/tours", key: "tours" },
   { href: "/region", key: "region" },
   { href: "/about", key: "about" },
-  // { href: "/blog", key: "blog" },
   { href: "/contact", key: "contact" },
 ] as const;
 
@@ -49,14 +48,14 @@ export default function Navbar() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-fog border-b border-granite/30 text-granite">
-        <nav className="max-w-[90rem] mx-auto px-4 md:px-6 flex items-center justify-between h-16 md:h-20">
+        <nav className="max-w-[90rem] mx-auto px-4 md:px-6 flex items-center justify-between h-16 md:h-16">
           {/* Logo */}
           <Link href={`/${locale}`} aria-label="Natur Barroso — início">
             <NaturBarrosoLogo variant="dark" className="h-5 md:h-7 w-auto" />
           </Link>
 
           {/* Desktop nav */}
-          <ul className="hidden md:flex items-center md:gap-8 lg:gap-12 group">
+          <ul className="hidden md:flex md:gap-8 lg:gap-12 group">
             {NAV_LINK_KEYS.map(({ href, key }) => {
               const active = isActive(href);
               return (
@@ -77,7 +76,7 @@ export default function Navbar() {
           </ul>
 
           {/* Right controls */}
-          <div className="flex items-center gap-3 md:gap-4">
+          <div className="flex items-center gap-3 md:gap-6">
             {/* PT/EN toggle */}
             <div className="hidden md:flex items-stretch rounded-full border border-granite/25 p-1 text-xs font-medium text-granite">
               {(["pt", "en"] as const).map((loc) => {

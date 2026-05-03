@@ -115,9 +115,9 @@ export default async function BlogPostPage({ params }: Props) {
       {/* Related */}
       {related.length > 0 && (
         <section className="py-20 bg-white">
-          <div className="max-w-[90rem] mx-auto px-4 md:px-6">
-            <div className="mb-16">
-              <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-granite">
+          <div className="container-wide">
+            <div className="mb-8 md:mb-12">
+              <h2 className="section-title">
                 {relatedLabel}
               </h2>
             </div>

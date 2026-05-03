@@ -125,10 +125,10 @@ export default async function RegionTeaser({ locale }: Props) {
       <div className="grid lg:grid-cols-2 gap-8 lg:gap-0 min-h-[640px]">
         {/* Text + facts */}
         <div className="flex flex-col justify-center mb-auto">
-          <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-amber mb-3">
+          <p className="eyebrow text-amber">
             {t("regionTeaserEyebrow")}
           </p>
-          <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-granite mb-8 md:mb-16">
+          <h2 className="section-title mb-8 md:mb-16">
             {t("regionTeaserTitle")}
           </h2>
           <p className="text-granite/65 leading-relaxed max-w-md text-sm md:text-base">
