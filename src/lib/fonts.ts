@@ -3,6 +3,7 @@ import {
   Instrument_Serif,
   Inter,
   JetBrains_Mono,
+  Noto_Serif,
 } from "next/font/google";
 
 export const dmSans = DM_Sans({
@@ -28,5 +29,11 @@ export const inter = Inter({
 export const jetBrains = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-jetbrains",
+  display: "swap",
+});
+
+export const notoSerif = Noto_Serif({
+  subsets: ["latin"],
+  variable: "--font-noto-serif",
   display: "swap",
 });

@@ -7,7 +7,7 @@ import {
   setRequestLocale,
 } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import { dmSans, instrumentSerif, inter, jetBrains } from "@/lib/fonts";
+import { dmSans, instrumentSerif, inter, jetBrains, notoSerif } from "@/lib/fonts";
 import LayoutWrapper from "@/components/layout/LayoutWrapper";
 import "../globals.css";
 
@@ -50,7 +50,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html
       lang={locale}
-      className={`${dmSans.variable} ${instrumentSerif.variable} ${inter.variable} ${jetBrains.variable} h-full antialiased`}
+      className={`${dmSans.variable} ${instrumentSerif.variable} ${inter.variable} ${jetBrains.variable} ${notoSerif.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider messages={messages}>

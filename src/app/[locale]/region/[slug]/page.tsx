@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { setRequestLocale, getTranslations } from "next-intl/server";
+import { Fragment } from "react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -65,7 +66,7 @@ export default async function RegionSubPage({ params }: Props) {
             {backLabel}
           </Link>
           {/* Hero Text */}
-          <h1 className="font-serif text-fog text-5xl md:text-7xl leading-[0.8] tracking-[-0.01em] max-w-2xl mb-6">
+          <h1 className="font-serif text-fog text-4xl md:text-7xl leading-[0.8] tracking-[-0.01em] max-w-2xl mb-6">
             {place.name}
           </h1>
           <p className="text-sm text-fog/70 max-w-lg leading-relaxed">
@@ -90,35 +91,85 @@ export default async function RegionSubPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Description */}
+      {/* Description + Gallery */}
       <section className="py-20 bg-fog">
         <div className="max-w-[90rem] mx-auto px-4 md:px-6">
-          <div className="max-w-xl flex flex-col gap-6">
-            {place.description.map((para, i) => (
-              <p key={i} className="text-granite/80 leading-relaxed text-lg">
-                {para}
-              </p>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+            {place.description
+              .reduce<string[][]>((acc, _, i) => {
+                if (i % 2 === 0) acc.push(place.description.slice(i, i + 2));
+                return acc;
+              }, [])
+              .map((pair, i) => {
+                const img = place.gallery[i];
+                const textCell = (
+                  <div className="flex flex-col gap-8 justify-start">
+                    {i === 0 && (
+                      <h2 className="font-serif text-granite text-4xl md:text-4xl leading-[0.8] tracking-[-0.01em] mb-8">
+                        {place.sectionTitle}
+                      </h2>
+                    )}
+                    {pair.map((para, j) => (
+                      <p
+                        key={j}
+                        className="text-granite/80 tracking-wide leading-relaxed text-base max-w-lg"
+                      >
+                        {para}
+                      </p>
+                    ))}
+                  </div>
+                );
+                const imgCell = img ? (
+                  <div className="relative aspect-[3/2] overflow-hidden">
+                    <Image
+                      src={img}
+                      alt={`${place.name} ${i + 1}`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                ) : (
+                  <div />
+                );
+                return (
+                  <Fragment key={i}>
+                    {imgCell}
+                    {textCell}
+                  </Fragment>
+                );
+              })}
           </div>
         </div>
       </section>
 
-      {/* Gallery */}
-      <section className="pb-16 bg-fog">
+      {/* Key highlights */}
+      <section className="py-20 bg-fog border-t border-granite/10">
         <div className="max-w-[90rem] mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-3 gap-3">
-            {place.gallery.map((img, i) => (
-              <div
-                key={i}
-                className="relative aspect-square rounded-xl overflow-hidden"
-              >
-                <Image
-                  src={img}
-                  alt={`${place.name} ${i + 1}`}
-                  fill
-                  className="object-cover hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 768px) 33vw, 25vw"
-                />
+          <div className="mb-10 md:mb-16">
+            <p className="text-[10px] md:text-base uppercase tracking-wide text-granite/30 mb-3">
+              {isPt ? "O que visitar" : "Key highlights"}
+            </p>
+            <h2 className="font-serif text-granite text-4xl md:text-4xl leading-[0.8] tracking-[-0.01em]">
+              {isPt ? "Pontos de interesse" : "Things to see"}
+            </h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {place.highlights.map((item) => (
+              <div key={item.name}>
+                <div className="relative aspect-[4/3] overflow-hidden mb-4">
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                </div>
+                <p className="font-medium text-granite mb-2">{item.name}</p>
+                <p className="text-sm text-granite/60 leading-relaxed">
+                  {item.description}
+                </p>
               </div>
             ))}
           </div>
@@ -126,17 +177,19 @@ export default async function RegionSubPage({ params }: Props) {
       </section>
 
       {/* How to get there + map */}
-      <section className="py-20 bg-granite text-fog">
+      <section className="py-20 bg-fog">
         <div className="max-w-[90rem] mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
-              <h2 className="font-serif text-2xl mb-4">{howToGetThereLabel}</h2>
-              <p className="text-fog/70 leading-relaxed text-sm">
+              <h2 className="font-serif text-granite text-4xl md:text-4xl leading-[0.8] tracking-[-0.01em] mb-8">
+                {howToGetThereLabel}
+              </h2>
+              <p className="text-granite/70 leading-relaxed text-sm">
                 {place.howToGetThere}
               </p>
             </div>
-            <div className="w-full h-52 rounded-xl bg-fog/5 border border-fog/10 flex items-center justify-center">
-              <p className="text-fog/30 text-sm">{mapPlaceholder}</p>
+            <div className="w-full h-52 rounded-xl bg-granite/5 border border-granite/10 flex items-center justify-center">
+              <p className="text-granite/30 text-sm">{mapPlaceholder}</p>
             </div>
           </div>
         </div>
@@ -151,7 +204,7 @@ export default async function RegionSubPage({ params }: Props) {
                 <p className="text-[10px] md:text-base uppercase tracking-wide md:tracking-wide text-amber mb-3">
                   {t("toursEyebrow")}
                 </p>
-                <h2 className="text-4xl md:text-5xl font-serif leading-[0.8] tracking-[-0.01em] text-granite">
+                <h2 className="text-4xl md:text-4xl font-serif leading-[0.8] tracking-[-0.01em] text-granite">
                   {t("toursTitle")}
                 </h2>
               </div>

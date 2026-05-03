@@ -30,6 +30,7 @@
   --font-display: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, monospace;
   --font-stack: "Stack", ui-sans-serif, system-ui, sans-serif;
+  --font-noto-serif: var(--font-noto-serif), ui-serif, Georgia, serif;
 }
 
 test {
@@ -86,7 +87,6 @@ test {
            hover:bg-amber/60 hover:text-granite hover:border-granite/10;
   }
 
-  /* amber on fog/light backgrounds — opacity lets fog bleed through */
   .btn-fog {
     @apply bg-fog border border-granite/10 text-granite
            hover:bg-granite hover:text-fog hover:border-fog/60;
@@ -96,12 +96,12 @@ test {
     @apply bg-amber border border-amber text-white
            hover:bg-amber-hover hover:text-granite hover:border-granite/10;
   }
-  /* granite with arrow — asymmetric padding for icon breathing room */
+  /* granite */
   .btn-granite {
     @apply bg-granite border border-granite/10 text-fog
            hover:bg-moss/40 hover:border-granite/60 hover:text-granite;
   }
-  /* forest with arrow — base state only; hover is driven by parent group */
+  /* forest  */
   .btn-forest {
     @apply text-forest bg-forest/10;
   }
@@ -111,7 +111,7 @@ test {
   }
   /* granite ghost — white outline for use on dark/image backgrounds */
   .btn-granite-ghost {
-    @apply border border-granite/60 text-granite hover:bg-moss/10;
+    @apply border border-granite/60 text-granite hover:bg-white;
   }
 
   /* ── Small buttons ──────────────────────────────────────── */

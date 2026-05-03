@@ -53,7 +53,7 @@ export default function TourCard({ tour, locale, featured }: Props) {
 
   return (
     <article
-      className={`group relative flex h-full bg-white overflow-hidden border-granite/10 hover:border-granite/40 hover:shadow-[0_5px_10px_rgba(42,42,40,0.03)] hover:-translate-y-1 transition-all duration-300 ease-out ${featured ? "flex-col lg:flex-row" : "flex-col"}`}
+      className={`group relative flex h-full bg-white overflow-hidden  hover:shadow-[0_5px_10px_rgba(42,42,40,0.03)] hover:-translate-y-1 transition-all duration-200 ease-out ${featured ? "flex-col lg:flex-row" : "flex-col"}`}
     >
       {/* full-card link overlay */}
       <Link
@@ -150,7 +150,7 @@ export default function TourCard({ tour, locale, featured }: Props) {
 
         {/* featured-only large price (desktop) */}
         {featured && (
-          <div className="hidden lg:block mt-auto text-right mb-2">
+          <div className="hidden lg:block mt-auto text-right mb-12">
             <span className="block text-[10px] font-medium tracking-widest uppercase text-granite/40 leading-none mb-1">
               {isPt ? "A partir de" : "From"}
             </span>
@@ -161,7 +161,7 @@ export default function TourCard({ tour, locale, featured }: Props) {
         )}
 
         {/* CTA button */}
-        <div className="mt-auto md:mt-0 flex justify-end pt-4  px-4 -mx-5">
+        <div className="mt-auto md:mt-0 flex justify-end">
           <span className="btn-sm btn-granite-ghost group-hover:bg-fog">
             {isPt ? "Ver" : "View"}
             <span className="transition-transform group-hover:translate-x-0.5">

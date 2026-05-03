@@ -1,20 +1,18 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useRef, useEffect, useCallback } from "react";
-import type { Tour } from "@/types/tour";
-import TourCard from "@/components/ui/TourCard";
 
 interface Props {
-  tours: Tour[];
-  locale: string;
+  images: string[];
+  name: string;
 }
 
-export default function FeaturedToursTrack({ tours, locale }: Props) {
+export default function RegionGalleryCarousel({ images, name }: Props) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [dragging, setDragging] = useState(false);
   const trackRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
-  const hasMoved = useRef(false);
   const startX = useRef(0);
   const scrollStart = useRef(0);
 
@@ -49,16 +47,13 @@ export default function FeaturedToursTrack({ tours, locale }: Props) {
 
   const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     isDragging.current = true;
-    hasMoved.current = false;
     startX.current = e.clientX;
     scrollStart.current = trackRef.current?.scrollLeft ?? 0;
-    trackRef.current?.setPointerCapture(e.pointerId);
     setDragging(true);
   };
 
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!isDragging.current || !trackRef.current) return;
-    if (Math.abs(e.clientX - startX.current) > 5) hasMoved.current = true;
     trackRef.current.scrollLeft =
       scrollStart.current - (e.clientX - startX.current);
   };
@@ -68,54 +63,47 @@ export default function FeaturedToursTrack({ tours, locale }: Props) {
     setDragging(false);
   };
 
-  const handleClickCapture = (e: React.MouseEvent) => {
-    if (hasMoved.current) e.stopPropagation();
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "ArrowLeft") scrollTo(Math.max(0, activeIndex - 1));
-    if (e.key === "ArrowRight")
-      scrollTo(Math.min(tours.length - 1, activeIndex + 1));
-  };
-
   return (
-    <>
+    <div>
       <div
         ref={trackRef}
-        tabIndex={0}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
         onPointerCancel={handlePointerUp}
-        onClickCapture={handleClickCapture}
-        onKeyDown={handleKeyDown}
-        className={`flex gap-10 overflow-x-auto snap-x snap-mandatory select-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible md:pb-0 md:cursor-default ${dragging ? "cursor-grabbing" : "cursor-grab"}`}
+        className={`flex overflow-x-auto snap-x snap-mandatory select-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden ${dragging ? "cursor-grabbing" : "cursor-grab"}`}
       >
-        {tours.map((tour, i) => (
+        {images.map((img, i) => (
           <div
-            key={tour.slug}
-            className={`snap-start shrink-0 w-full md:w-auto ${i === 0 ? "lg:col-span-2" : ""}`}
+            key={i}
+            className="snap-start shrink-0 w-full relative aspect-[4/3] overflow-hidden"
           >
-            <TourCard tour={tour} locale={locale} featured={i === 0} />
+            <Image
+              src={img}
+              alt={`${name} ${i + 1}`}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
           </div>
         ))}
       </div>
 
-      <div className="flex items-center justify-center gap-2 md:hidden mt-4">
-        {tours.map((_, i) => (
+      <div className="flex items-center justify-center gap-2 mt-4">
+        {images.map((_, i) => (
           <button
             key={i}
             onClick={() => scrollTo(i)}
-            aria-label={`Go to tour ${i + 1}`}
+            aria-label={`Go to image ${i + 1}`}
             className={[
               "h-2 rounded-full transition-all duration-300 ease-out",
               i === activeIndex
-                ? "w-6 bg-forest"
+                ? "w-6 bg-granite"
                 : "w-2 bg-granite/25 hover:bg-granite/40",
             ].join(" ")}
           />
         ))}
       </div>
-    </>
+    </div>
   );
 }
