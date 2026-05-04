@@ -76,44 +76,47 @@ export default function Navbar() {
           </ul>
 
           {/* Right controls */}
-          <div className="flex items-center gap-3 md:gap-6">
+          <div className="flex items-center gap-4 md:gap-12">
             {/* PT/EN toggle */}
-            <div className="hidden md:flex items-stretch rounded-full border border-granite/25 p-1 text-xs font-medium text-granite">
-              {(["pt", "en"] as const).map((loc) => {
+            <div className="hidden md:flex items-center gap-3">
+              {(["pt", "en"] as const).map((loc, i) => {
                 const isCurrentLocale = locale === loc;
                 const switchPath =
                   `/${loc}${pathname.substring(`/${locale}`.length)}` ||
                   `/${loc}`;
-                return isCurrentLocale ? (
-                  <span
-                    key={loc}
-                    className="flex items-center px-3 py-2 rounded-full  bg-granite text-fog"
-                    aria-current="true"
-                  >
-                    {loc.toUpperCase()}
-                  </span>
-                ) : (
-                  <Link
-                    key={loc}
-                    href={switchPath}
-                    className="flex items-center px-3 rounded-full text-granite/60 hover:text-granite transition-colors"
-                    aria-label={`Switch to ${loc.toUpperCase()}`}
-                  >
-                    {loc.toUpperCase()}
-                  </Link>
+                return (
+                  <div key={loc} className="flex items-center gap-3">
+                    {i > 0 && <span className="text-granite/20">|</span>}
+                    {isCurrentLocale ? (
+                      <span
+                        className="text-sm font-medium text-granite"
+                        aria-current="true"
+                      >
+                        {loc.toUpperCase()}
+                      </span>
+                    ) : (
+                      <Link
+                        href={switchPath}
+                        className="text-sm font-medium text-granite/40 hover:text-granite transition-colors"
+                        aria-label={`Switch to ${loc.toUpperCase()}`}
+                      >
+                        {loc.toUpperCase()}
+                      </Link>
+                    )}
+                  </div>
                 );
               })}
             </div>
 
-            <a
+            {/* <a
               href="https://wa.me/351960000000"
               target="_blank"
               rel="noopener noreferrer"
               aria-label={t("whatsapp")}
-              className="hidden bg-whatsapp text-fog border border-whatsapp md:inline-flex items-center justify-center w-10 h-10 rounded-full hover:bg-whatsapp/50 hover:text-granite transition-colors"
+              className="hidden text-granite md:inline-flex items-center justify-center w-10 h-10 rounded-full hover:bg-whatsapp/50 hover:text-granite transition-colors"
             >
               <NavWhatsAppIcon />
-            </a>
+            </a> */}
 
             <Link
               href={`/${locale}/tours`}
@@ -129,9 +132,9 @@ export default function Navbar() {
               aria-label={t("menu")}
               aria-expanded={isMobileOpen}
             >
-              <span className="block w-5 h-0.5 mb-1.5 bg-granite" />
-              <span className="block w-5 h-0.5 mb-1.5 bg-granite" />
-              <span className="block w-5 h-0.5 bg-granite" />
+              <span className="block w-7 h-0.5 mb-1.5 bg-granite" />
+              <span className="block w-7 h-0.5 mb-1.5 bg-granite" />
+              <span className="block w-7 h-0.5 bg-granite" />
             </button>
           </div>
         </nav>
@@ -168,8 +171,8 @@ export default function Navbar() {
               <Link
                 key={href}
                 href={`/${locale}${href}`}
-                className={`text-3xl font-serif py-3 border-b border-fog/10 transition-colors ${
-                  isActive(href) ? "text-amber" : "text-fog hover:text-amber"
+                className={`text-4xl text-fog font-serif py-3 transition-colors ${
+                  isActive(href) ? "italic" : ""
                 }`}
                 onClick={() => setIsMobileOpen(false)}
               >
@@ -179,7 +182,7 @@ export default function Navbar() {
           </nav>
 
           {/* Button group  */}
-          <div className="px-6 py-8 flex items-center justify-between  gap-4 shrink-0">
+          <div className="px-6 py-8 flex items-center justify-between  gap-4 shrink-0 border-t border-fog/30">
             {/* Locale switcher  */}
             <div className="flex items-center rounded-full border border-fog/20 px-1 py-0.5">
               {(["pt", "en"] as const).map((loc) => {

@@ -31,7 +31,7 @@ export default async function Footer() {
 
   return (
     <footer className="bg-granite text-fog">
-      <div className="max-w-[90rem] mx-auto px-4 md:px-6 pt-16 pb-16 md:pb-24">
+      <div className="max-w-[90rem] mx-auto px-4 md:px-6 pt-16 pb-24 md:pb-24">
         {/* 4-column grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Col 1 — Brand */}
