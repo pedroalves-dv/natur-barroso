@@ -100,7 +100,7 @@ export default function CustomEnquiryForm({ locale, labels }: Props) {
   if (status === "success") {
     return (
       <div className="flex flex-col items-center justify-center py-16 text-center gap-4">
-        <div className="w-12 h-12 rounded-full bg-amber/10 flex items-center justify-center">
+        <div className="w-12 h-12 rounded-sm bg-amber/10 flex items-center justify-center">
           <svg
             width="22"
             height="22"
@@ -119,7 +119,7 @@ export default function CustomEnquiryForm({ locale, labels }: Props) {
   }
 
   return (
-    <div className="bg-granite text-fog rounded-lg p-6 md:p-8">
+    <div className="bg-granite text-fog rounded-sm p-6 md:p-8">
       <h2 className="font-serif text-3xl text-fog mb-1">{labels.title}</h2>
       <p className="text-fog/60 text-sm mb-6">{labels.subtitle}</p>
 

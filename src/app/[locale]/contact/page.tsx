@@ -37,12 +37,8 @@ export default async function ContactPage({ params }: Props) {
       {/* Header */}
       <section className="pt-32 pb-16 md:pb-20 bg-fog">
         <div className="container-wide">
-          <p className="eyebrow text-granite/30">
-            {t("eyebrow")}
-          </p>
-          <h1 className="section-title mb-6">
-            {t("title")}
-          </h1>
+          <p className="eyebrow text-granite/30">{t("eyebrow")}</p>
+          <h1 className="section-title mb-8 md:mb-12">{t("title")}</h1>
           <p className="text-sm text-granite/60 max-w-lg leading-relaxed">
             {t("subtitle")}
           </p>
@@ -86,17 +82,15 @@ export default async function ContactPage({ params }: Props) {
       {/* WhatsApp CTA */}
       <section className="pt-8 bg-fog">
         <div className="container-wide">
-          <h2 className="section-title mb-6">
-            {t("whatsappTitle")}
-          </h2>
-          <p className="text-sm text-granite/60 mb-8 leading-relaxed">
+          <h2 className="section-title mb-8 md:mb-12">{t("whatsappTitle")}</h2>
+          <p className="text-sm text-granite/60 mb-6 leading-relaxed">
             {t("whatsappBody")}
           </p>
           <a
             href="https://wa.me/351960000000"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-lg bg-whatsapp border border-whatsapp text-white hover:bg-whatsapp/50 hover:text-granite"
+            className="btn-lg bg-whatsapp border border-whatsapp text-white gap-3 hover:bg-whatsapp/50 hover:text-granite"
           >
             <svg
               width="20"
@@ -117,7 +111,7 @@ export default async function ContactPage({ params }: Props) {
         <div className="container-wide">
           <div className="grid md:grid-cols-3 gap-10">
             <div>
-              <p className="text-xs  uppercase tracking-widest text-granite/40 mb-3">
+              <p className="text-xs uppercase tracking-widest text-granite/40 mb-3">
                 {isPt ? "Telefone" : "Phone"}
               </p>
               <a

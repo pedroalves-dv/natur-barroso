@@ -11,8 +11,8 @@ export default function GuideCard({ guide, locale }: Props) {
   const languagesLabel = locale === "pt" ? "Línguas" : "Languages";
 
   return (
-    <article className="bg-white rounded-2xl overflow-hidden border border-granite/10">
-      <div className="relative h-64 overflow-hidden">
+    <article className="bg-white rounded-sm overflow-hidden border border-granite/10">
+      <div className="relative h-80 overflow-hidden">
         <Image
           src={guide.photo}
           alt={guide.name}

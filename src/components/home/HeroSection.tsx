@@ -11,7 +11,7 @@ export default async function HeroSection({ locale }: Props) {
   const t = await getTranslations("HomePage");
 
   return (
-    <section className="relative min-h-screen flex items-center md:items-end text-white">
+    <section className="relative min-h-screen flex flex-col md:flex-row md:items-end text-white">
       {/* Hero */}
       <Image
         src="/images/all-tours.png"
@@ -24,9 +24,9 @@ export default async function HeroSection({ locale }: Props) {
       {/* Image overlay gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-granite/80 via-granite/20 to-transparent" />
       {/* Hero content  */}
-      <div className="hero-content flex flex-col md:flex-row md:items-end justify-between gap-8">
-        <div className="flex flex-col">
-          {/* <NaturBarrosoLogo className="invert-[0.9] drop-shadow-[0_2px_8px_rgba(0,0,0,0.1)] max-w-[240px] mb-6" /> */}
+      <div className="hero-content flex flex-col flex-1 md:flex-row md:items-end justify-between gap-8">
+        {/* Mobile: vertically centered. Desktop: sits at bottom left. */}
+        <div className="flex flex-col flex-1 justify-center md:flex-none">
           <h1 className="hero-title drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
             {t("title")}
           </h1>
@@ -34,7 +34,8 @@ export default async function HeroSection({ locale }: Props) {
             {t("subtitle")}
           </p>
         </div>
-        <div className="flex flex-row gap-3 justify-between md:items-stretch shrink-0">
+        {/* Mobile buttons */}
+        <div className="flex flex-row gap-8 justify-between md:items-stretch shrink-0 ">
           <Link href={`/${locale}/tours`} className="btn-lg btn-fog">
             {t("heroCtaPrimary")}
           </Link>

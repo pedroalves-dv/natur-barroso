@@ -21,9 +21,10 @@ export default function MobileContactBar() {
       ticking.current = true;
       requestAnimationFrame(() => {
         const currentY = window.scrollY;
-        if (currentY < lastScrollY.current && currentY > 200) {
+        const delta = lastScrollY.current - currentY; // positive = scrolled up
+        if (delta > 5 && currentY > 200) {
           setVisible(true);
-        } else if (currentY > lastScrollY.current) {
+        } else if (delta < 0) {
           setVisible(false);
         }
         lastScrollY.current = currentY;
@@ -31,8 +32,26 @@ export default function MobileContactBar() {
       });
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    // When the Chrome address bar shows/hides, the visual viewport resizes and
+    // the browser emits a compensating scroll event. Resetting lastScrollY here
+    // (before that scroll event fires) prevents it from reading as an upward scroll.
+    const handleViewportResize = () => {
+      lastScrollY.current = window.scrollY;
+    };
+
+    // Defer listener attachment by one frame so lastScrollY is synced to the
+    // real scroll position after browser scroll-restoration completes.
+    const initFrame = requestAnimationFrame(() => {
+      lastScrollY.current = window.scrollY;
+      window.addEventListener("scroll", handleScroll, { passive: true });
+      window.visualViewport?.addEventListener("resize", handleViewportResize);
+    });
+
+    return () => {
+      cancelAnimationFrame(initFrame);
+      window.removeEventListener("scroll", handleScroll);
+      window.visualViewport?.removeEventListener("resize", handleViewportResize);
+    };
   }, []);
 
   return (

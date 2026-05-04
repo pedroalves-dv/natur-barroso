@@ -38,34 +38,28 @@ export default async function AboutPage({ params }: Props) {
   const values = isPt
     ? [
         {
-          icon: "🌿",
           title: "Local de raiz",
           body: "Somos da região e conhecemos cada trilho, aldeia e história. Nenhum detalhe é genérico.",
         },
         {
-          icon: "👥",
           title: "Grupos pequenos",
           body: "Máximo 8–12 pessoas por tour. Atenção individual, ritmo do grupo, experiência personalizada.",
         },
         {
-          icon: "🌱",
           title: "Impacto responsável",
           body: "Colaboramos com produtores, alojamentos e restaurantes locais. O turismo que praticamos fica na região.",
         },
       ]
     : [
         {
-          icon: "🌿",
           title: "Locally rooted",
           body: "We are from the region and know every trail, village and story. Nothing is generic.",
         },
         {
-          icon: "👥",
           title: "Small groups",
           body: "Maximum 8–12 people per tour. Individual attention, group pace, personalised experience.",
         },
         {
-          icon: "🌱",
           title: "Responsible impact",
           body: "We collaborate with local producers, accommodation and restaurants. The tourism we practice stays in the region.",
         },
@@ -73,35 +67,44 @@ export default async function AboutPage({ params }: Props) {
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative bg-granite text-fog overflow-hidden">
-        <div className="max-w-[90rem] mx-auto grid md:grid-cols-2 min-h-[60vh]">
-          <div className="flex flex-col justify-center px-8 py-20 md:px-12 lg:px-16">
-            <p className="eyebrow text-amber">
-              {t("eyebrow")}
-            </p>
-            <h1 className="section-title text-fog mb-6">
-              {t("title")}
-            </h1>
-            <p className="text-fog/70 leading-relaxed max-w-md">
-              {t("subtitle")}
-            </p>
-          </div>
-          <div className="relative h-72 md:h-auto min-h-[400px]">
-            <Image
-              src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=1000&q=85"
-              alt={
-                isPt
-                  ? "Guias Natur Barroso no trilho"
-                  : "Natur Barroso guides on trail"
-              }
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-granite/30 to-transparent md:bg-none" />
-          </div>
+      {/* Hero — full-bleed image, same pattern as TourHero */}
+      <section className="relative min-h-screen flex items-end">
+        <Image
+          src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=1200&q=85"
+          alt={
+            isPt
+              ? "Guias Natur Barroso no trilho"
+              : "Natur Barroso guides on trail"
+          }
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-granite/80 via-granite/20 to-transparent" />
+
+        <div className="hero-content">
+          <p className="eyebrow text-amber">{t("eyebrow")}</p>
+          <h1 className="font-serif text-fog text-5xl md:text-7xl leading-[0.8] tracking-[-0.01em] mb-6">
+            {t("title")}
+          </h1>
+          <p className="hero-body">{t("subtitle")}</p>
+        </div>
+
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-50 animate-nudge-down">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="white"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M6 9l6 6 6-6" />
+          </svg>
         </div>
       </section>
 
@@ -111,12 +114,8 @@ export default async function AboutPage({ params }: Props) {
           <div className="max-w-3xl">
             <div className="section-header">
               <div>
-                <p className="eyebrow text-amber">
-                  {t("storyEyebrow")}
-                </p>
-                <h2 className="section-title">
-                  {t("storyTitle")}
-                </h2>
+                <p className="eyebrow text-granite/40">{t("storyEyebrow")}</p>
+                <h2 className="section-title">{t("storyTitle")}</h2>
               </div>
             </div>
             <div className="flex flex-col gap-5">
@@ -131,16 +130,12 @@ export default async function AboutPage({ params }: Props) {
       </section>
 
       {/* Guides */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-fog">
         <div className="container-wide">
           <div className="section-header">
             <div>
-              <p className="eyebrow text-amber">
-                {t("guidesEyebrow")}
-              </p>
-              <h2 className="section-title">
-                {t("guidesTitle")}
-              </h2>
+              <p className="eyebrow text-granite/40">{t("guidesEyebrow")}</p>
+              <h2 className="section-title">{t("guidesTitle")}</h2>
             </div>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -152,24 +147,19 @@ export default async function AboutPage({ params }: Props) {
       </section>
 
       {/* Values */}
-      <section className="py-20 bg-moss text-fog">
+      <section className="py-20 bg-fog">
         <div className="container-wide">
           <div className="section-header">
             <div>
-              <p className="eyebrow text-amber">
-                {t("valuesEyebrow")}
-              </p>
-              <h2 className="section-title text-fog">
-                {t("valuesTitle")}
-              </h2>
+              <p className="eyebrow text-granite/40">{t("valuesEyebrow")}</p>
+              <h2 className="section-title">{t("valuesTitle")}</h2>
             </div>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {values.map((v) => (
               <div key={v.title} className="flex flex-col gap-3">
-                <span className="text-3xl">{v.icon}</span>
-                <h3 className="font-serif text-xl">{v.title}</h3>
-                <p className="text-fog/70 leading-relaxed text-sm">{v.body}</p>
+                <h3 className="font-serif text-xl text-granite">{v.title}</h3>
+                <p className="text-granite/70 leading-relaxed text-sm">{v.body}</p>
               </div>
             ))}
           </div>
@@ -179,10 +169,8 @@ export default async function AboutPage({ params }: Props) {
       {/* Certifications */}
       <section className="py-12 bg-fog border-t border-granite/8">
         <div className="container-wide">
-          <p className="text-xs  uppercase tracking-widest text-granite/40 mb-6 text-center">
-            {t("certTitle")}
-          </p>
-          <div className="flex flex-wrap justify-center gap-8 text-sm text-granite/60">
+          <p className="eyebrow text-granite/40 text-center mb-6">{t("certTitle")}</p>
+          <div className="flex flex-wrap justify-between gap-4 text-sm text-granite/60">
             <span>✓ IPDJ — Guias de Montanha Certificados</span>
             <span>✓ Seguro de Atividade na Natureza</span>
             <span>✓ Primeiros Socorros em Ambiente Remoto</span>

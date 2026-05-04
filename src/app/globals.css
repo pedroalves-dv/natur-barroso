@@ -79,11 +79,11 @@ test {
   }
 
   .hero-content {
-    @apply relative z-10 max-w-[90rem] mx-auto px-4 md:px-6 w-full pb-16 md:pb-24;
+    @apply relative z-10 max-w-[90rem] mx-auto px-4 md:px-6 w-full pb-24 md:pb-32;
   }
 
   .hero-title {
-    @apply font-serif text-fog text-5xl md:text-7xl leading-[0.8] tracking-[-0.01em] mb-6;
+    @apply font-serif text-fog text-5xl md:text-7xl leading-[0.8] tracking-[-0.01em] mb-8 pt-24 md:pt-0;
   }
 
   .hero-body {
