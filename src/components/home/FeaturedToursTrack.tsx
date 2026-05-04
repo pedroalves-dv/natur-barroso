@@ -48,28 +48,34 @@ export default function FeaturedToursTrack({ tours, locale }: Props) {
   }, []);
 
   const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    const track = trackRef.current;
+    if (!track || track.scrollWidth <= track.clientWidth) return;
     isDragging.current = true;
     hasMoved.current = false;
     startX.current = e.clientX;
-    scrollStart.current = trackRef.current?.scrollLeft ?? 0;
-    trackRef.current?.setPointerCapture(e.pointerId);
+    scrollStart.current = track.scrollLeft;
+    track.setPointerCapture(e.pointerId);
     setDragging(true);
   };
 
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!isDragging.current || !trackRef.current) return;
-    if (Math.abs(e.clientX - startX.current) > 5) hasMoved.current = true;
     trackRef.current.scrollLeft =
       scrollStart.current - (e.clientX - startX.current);
   };
 
   const handlePointerUp = () => {
+    const scrolled = Math.abs((trackRef.current?.scrollLeft ?? 0) - scrollStart.current);
+    hasMoved.current = scrolled > 5;
     isDragging.current = false;
     setDragging(false);
   };
 
   const handleClickCapture = (e: React.MouseEvent) => {
-    if (hasMoved.current) e.stopPropagation();
+    if (hasMoved.current) {
+      e.stopPropagation();
+      hasMoved.current = false;
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -89,7 +95,7 @@ export default function FeaturedToursTrack({ tours, locale }: Props) {
         onPointerCancel={handlePointerUp}
         onClickCapture={handleClickCapture}
         onKeyDown={handleKeyDown}
-        className={`flex gap-10 overflow-x-auto snap-x snap-mandatory select-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible md:pb-0 md:cursor-default ${dragging ? "cursor-grabbing" : "cursor-grab"}`}
+        className={`flex gap-8 overflow-x-auto snap-x snap-mandatory select-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible md:pb-0 md:cursor-default ${dragging ? "cursor-grabbing" : "cursor-grab"}`}
       >
         {tours.map((tour, i) => (
           <div

@@ -108,14 +108,14 @@ export default async function RegionPage({ params }: Props) {
         {/* Image overlay gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-granite/80 via-granite/20 to-transparent" />
         {/* Hero content  */}
-        <div className="relative z-10 container-wide pb-16 w-full">
+        <div className="hero-content">
           <p className="eyebrow text-fog/50">
             {t("eyebrow")}
           </p>
-          <h1 className="font-serif text-fog text-5xl md:text-7xl leading-[0.8] tracking-[-0.01em] max-w-2xl mb-6">
+          <h1 className="hero-title">
             {t("title")}
           </h1>
-          <p className="text-sm text-fog/70 max-w-lg leading-relaxed">
+          <p className="hero-body">
             {t("subtitle")}
           </p>
         </div>

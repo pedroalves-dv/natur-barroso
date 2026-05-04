@@ -73,6 +73,18 @@ test {
   .section-header {
     @apply flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8 md:mb-12;
   }
+
+  .hero-content {
+    @apply relative z-10 max-w-[90rem] mx-auto px-4 md:px-6 w-full pb-16 md:pb-24;
+  }
+
+  .hero-title {
+    @apply font-serif text-fog text-5xl md:text-7xl leading-[0.8] tracking-[-0.01em] mb-6;
+  }
+
+  .hero-body {
+    @apply text-sm text-fog/70 max-w-lg leading-relaxed;
+  }
 }
 
 @layer utilities {

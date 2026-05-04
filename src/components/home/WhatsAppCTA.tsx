@@ -12,11 +12,9 @@ export default async function WhatsAppCTA() {
   return (
     <section className="py-20 bg-white">
       <div className="container-wide">
-        <div className="mb-8 md:mb-12">
-          <p className="eyebrow text-whatsapp">
-            {t("whatsappCtaCEyebrow")}
-          </p>
-          <h2 className="text-4xl md:text-6xl font-serif leading-[0.8] tracking-[-0.01em] text-granite mb-8 md:mb-16">
+        <div className="mb-10 md:mb-16">
+          <p className="eyebrow text-whatsapp">{t("whatsappCtaCEyebrow")}</p>
+          <h2 className="section-title mb-8 md:mb-12">
             {t("whatsappCtaTitle")}
           </h2>
           <p className="text-granite/60 text-sm md:text-base leading-relaxed max-w-lg">

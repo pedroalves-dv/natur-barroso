@@ -51,14 +51,10 @@ export default async function JournalTeaser({ locale }: Props) {
   return (
     <section className="py-20 bg-fog">
       <div className="container-wide">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-2 md:gap-4 mb-8 md:mb-12">
+        <div className="section-header">
           <div>
-            <p className="eyebrow text-forest">
-              {t("journalEyebrow")}
-            </p>
-            <h2 className="text-4xl md:text-6xl font-serif leading-[0.8] text-granite tracking-[-0.01em]">
-              {t("journalTitle")}
-            </h2>
+            <p className="eyebrow text-granite/40">{t("journalEyebrow")}</p>
+            <h2 className="section-title">{t("journalTitle")}</h2>
           </div>
           <div className="hidden md:block shrink-0">
             <Link href={`/${locale}/blog`} className="btn-lg btn-granite-ghost">

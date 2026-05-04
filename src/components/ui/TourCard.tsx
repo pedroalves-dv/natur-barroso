@@ -52,15 +52,10 @@ export default function TourCard({ tour, locale, featured }: Props) {
   const isPt = locale === "pt";
 
   return (
-    <article
-      className={`group relative flex h-full bg-white overflow-hidden  hover:shadow-[0_5px_10px_rgba(42,42,40,0.03)] hover:-translate-y-1 transition-all duration-200 ease-out ${featured ? "flex-col lg:flex-row" : "flex-col"}`}
+    <Link
+      href={`/${locale}/tours/${tour.slug}`}
+      className={`group relative flex h-full bg-white overflow-hidden hover:shadow-[0_5px_10px_rgba(42,42,40,0.03)] hover:-translate-y-1 transition-all duration-200 ease-out ${featured ? "flex-col lg:flex-row" : "flex-col"}`}
     >
-      {/* full-card link overlay */}
-      <Link
-        href={`/${locale}/tours/${tour.slug}`}
-        className="absolute inset-0 z-10"
-        aria-label={isPt ? tour.title : (tour.title_en ?? tour.title)}
-      />
 
       {/* cover image */}
       <div
@@ -170,6 +165,6 @@ export default function TourCard({ tour, locale, featured }: Props) {
           </span>
         </div>
       </div>
-    </article>
+    </Link>
   );
 }

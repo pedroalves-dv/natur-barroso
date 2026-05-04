@@ -121,30 +121,28 @@ export default async function RegionTeaser({ locale }: Props) {
   ];
 
   return (
-    <section className="bg-fog text-granite overflow-hidden pt-24 pb-16 md:py-24 max-w-[90rem] mx-auto px-6 ">
-      <div className="grid lg:grid-cols-2 gap-8 lg:gap-0 min-h-[640px]">
+    <section className="py-20 bg-fog container-wide">
+      <div className="grid lg:grid-cols-[1fr_2fr] gap-8 ">
         {/* Text + facts */}
         <div className="flex flex-col justify-center mb-auto">
-          <p className="eyebrow text-amber">
-            {t("regionTeaserEyebrow")}
-          </p>
-          <h2 className="section-title mb-8 md:mb-16">
+          <p className="eyebrow text-amber">{t("regionTeaserEyebrow")}</p>
+          <h2 className="section-title mb-8 md:mb-12">
             {t("regionTeaserTitle")}
           </h2>
           <p className="text-granite/65 leading-relaxed max-w-md text-sm md:text-base">
             {t("regionTeaserSubtitle")}
           </p>
-
-          <div className="grid grid-cols-2 gap-y-4 mt-4 md:mt-8 md:mb-16">
+          {/* facts  */}
+          <div className="grid grid-cols-2 gap-8 mt-4 md:mt-8 md:mb-16 mr-auto">
             {facts.map((f) => (
               <div className="pr-8 pt-4" key={f.num}>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-amber shrink-0">{f.icon}</span>
-                  <span className="text-4xl font-stack text-amber leading-none">
+                  {/* <span className="text-amber shrink-0">{f.icon}</span> */}
+                  <span className="text-5xl font-serif text-amber leading-none">
                     {f.num}
                   </span>
                 </div>
-                <div className="text-sm font-medium text-granite/90 leading-snug mb-0.5">
+                <div className="text-md font-medium text-granite/90 leading-snug mb-0.5">
                   {f.label}
                 </div>
                 <div className="text-xs text-granite/45 leading-snug">

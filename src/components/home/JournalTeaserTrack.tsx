@@ -63,28 +63,34 @@ export default function JournalTeaserTrack({
   }, []);
 
   const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    const track = trackRef.current;
+    if (!track || track.scrollWidth <= track.clientWidth) return;
     isDragging.current = true;
     hasMoved.current = false;
     startX.current = e.clientX;
-    scrollStart.current = trackRef.current?.scrollLeft ?? 0;
-    trackRef.current?.setPointerCapture(e.pointerId);
+    scrollStart.current = track.scrollLeft;
+    track.setPointerCapture(e.pointerId);
     setDragging(true);
   };
 
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!isDragging.current || !trackRef.current) return;
-    if (Math.abs(e.clientX - startX.current) > 5) hasMoved.current = true;
     trackRef.current.scrollLeft =
       scrollStart.current - (e.clientX - startX.current);
   };
 
   const handlePointerUp = () => {
+    const scrolled = Math.abs((trackRef.current?.scrollLeft ?? 0) - scrollStart.current);
+    hasMoved.current = scrolled > 5;
     isDragging.current = false;
     setDragging(false);
   };
 
   const handleClickCapture = (e: React.MouseEvent) => {
-    if (hasMoved.current) e.stopPropagation();
+    if (hasMoved.current) {
+      e.stopPropagation();
+      hasMoved.current = false;
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -104,30 +110,26 @@ export default function JournalTeaserTrack({
         onPointerCancel={handlePointerUp}
         onClickCapture={handleClickCapture}
         onKeyDown={handleKeyDown}
-        className={`flex gap-4 overflow-x-auto snap-x snap-mandatory select-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-3 md:overflow-visible md:cursor-default ${dragging ? "cursor-grabbing" : "cursor-grab"}`}
+        className={`flex gap-8 overflow-x-auto snap-x snap-mandatory select-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-3 md:overflow-visible md:cursor-default ${dragging ? "cursor-grabbing" : "cursor-grab"}`}
       >
         {posts.map((post) => (
-          <article
+          <Link
             key={post.slug}
+            href={`/${locale}/blog/${post.slug}`}
             className="group relative flex flex-col bg-white overflow-hidden hover:shadow-[0_5px_10px_rgba(42,42,40,0.03)] hover:-translate-y-1 transition-all duration-300 ease-out snap-start shrink-0 w-full md:w-auto"
           >
-            <Link
-              href={`/${locale}/blog/${post.slug}`}
-              className="absolute inset-0 z-10"
-              aria-label={post.title}
-            />
-            <div className="relative h-48 overflow-hidden">
+            <div className="relative h-68 overflow-hidden">
               <Image
                 src={post.image}
                 alt={post.title}
                 fill
-                className="object-cover transition-transform duration-500"
+                className="object-cover "
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
             <div className="flex flex-col flex-1 p-4">
               <div className="flex items-center gap-3 mb-3">
-                <span className="text-xs font-medium text-amber">
+                <span className="text-xs font-medium text-granite">
                   {post.category}
                 </span>
                 <span className="text-xs text-granite/40">{post.date}</span>
@@ -148,7 +150,7 @@ export default function JournalTeaserTrack({
                 </span>
               </div>
             </div>
-          </article>
+          </Link>
         ))}
       </div>
 

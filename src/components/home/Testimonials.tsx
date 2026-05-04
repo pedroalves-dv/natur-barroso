@@ -23,7 +23,7 @@ function TestimonialCard({ review }: { review: Review }) {
   return (
     <article
       aria-roledescription="slide"
-      className="bg-fog border border-granite/10 rounded-lg px-6 pt-6 pb-4 flex flex-col gap-4 snap-start shrink-0 w-full md:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.667rem)]"
+      className="bg-white border border-granite/10 rounded-lg px-6 pt-6 pb-4 flex flex-col gap-4 snap-start shrink-0 w-full md:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.667rem)]"
     >
       <div className="flex gap-0.5">
         {Array.from({ length: review.rating }).map((_, j) => (
@@ -115,17 +115,13 @@ export default function Testimonials({
     <section
       aria-roledescription="carousel"
       aria-label={title}
-      className="py-20 bg-moss/10 overflow-hidden"
+      className="py-20 overflow-hidden"
     >
-      <div className="container-wide mb-8 md:mb-12">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+      <div className="container-wide">
+        <div className="section-header">
           <div>
-            <p className="eyebrow text-amber">
-              TripAdvisor · Google Reviews
-            </p>
-            <h2 className="section-title">
-              {title}
-            </h2>
+            <p className="eyebrow text-amber">TripAdvisor · Google Reviews</p>
+            <h2 className="section-title">{title}</h2>
           </div>
           <div className="hidden md:inline-flex">
             <Link href={`/${locale}/tours`} className="btn-lg btn-amber">
