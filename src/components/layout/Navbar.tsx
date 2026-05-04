@@ -153,8 +153,8 @@ export default function Navbar() {
               aria-label={t("close")}
             >
               <svg
-                width="24"
-                height="24"
+                width="34"
+                height="34"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -166,7 +166,7 @@ export default function Navbar() {
             </button>
           </div>
 
-          <nav className="flex flex-col flex-1 px-6 pt-8 gap-1 overflow-y-auto">
+          <nav className="flex flex-col flex-1 px-6 pt-8 gap-1 overflow-y-auto text-right">
             {NAV_LINK_KEYS.map(({ href, key }) => (
               <Link
                 key={href}
@@ -182,7 +182,7 @@ export default function Navbar() {
           </nav>
 
           {/* Button group  */}
-          <div className="px-6 py-8 flex items-center justify-between  gap-4 shrink-0 border-t border-fog/30">
+          <div className="px-6 pb-10 pt-7 flex items-center justify-between  gap-4 shrink-0 border-t border-fog/30">
             {/* Locale switcher  */}
             <div className="flex items-center rounded-full border border-fog/20 px-1 py-0.5">
               {(["pt", "en"] as const).map((loc) => {
