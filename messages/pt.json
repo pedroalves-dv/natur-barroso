@@ -170,7 +170,10 @@
     "eyebrow": "Perguntas frequentes",
     "title": "FAQ",
     "subtitle": "Tudo o que precisa saber antes de reservar — de cancelamentos a equipamento, passando por grupos e acessibilidade.",
-    "contactCta": "Não encontrou a resposta? Fale connosco diretamente."
+    "contactCta": "Não encontrou a resposta? Fale connosco diretamente.",
+    "contactEyebrow": "Suporte",
+    "contactSidebarTitle": "Não encontrou o que procurava?",
+    "contactBtn": "Ir para contacto"
   },
   "RegionPage": {
     "eyebrow": "O território",

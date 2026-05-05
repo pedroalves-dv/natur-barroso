@@ -121,10 +121,10 @@
   },
   "AboutPage": {
     "eyebrow": "Our team",
-    "title": "Local guides. Barroso born.",
+    "title": "Local guides. Local Knowledge.",
     "subtitle": "We are a small, local team passionate about the territory we call home. Every tour is guided by someone who grew up here.",
     "storyEyebrow": "Our story",
-    "storyTitle": "Born in Barroso",
+    "storyTitle": "NaturNorth",
     "guidesEyebrow": "The team",
     "guidesTitle": "Our guides",
     "valuesEyebrow": "Our principles",
@@ -171,7 +171,10 @@
     "eyebrow": "Frequently asked questions",
     "title": "FAQ",
     "subtitle": "Everything you need to know before booking — from cancellations to equipment, groups and accessibility.",
-    "contactCta": "Didn't find the answer? Talk to us directly."
+    "contactCta": "Didn't find the answer? Talk to us directly.",
+    "contactEyebrow": "Support",
+    "contactSidebarTitle": "Didn't find what you were looking for?",
+    "contactBtn": "Go to contact"
   },
   "RegionPage": {
     "eyebrow": "The territory",

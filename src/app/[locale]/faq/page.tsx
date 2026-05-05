@@ -23,35 +23,37 @@ export default async function FAQPage({ params }: Props) {
   const t = await getTranslations('FAQPage');
 
   return (
-    <>
-      {/* Header */}
-      <section className="pt-32 pb-16 bg-fog">
-        <div className="max-w-3xl mx-auto px-4 md:px-6">
-          <p className="eyebrow text-amber">
-            {t('eyebrow')}
-          </p>
-          <h1 className="section-title">{t('title')}</h1>
-          <p className="text-granite/60 leading-relaxed">{t('subtitle')}</p>
-        </div>
-      </section>
+    <section className="pt-32 pb-20 bg-fog">
+      <div className="container-wide">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
 
-      {/* Accordion */}
-      <section className="py-20 bg-fog">
-        <div className="max-w-3xl mx-auto px-4 md:px-6">
-          <FAQAccordion items={faqItems} locale={locale} />
+          {/* Left: page header + accordion */}
+          <div>
+            <div className="mb-16">
+              <p className="eyebrow text-amber">{t('eyebrow')}</p>
+              <h1 className="section-title mb-8 md:mb-12">{t('title')}</h1>
+              <p className="text-granite/60 leading-relaxed">{t('subtitle')}</p>
+            </div>
+            <FAQAccordion items={faqItems} locale={locale} />
+          </div>
 
-          {/* Contact CTA */}
-          <div className="mt-16 text-center">
-            <p className="text-granite/60 text-sm mb-4">{t('contactCta')}</p>
+          {/* Right: sticky contact section */}
+          <div className="lg:sticky lg:top-32 flex flex-col gap-6">
+            <div>
+              <p className="eyebrow text-amber">{t('contactEyebrow')}</p>
+              <h2 className="section-title mb-8 md:mb-12">{t('contactSidebarTitle')}</h2>
+              <p className="text-granite/60 leading-relaxed">{t('contactCta')}</p>
+            </div>
             <Link
               href={`/${locale}/contact`}
-              className="btn-lg btn-granite-ghost"
+              className="btn-lg btn-granite self-start"
             >
-              {locale === 'pt' ? 'Ir para contacto' : 'Go to contact'}
+              {t('contactBtn')}
             </Link>
           </div>
+
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
