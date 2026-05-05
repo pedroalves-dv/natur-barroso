@@ -45,33 +45,14 @@ The goal is a **fully functional, bookable web platform** — not a brochure sit
 
 ## 4. Brand & Design System
 
-### 4.1 Logo
+read src/app/globals.css
 
-user designed a logo.
-
-### 4.2 Colour Palette
-
-```css
---color-forest:    #2D4A2F;   /* primary — deep forest green */
---color-moss:      #3D5C3A;   /* primary variant */
---color-amber:     #ffb547;   /* accent — golden hour */
---color-granite:   #2A2A28;   /* neutral dark */
---color-fog:       #F5F2EC;   /* light background */
---color-river:     #4A6B7C;   /* secondary accent — slate blue */
-```
-
-### 4.3 Typography
+### 4.1 Typography
 
 - **(Main) Display / Body / UI:** Stack (clean, readable, modern)
 - **(Variant) Display / headings variations:** Instrument Serif (humanist serif — premium without stiffness)
 
 - Load via `next/font` (Google Fonts)
-
-### 4.4 Tone of Voice
-
-Friendly but polished. Grounded and confident. Think: a knowledgeable local guide who is also a professional. Not poetic to the point of vagueness. Not casual slang. Somewhere between warm and premium — never posh. Think high-end and avant garde hiking equipment brand mixed with luxury hotel while still being grounded.
-
----
 
 ## 5. Site Architecture
 
@@ -103,7 +84,7 @@ The homepage is storytelling-first with a high "wow factor", but it must convert
 1. **Hero**
    - Full-screen video loop (autoplay, muted) or parallax image fallback
    - Animated headline entrance (Framer Motion)
-   - Headline example: *"Terras de Barroso. Discovered on foot."*
+   - Headline example: *"Your adventure geins here."*
    - Two CTAs: `Explore Our Tours` (primary) + `About the Region` (ghost/secondary)
 
 2. **Trust strip**
@@ -142,7 +123,6 @@ The homepage is storytelling-first with a high "wow factor", but it must convert
 
 **Persistent UI:**
 
-- Floating WhatsApp button (bottom-right, all pages)
 - Cookie consent banner (GDPR compliant)
 
 ---
@@ -291,12 +271,10 @@ Each sub-page: description, imagery, how to get there, what tours visit this pla
 
 | Component | Notes |
 | --- | --- |
-| Navbar | Logo left, nav centre, PT/EN toggle + "Book a Tour" CTA right. Transparent on hero, solid on scroll. |
-| Mobile nav | Hamburger → full-screen slide-in drawer |
+| Navbar | Logo left, nav centre, PT/EN toggle + "Book a Tour" CTA right. |
+| Mobile nav | logo book + Hamburger button → full-screen slide-in drawer |
 | Footer | 4-column layout as described in Home section |
-| Floating WhatsApp button | Bottom-right, all pages, all screen sizes |
 | Cookie consent banner | GDPR compliant, minimal design |
-| Seasonal conditions banner | Manually updated in Sanity — e.g. "❄️ Some high-altitude trails may be snow-covered" |
 | Tour card | Reusable across Home, /tours, /region sub-pages, Similar Tours |
 | Guide profile card | Reusable on /about and /tours/[slug] |
 | Loading skeletons | For tour cards and blog cards |
@@ -579,6 +557,5 @@ These are intentionally deferred to v2:
 | Sanity over Contentful | More editor-friendly Studio; better for non-technical team |
 | Region pages as SEO backbone | Primary organic traffic source — people search for Gerês, not "Natur Barroso" |
 | Inline FAQs on tour pages | Reduces drop-off; answers objections at point of decision |
-| WhatsApp prominent on all pages | Portuguese market converts heavily via WhatsApp; not just a footer link |
 | No standalone gallery page (v1) | Low conversion value; images embedded contextually are more effective |
 | JSON fixtures before Sanity | Unblocks frontend build; CMS integrated in Phase 4 |
