@@ -77,7 +77,8 @@ export default function ContactForm({ locale, labels }: Props) {
             height="22"
             viewBox="0 0 24 24"
             fill="none"
-            stroke="#2D4A2F"
+            stroke="currentColor"
+            className="text-forest"
             strokeWidth="2.5"
           >
             <polyline points="20 6 9 17 4 12" />

@@ -29,13 +29,13 @@ export default async function NotFound() {
       <div className="flex flex-col sm:flex-row gap-3 mt-10">
         <Link
           href={`/${locale}`}
-          className="px-6 py-3 bg-forest text-white rounded-full font-medium hover:bg-moss transition-colors text-center text-sm"
+          className="px-6 py-3 bg-forest text-white rounded-sm font-medium hover:bg-moss transition-colors text-center text-sm"
         >
           {t("backHome")}
         </Link>
         <Link
           href={`/${locale}/tours`}
-          className="px-6 py-3 border border-granite/20 text-granite rounded-full font-medium hover:bg-granite/5 transition-colors text-center text-sm"
+          className="px-6 py-3 border border-granite/20 text-granite rounded-sm font-medium hover:bg-granite/5 transition-colors text-center text-sm"
         >
           {t("viewTours")}
         </Link>

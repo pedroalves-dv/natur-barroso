@@ -28,7 +28,7 @@ export default function CookieBanner() {
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 bg-granite text-fog px-6 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-2xl">
+    <div className="fixed bottom-0 left-0 right-0 z-50 bg-granite text-fog px-6 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-2xl">
       <p className="text-sm max-w-2xl">
         {t("message")}{" "}
         <Link

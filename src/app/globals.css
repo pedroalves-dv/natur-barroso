@@ -20,8 +20,8 @@
   --color-fog: #f0eeeb;
   --color-sand: #e4d8c9;
   --color-light-sand: #f5e9d8;
-  /* --color-fog: #f5f2ec; */
   --color-river: #4a6b7c;
+  --color-error: #9b1a1a;
   --color-whatsapp: #25d366;
   --color-whatsapp-hover: #5ade8a;
 
@@ -35,10 +35,6 @@
   --font-mono: var(--font-jetbrains), ui-monospace, monospace;
   --font-stack: "Stack", ui-sans-serif, system-ui, sans-serif;
   --font-noto-serif: var(--font-noto-serif), ui-serif, Georgia, serif;
-}
-
-test {
-  color: #c0c0c0;
 }
 
 @keyframes nudge-down {
@@ -83,7 +79,11 @@ test {
   }
 
   .hero-title {
-    @apply font-serif text-fog text-5xl md:text-7xl leading-[0.8] tracking-[-0.01em] mb-8 pt-24 md:pt-0;
+    @apply font-serif text-fog text-5xl md:text-7xl leading-[0.8] tracking-[-0.01em] mb-2 pt-24 md:pt-0;
+  }
+
+  .page-hero-title {
+    @apply font-serif text-fog text-5xl md:text-7xl leading-[0.8] tracking-[-0.01em] mb-2;
   }
 
   .hero-body {

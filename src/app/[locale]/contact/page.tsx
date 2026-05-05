@@ -2,6 +2,7 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import ContactForm from "@/components/contact/ContactForm";
 import CustomEnquiryForm from "@/components/contact/CustomEnquiryForm";
+import { PHONE_NUMBER, PHONE_DISPLAY, EMAIL, waHref } from "@/config/contact";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -87,7 +88,7 @@ export default async function ContactPage({ params }: Props) {
             {t("whatsappBody")}
           </p>
           <a
-            href="https://wa.me/351960000000"
+            href={waHref(t("waMessage"))}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-lg bg-whatsapp border border-whatsapp text-white gap-3 hover:bg-whatsapp/50 hover:text-granite"
@@ -112,29 +113,29 @@ export default async function ContactPage({ params }: Props) {
           <div className="grid md:grid-cols-3 gap-10">
             <div>
               <p className="text-xs uppercase tracking-widest text-granite/40 mb-3">
-                {isPt ? "Telefone" : "Phone"}
+                {t("phoneLabel")}
               </p>
               <a
-                href="tel:+351960000000"
+                href={`tel:+${PHONE_NUMBER}`}
                 className="text-granite font-medium hover:text-amber transition-colors"
               >
-                +351 960 000 000
+                {PHONE_DISPLAY}
               </a>
             </div>
             <div>
-              <p className="text-xs  uppercase tracking-widest text-granite/40 mb-3">
+              <p className="text-xs uppercase tracking-widest text-granite/40 mb-3">
                 Email
               </p>
               <a
-                href="mailto:info@naturbarroso.pt"
+                href={`mailto:${EMAIL}`}
                 className="text-granite font-medium hover:text-amber transition-colors"
               >
-                info@naturbarroso.pt
+                {EMAIL}
               </a>
             </div>
             <div>
-              <p className="text-xs  uppercase tracking-widest text-granite/40 mb-3">
-                {isPt ? "Morada" : "Address"}
+              <p className="text-xs uppercase tracking-widest text-granite/40 mb-3">
+                {t("addressLabel")}
               </p>
               <p className="text-granite/70 text-sm leading-relaxed">
                 Montalegre, Terras de Barroso

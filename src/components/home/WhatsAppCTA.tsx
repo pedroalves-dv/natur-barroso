@@ -1,13 +1,12 @@
 import { getTranslations } from "next-intl/server";
-
-const CONTACT_NUMBER = "351960000000";
-const DISPLAY_NUMBER = "+351 960 000 000";
+import { PHONE_DISPLAY, waHref as buildWaHref, PHONE_NUMBER } from "@/config/contact";
 
 export default async function WhatsAppCTA() {
   const t = await getTranslations("HomePage");
+  const tContact = await getTranslations("ContactPage");
 
-  const waHref = `https://wa.me/${CONTACT_NUMBER}?text=${encodeURIComponent("Olá! Tenho interesse num tour da Natur Barroso.")}`;
-  const telHref = `tel:+${CONTACT_NUMBER}`;
+  const waHref = buildWaHref(tContact("waMessage"));
+  const telHref = `tel:+${PHONE_NUMBER}`;
 
   return (
     <section className="py-20 bg-white">
@@ -60,7 +59,7 @@ export default async function WhatsAppCTA() {
               {t("whatsappCtaCallDesc")}
             </p>
             <p className="text-granite text-2xl font-stack mb-6">
-              {DISPLAY_NUMBER}
+              {PHONE_DISPLAY}
             </p>
             <a
               href={telHref}

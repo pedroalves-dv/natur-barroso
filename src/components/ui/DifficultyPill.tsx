@@ -5,20 +5,14 @@ interface Props {
   locale?: string;
 }
 
-const DIFFICULTY_STYLES: Record<Difficulty, string> = {
-  easy: "bg-[#eaf3de] text-[#3b6d11]",
-  moderate: "bg-[#faeeda] text-[#854f0b]",
-  challenging: "bg-[#fcebeb] text-[#a32d2d]",
-  expert: "bg-[#f7c1c1] text-[#791f1f]",
-};
-
 export default function DifficultyPill({ difficulty, locale = "pt" }: Props) {
   const config = DIFFICULTY_CONFIG[difficulty];
   const label = locale === "pt" ? config.labelPt : config.label;
 
   return (
     <span
-      className={`inline-flex items-center px-2.5 py-1 text-xs font-medium rounded-full ${DIFFICULTY_STYLES[difficulty]}`}
+      className="inline-flex items-center px-2.5 py-1 text-xs font-medium rounded-full"
+      style={{ backgroundColor: config.color + "26", color: config.color }}
     >
       <svg
         viewBox="0 0 12 12"

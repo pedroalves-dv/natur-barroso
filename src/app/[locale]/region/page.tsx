@@ -109,15 +109,9 @@ export default async function RegionPage({ params }: Props) {
         <div className="absolute inset-0 bg-gradient-to-t from-granite/80 via-granite/20 to-transparent" />
         {/* Hero content  */}
         <div className="hero-content">
-          <p className="eyebrow text-fog/50">
-            {t("eyebrow")}
-          </p>
-          <h1 className="hero-title">
-            {t("title")}
-          </h1>
-          <p className="hero-body">
-            {t("subtitle")}
-          </p>
+          <p className="eyebrow text-fog/50">{t("eyebrow")}</p>
+          <h1 className="page-hero-title">{t("title")}</h1>
+          <p className="hero-body">{t("subtitle")}</p>
         </div>
         {/* Scroll chevron indicator  */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-50 animate-nudge-down">
@@ -142,12 +136,8 @@ export default async function RegionPage({ params }: Props) {
         <div className="container-wide">
           <div className="section-header">
             <div>
-              <p className="eyebrow text-granite/30">
-                {t("whyEyebrow")}
-              </p>
-              <h2 className="section-title">
-                {t("whyTitle")}
-              </h2>
+              <p className="eyebrow text-granite/30">{t("whyEyebrow")}</p>
+              <h2 className="section-title">{t("whyTitle")}</h2>
             </div>
           </div>
           <div className="grid md:grid-cols-3 gap-4">
@@ -179,12 +169,8 @@ export default async function RegionPage({ params }: Props) {
         <div className="container-wide">
           <div className="section-header">
             <div>
-              <p className="eyebrow text-granite/30">
-                {t("placesEyebrow")}
-              </p>
-              <h2 className="section-title">
-                {t("placesTitle")}
-              </h2>
+              <p className="eyebrow text-granite/30">{t("placesEyebrow")}</p>
+              <h2 className="section-title">{t("placesTitle")}</h2>
             </div>
           </div>
           <RegionCardsTrack
@@ -200,12 +186,8 @@ export default async function RegionPage({ params }: Props) {
         <div className="container-wide">
           <div className="section-header">
             <div>
-              <p className="eyebrow text-granite/30">
-                {t("seasonEyebrow")}
-              </p>
-              <h2 className="section-title">
-                {t("seasonTitle")}
-              </h2>
+              <p className="eyebrow text-granite/30">{t("seasonEyebrow")}</p>
+              <h2 className="section-title">{t("seasonTitle")}</h2>
             </div>
           </div>
           <div className="grid md:grid-cols-2 gap-4">
@@ -239,9 +221,7 @@ export default async function RegionPage({ params }: Props) {
       <section className="py-20 bg-fog text-granite">
         <div className="container-wide">
           <div className="mb-8 md:mb-12">
-            <h2 className="section-title">
-              {t("gettingHereTitle")}
-            </h2>
+            <h2 className="section-title">{t("gettingHereTitle")}</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-8 text-sm">
             <div>

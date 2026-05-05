@@ -23,7 +23,6 @@
   },
   "HomePage": {
     "title": "Terras de Barroso.",
-    "titleLine2": "Onde a natureza manda.",
     "subtitle": "Tours guiados no coração do Parque Nacional Peneda-Gerês.",
     "heroCtaPrimary": "Explorar os tours",
     "heroCtaSecondary": "Sobre a Região",
@@ -89,7 +88,8 @@
     "fullDay": "Dia completo",
     "multiDay": "Multi-dia",
     "filtersBtn": "Filtros",
-    "closeFilters": "Fechar filtros"
+    "closeFilters": "Fechar filtros",
+    "toursLabel": "tours"
   },
   "TourDetail": {
     "backToTours": "Todos os tours",
@@ -164,7 +164,10 @@
     "responseTime": "Respondemos em menos de 24 horas.",
     "whatsappTitle": "Prefere falar diretamente?",
     "whatsappBody": "Não tem de preencher formulários. Envie-nos uma mensagem pelo WhatsApp e respondemos em menos de uma hora.",
-    "whatsappBtn": "Falar connosco no WhatsApp"
+    "whatsappBtn": "Falar connosco no WhatsApp",
+    "waMessage": "Olá! Tenho interesse num tour da Natur Barroso.",
+    "phoneLabel": "Telefone",
+    "addressLabel": "Morada"
   },
   "FAQPage": {
     "eyebrow": "Perguntas frequentes",

@@ -90,7 +90,8 @@
     "fullDay": "Full day",
     "multiDay": "Multi-day",
     "filtersBtn": "Filters",
-    "closeFilters": "Close filters"
+    "closeFilters": "Close filters",
+    "toursLabel": "tours"
   },
   "TourDetail": {
     "backToTours": "All tours",
@@ -165,7 +166,10 @@
     "responseTime": "We reply within 24 hours.",
     "whatsappTitle": "Prefer to talk it through?",
     "whatsappBody": "No forms to fill in. Send us a WhatsApp message and we'll get back to you within the hour.",
-    "whatsappBtn": "Message us on WhatsApp"
+    "whatsappBtn": "Message us on WhatsApp",
+    "waMessage": "Hello! I'm interested in a Natur Barroso tour.",
+    "phoneLabel": "Phone",
+    "addressLabel": "Address"
   },
   "FAQPage": {
     "eyebrow": "Frequently asked questions",

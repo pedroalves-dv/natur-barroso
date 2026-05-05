@@ -17,7 +17,7 @@ export default async function HeroSection({ locale }: Props) {
         src="/images/all-tours.png"
         alt="Green hills in Barroso"
         fill
-        className="object-cover object-[center_60%]"
+        className="object-cover"
         priority
         sizes="100vw"
       />

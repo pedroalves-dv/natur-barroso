@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import JournalTeaserTrack from "@/components/home/JournalTeaserTrack";
-
 const POSTS = [
   {
     slug: "lobo-iberico-barroso",
@@ -47,6 +46,7 @@ interface Props {
 
 export default async function JournalTeaser({ locale }: Props) {
   const t = await getTranslations("HomePage");
+  const tBlog = await getTranslations("BlogPage");
 
   return (
     <section className="py-20 bg-fog">
@@ -66,7 +66,7 @@ export default async function JournalTeaser({ locale }: Props) {
         <JournalTeaserTrack
           posts={POSTS}
           locale={locale}
-          readLabel={locale === "pt" ? "Ler artigo" : "Read post"}
+          readLabel={tBlog("readPost")}
         />
 
         <div className="mt-8 md:hidden">

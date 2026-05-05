@@ -2,8 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Tour } from "@/types/tour";
 import { SEASON_LABELS } from "@/types/tour";
-import CategoryBadge from "@/components/ui/CategoryBadge";
-import DifficultyPill from "@/components/ui/DifficultyPill";
 
 interface Props {
   tour: Tour;
@@ -45,7 +43,7 @@ export default function TourHero({ tour, locale, backLabel }: Props) {
           <DifficultyPill difficulty={tour.difficulty} locale={locale} />
         </div> */}
 
-        <h1 className="font-serif text-fog text-5xl md:text-7xl leading-[0.8] tracking-[-0.01em] max-w-2xl mb-6">
+        <h1 className="page-hero-title max-w-2xl mb-6">
           {isPt ? tour.title : (tour.title_en ?? tour.title)}
         </h1>
 

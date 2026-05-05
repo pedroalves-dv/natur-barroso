@@ -68,7 +68,7 @@ export default async function AboutPage({ params }: Props) {
   return (
     <>
       {/* Hero — full-bleed image, same pattern as TourHero */}
-      <section className="relative min-h-screen flex items-end">
+      <section className="relative min-h-[100vh] flex items-center md:items-end">
         <Image
           src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=1200&q=85"
           alt={
@@ -85,9 +85,7 @@ export default async function AboutPage({ params }: Props) {
 
         <div className="hero-content">
           <p className="eyebrow text-amber">{t("eyebrow")}</p>
-          <h1 className="font-serif text-fog text-5xl md:text-7xl leading-[0.8] tracking-[-0.01em] mb-6">
-            {t("title")}
-          </h1>
+          <h1 className="page-hero-title mb-6">{t("title")}</h1>
           <p className="hero-body">{t("subtitle")}</p>
         </div>
 
@@ -159,7 +157,9 @@ export default async function AboutPage({ params }: Props) {
             {values.map((v) => (
               <div key={v.title} className="flex flex-col gap-3">
                 <h3 className="font-serif text-xl text-granite">{v.title}</h3>
-                <p className="text-granite/70 leading-relaxed text-sm">{v.body}</p>
+                <p className="text-granite/70 leading-relaxed text-sm">
+                  {v.body}
+                </p>
               </div>
             ))}
           </div>
@@ -169,7 +169,9 @@ export default async function AboutPage({ params }: Props) {
       {/* Certifications */}
       <section className="py-12 bg-fog border-t border-granite/8">
         <div className="container-wide">
-          <p className="eyebrow text-granite/40 text-center mb-6">{t("certTitle")}</p>
+          <p className="eyebrow text-granite/40 text-center mb-6">
+            {t("certTitle")}
+          </p>
           <div className="flex flex-wrap justify-between gap-4 text-sm text-granite/60">
             <span>✓ IPDJ — Guias de Montanha Certificados</span>
             <span>✓ Seguro de Atividade na Natureza</span>

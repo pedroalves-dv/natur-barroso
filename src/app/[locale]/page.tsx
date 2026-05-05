@@ -15,6 +15,7 @@ export default async function HomePage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("HomePage");
+  const tReviews = await getTranslations("ReviewsPage");
 
   return (
     <>
@@ -23,7 +24,12 @@ export default async function HomePage({ params }: Props) {
       <FeaturedTours locale={locale} />
       <RegionTeaser locale={locale} />
       <HowItWorks locale={locale} />
-      <Testimonials title={t("testimonialsTitle")} locale={locale} />
+      <Testimonials
+        title={t("testimonialsTitle")}
+        locale={locale}
+        sourcesLabel={tReviews("sources")}
+        bookTourLabel={t("bookTourCta")}
+      />
       <WhatsAppCTA />
       <JournalTeaser locale={locale} />
     </>

@@ -27,6 +27,7 @@ export default async function ToursPage({ params }: Props) {
     multiDay: t("multiDay"),
     filtersBtn: t("filtersBtn"),
     closeFilters: t("closeFilters"),
+    toursLabel: t("toursLabel"),
   };
 
   return (
@@ -43,15 +44,9 @@ export default async function ToursPage({ params }: Props) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-granite/80 via-granite/20 to-transparent" />
         <div className="hero-content">
-          <p className="eyebrow text-fog/50">
-            {t("eyebrow")}
-          </p>
-          <h1 className="hero-title">
-            {t("title")}
-          </h1>
-          <p className="hero-body">
-            {t("subtitle")}
-          </p>
+          <p className="eyebrow text-fog/50">{t("eyebrow")}</p>
+          <h1 className="page-hero-title">{t("title")}</h1>
+          <p className="hero-body">{t("subtitle")}</p>
         </div>
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-50 animate-nudge-down">
           <svg

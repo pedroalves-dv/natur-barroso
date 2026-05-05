@@ -1,16 +1,15 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { useTranslations } from "next-intl";
+import { PHONE_NUMBER, PHONE_DISPLAY, EMAIL, waHref as buildWaHref } from "@/config/contact";
 
-const CONTACT_NUMBER = "351960000000";
-const DISPLAY_NUMBER = "+351 960 000 000";
-const DISPLAY_EMAIL = "info@naturbarroso.pt";
-
-const WA_HREF = `https://wa.me/${CONTACT_NUMBER}?text=${encodeURIComponent("Olá! Tenho interesse num tour da Natur Barroso.")}`;
-const TEL_HREF = `tel:+${CONTACT_NUMBER}`;
-const MAIL_HREF = `mailto:${DISPLAY_EMAIL}`;
+const TEL_HREF = `tel:+${PHONE_NUMBER}`;
+const MAIL_HREF = `mailto:${EMAIL}`;
 
 export default function MobileContactBar() {
+  const t = useTranslations("ContactPage");
+  const WA_HREF = buildWaHref(t("waMessage"));
   const [visible, setVisible] = useState(false);
   const lastScrollY = useRef(0);
   const ticking = useRef(false);
@@ -56,7 +55,7 @@ export default function MobileContactBar() {
 
   return (
     <div
-      className={`fixed bottom-0 left-0 right-0 z-40 md:hidden border-t border-granite/10 bg-fog shadow-[0_-4px_24px_rgba(0,0,0,0.06)] transition-transform duration-300 ease-in-out ${
+      className={`fixed bottom-0 left-0 right-0 z-30 md:hidden border-t border-granite/10 bg-fog shadow-[0_-4px_24px_rgba(0,0,0,0.06)] transition-transform duration-300 ease-in-out ${
         visible ? "translate-y-0" : "translate-y-full"
       }`}
     >
@@ -70,13 +69,13 @@ export default function MobileContactBar() {
             href={TEL_HREF}
             className="block text-sm font-medium text-granite leading-snug"
           >
-            {DISPLAY_NUMBER}
+            {PHONE_DISPLAY}
           </a>
           <a
             href={MAIL_HREF}
             className="block text-xs text-granite/50 mt-0.5 leading-snug"
           >
-            {DISPLAY_EMAIL}
+            {EMAIL}
           </a>
         </div>
 
