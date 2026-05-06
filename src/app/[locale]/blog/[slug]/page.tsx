@@ -109,7 +109,7 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[50vh] flex items-end">
+      <section className="relative min-h-[100vh] flex items-center md:items-end bg-granite">
         {post.coverImage && (
           <Image
             src={post.coverImage}
@@ -121,28 +121,39 @@ export default async function BlogPostPage({ params }: Props) {
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-granite/80 via-granite/30 to-transparent" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 md:px-6 pb-12 pt-32">
+        <div className="relative z-10 max-w-[90rem] mx-auto px-4 md:px-6 pb-16 w-full">
           <Link
             href={`/${locale}/blog`}
-            className="inline-block text-fog/70 text-sm mb-6 hover:text-fog transition-colors"
+            className="btn-lg btn-ghost inline-flex items-center gap-2 text-md text-fog/70 hover:text-fog transition-colors mb-6"
           >
             {backLabel}
           </Link>
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-xs  uppercase tracking-wider text-amber">
-              {categoryLabel}
-            </span>
-            <span className="text-fog/50 text-xs">{post.date}</span>
-            <span className="text-fog/50 text-xs">{post.readTime}</span>
+          <p className="eyebrow text-amber/80 mb-3">{categoryLabel}</p>
+          <h1 className="page-hero-title max-w-2xl mb-6">{post.title}</h1>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-fog/60">
+            <span>{post.date}</span>
+            <span>{post.readTime}</span>
           </div>
-          <h1 className="font-serif text-fog text-3xl md:text-4xl lg:text-5xl leading-tight">
-            {post.title}
-          </h1>
+        </div>
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-50 animate-nudge-down">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="white"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M6 9l6 6 6-6" />
+          </svg>
         </div>
       </section>
 
       {/* Body */}
-      <section className="py-16 bg-fog">
+      <section className="py-20 bg-fog">
         <div className="max-w-3xl mx-auto px-4 md:px-6">
           <p className="text-granite/60 text-lg leading-relaxed mb-10 font-serif italic">
             {post.excerpt}
@@ -177,12 +188,12 @@ export default async function BlogPostPage({ params }: Props) {
 
       {/* Related */}
       {related.length > 0 && (
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-fog border-t border-granite/10">
           <div className="container-wide">
-            <div className="mb-8 md:mb-12">
-              <h2 className="section-title">
-                {relatedLabel}
-              </h2>
+            <div className="section-header">
+              <div>
+                <h2 className="section-title">{relatedLabel}</h2>
+              </div>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
               {related.map((p) => (
