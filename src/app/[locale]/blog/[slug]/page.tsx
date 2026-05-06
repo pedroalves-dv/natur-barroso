@@ -3,20 +3,64 @@ import { setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { posts, getPostBySlug, getRelatedPosts } from "@/data/posts";
-import { getGuideBySlug } from "@/data/guides";
+import { PortableText, type PortableTextComponents } from "@portabletext/react";
+import { sanityFetch } from "../../../../../sanity/lib/client";
+import {
+  BLOG_POST_DETAIL_QUERY,
+  RELATED_POSTS_QUERY,
+  BLOG_SLUGS_QUERY,
+  type SanityBlogPost,
+  type SanityBlogPostSummary,
+} from "../../../../../sanity/lib/queries";
+import type { Post } from "@/types/post";
 import { POST_CATEGORY_CONFIG } from "@/types/post";
 import BlogCard from "@/components/blog/BlogCard";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
-export function generateStaticParams() {
-  return posts.map((post) => ({ slug: post.slug }));
+const portableTextComponents: PortableTextComponents = {
+  block: {
+    normal: ({ children }) => (
+      <p className="text-granite/80 leading-relaxed">{children}</p>
+    ),
+    h2: ({ children }) => (
+      <h2 className="font-serif text-granite text-2xl mt-10 mb-4">{children}</h2>
+    ),
+    h3: ({ children }) => (
+      <h3 className="font-serif text-granite text-xl mt-8 mb-3">{children}</h3>
+    ),
+  },
+  marks: {
+    strong: ({ children }) => (
+      <strong className="font-semibold text-granite">{children}</strong>
+    ),
+    em: ({ children }) => <em>{children}</em>,
+    link: ({ value, children }) => (
+      <a
+        href={value?.href}
+        className="text-amber hover:text-forest underline transition-colors"
+      >
+        {children}
+      </a>
+    ),
+  },
+};
+
+export async function generateStaticParams() {
+  const slugs = await sanityFetch<{ slug: string }[]>({
+    query: BLOG_SLUGS_QUERY,
+    tags: ["blogPost"],
+  });
+  return slugs.map((s: { slug: string }) => ({ slug: s.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await sanityFetch<SanityBlogPost | null>({
+    query: BLOG_POST_DETAIL_QUERY,
+    params: { slug },
+    tags: ["blogPost"],
+  });
   if (!post) return {};
   return {
     title: post.title,
@@ -28,17 +72,34 @@ export default async function BlogPostPage({ params }: Props) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
 
-  const post = getPostBySlug(slug);
+  const post = await sanityFetch<SanityBlogPost | null>({
+    query: BLOG_POST_DETAIL_QUERY,
+    params: { slug },
+    tags: ["blogPost"],
+  });
   if (!post) notFound();
 
-  const guide = getGuideBySlug(post.authorSlug);
-  const related = getRelatedPosts(slug);
+  const relatedRaw = await sanityFetch<SanityBlogPostSummary[]>({
+    query: RELATED_POSTS_QUERY,
+    params: { slug, category: post.category },
+    tags: ["blogPost"],
+  });
+
+  const related: Post[] = relatedRaw.map((p: SanityBlogPostSummary) => ({
+    ...p,
+    category: p.category as Post["category"],
+    body: [],
+    authorSlug: "",
+  }));
+
   const isPt = locale === "pt";
 
-  const categoryLabel =
-    locale === "pt"
-      ? POST_CATEGORY_CONFIG[post.category].labelPt
-      : POST_CATEGORY_CONFIG[post.category].label;
+  const categoryConfig = POST_CATEGORY_CONFIG[post.category as Post["category"]];
+  const categoryLabel = categoryConfig
+    ? isPt
+      ? categoryConfig.labelPt
+      : categoryConfig.label
+    : post.category;
 
   const backLabel = isPt ? "← Todos os artigos" : "← All articles";
   const authorLabel = isPt ? "Por" : "By";
@@ -49,14 +110,16 @@ export default async function BlogPostPage({ params }: Props) {
     <>
       {/* Hero */}
       <section className="relative min-h-[50vh] flex items-end">
-        <Image
-          src={post.coverImage}
-          alt={post.title}
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
+        {post.coverImage && (
+          <Image
+            src={post.coverImage}
+            alt={post.title}
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-granite/80 via-granite/30 to-transparent" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 md:px-6 pb-12 pt-32">
           <Link
@@ -85,27 +148,27 @@ export default async function BlogPostPage({ params }: Props) {
             {post.excerpt}
           </p>
           <div className="flex flex-col gap-6">
-            {post.body.map((paragraph, i) => (
-              <p key={i} className="text-granite/80 leading-relaxed">
-                {paragraph}
-              </p>
-            ))}
+            <PortableText value={post.body} components={portableTextComponents} />
           </div>
 
           {/* Author card */}
-          {guide && (
+          {post.authorName && (
             <div className="mt-14 pt-8 border-t border-granite/10 flex gap-4 items-start">
-              <Image
-                src={guide.photo}
-                alt={guide.name}
-                width={56}
-                height={56}
-                className="rounded-full object-cover shrink-0"
-              />
+              {post.authorPhoto && (
+                <Image
+                  src={post.authorPhoto}
+                  alt={post.authorName}
+                  width={56}
+                  height={56}
+                  className="rounded-full object-cover shrink-0"
+                />
+              )}
               <div>
                 <p className="text-xs text-granite/40 mb-0.5">{authorLabel}</p>
-                <p className=" text-granite">{guide.name}</p>
-                <p className="text-sm text-granite/60">{guide.role}</p>
+                <p className=" text-granite">{post.authorName}</p>
+                {post.authorRole && (
+                  <p className="text-sm text-granite/60">{post.authorRole}</p>
+                )}
               </div>
             </div>
           )}

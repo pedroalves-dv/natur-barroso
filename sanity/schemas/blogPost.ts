@@ -31,10 +31,10 @@ export const blogPost = defineType({
       options: {
         list: [
           { title: "Trail Reports", value: "trail-reports" },
-          { title: "Wildlife Spotting", value: "wildlife-spotting" },
+          { title: "Wildlife & Nature", value: "wildlife" },
           { title: "Seasonal Guides", value: "seasonal-guides" },
-          { title: "Culture & Heritage", value: "culture-heritage" },
-          { title: "Photography Tips", value: "photography-tips" },
+          { title: "Culture & Heritage", value: "culture" },
+          { title: "Photography Tips", value: "photography" },
         ],
       },
       validation: (Rule) => Rule.required(),
@@ -68,6 +68,11 @@ export const blogPost = defineType({
       title: "Published At",
       type: "datetime",
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "readTime",
+      title: "Read Time",
+      type: "string",
     }),
     defineField({
       name: "tags",

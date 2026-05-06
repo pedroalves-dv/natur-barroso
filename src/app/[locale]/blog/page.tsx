@@ -1,6 +1,11 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
-import { posts } from "@/data/posts";
+import type { Post } from "@/types/post";
+import { sanityFetch } from "../../../../sanity/lib/client";
+import {
+  BLOG_POSTS_QUERY,
+  type SanityBlogPostSummary,
+} from "../../../../sanity/lib/queries";
 import BlogFilter from "@/components/blog/BlogFilter";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -20,6 +25,19 @@ export default async function BlogPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("BlogPage");
+
+  const raw = await sanityFetch<SanityBlogPostSummary[]>({
+    query: BLOG_POSTS_QUERY,
+    tags: ["blogPost"],
+  });
+
+  // Map to Post shape — body and authorSlug are not used by BlogFilter/BlogCard
+  const posts: Post[] = raw.map((p) => ({
+    ...p,
+    category: p.category as Post["category"],
+    body: [],
+    authorSlug: "",
+  }));
 
   return (
     <>

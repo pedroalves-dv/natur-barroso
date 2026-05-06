@@ -92,3 +92,77 @@ export const SIMILAR_TOURS_QUERY = groq`
     ${CARD_FIELDS}
   }
 `;
+
+// ---------------------------------------------------------------------------
+// Blog queries
+// ---------------------------------------------------------------------------
+
+// Shape returned by list/card queries — structurally matches Post without body/authorSlug
+export type SanityBlogPostSummary = {
+  slug: string;
+  title: string;
+  category: string;
+  date: string;       // ISO datetime projected from publishedAt
+  readTime: string;
+  excerpt: string;
+  coverImage: string; // Sanity CDN URL, coalesced to "" when no image
+};
+
+// Shape returned by the detail query
+export type SanityBlogPost = SanityBlogPostSummary & {
+  body: Record<string, unknown>[];
+  authorName: string | null;
+  authorPhoto: string;
+  authorRole: string;
+};
+
+const BLOG_CARD_FIELDS = groq`
+  "slug": slug.current,
+  title,
+  category,
+  "date": publishedAt,
+  readTime,
+  excerpt,
+  "coverImage": coalesce(coverImage.asset->url, "")
+`;
+
+// All blog posts, newest first — used by /blog
+export const BLOG_POSTS_QUERY = groq`
+  *[_type == "blogPost"] | order(publishedAt desc) {
+    ${BLOG_CARD_FIELDS}
+  }
+`;
+
+// Single post by slug with full body — used by /blog/[slug]
+export const BLOG_POST_DETAIL_QUERY = groq`
+  *[_type == "blogPost" && slug.current == $slug][0] {
+    ${BLOG_CARD_FIELDS},
+    body,
+    "authorName": author->name,
+    "authorPhoto": coalesce(author->photo.asset->url, ""),
+    "authorRole": coalesce(author->specialties[0], "")
+  }
+`;
+
+// All posts in same category excluding current — used by /blog/[slug] related row
+export const RELATED_POSTS_QUERY = groq`
+  *[
+    _type == "blogPost"
+    && slug.current != $slug
+    && category == $category
+  ][0...2] {
+    ${BLOG_CARD_FIELDS}
+  }
+`;
+
+// Posts filtered by category — used by /blog category filtering (server-side alternative)
+export const BLOG_POSTS_BY_CATEGORY_QUERY = groq`
+  *[_type == "blogPost" && category == $category] | order(publishedAt desc) {
+    ${BLOG_CARD_FIELDS}
+  }
+`;
+
+// Slugs only — used by generateStaticParams in /blog/[slug]
+export const BLOG_SLUGS_QUERY = groq`
+  *[_type == "blogPost"] { "slug": slug.current }
+`;
