@@ -4,10 +4,12 @@ import { sanityFetch } from "../../../../../sanity/lib/client";
 import {
   TOUR_DETAIL_QUERY,
   SIMILAR_TOURS_QUERY,
+  SITE_SETTINGS_QUERY,
 } from "../../../../../sanity/lib/queries";
 import type {
   SanityTour,
   SanityTourSummary,
+  SanitySiteSettings,
 } from "../../../../../sanity/lib/queries";
 import type { Tour } from "@/types/tour";
 import TourHero from "@/components/tours/TourHero";
@@ -25,23 +27,28 @@ export default async function TourDetailPage({ params }: Props) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
 
-  const tour = await sanityFetch<SanityTour | null>({
-    query: TOUR_DETAIL_QUERY,
-    params: { slug },
-    tags: ["tour"],
-  });
+  const [tour, settings] = await Promise.all([
+    sanityFetch<SanityTour | null>({ query: TOUR_DETAIL_QUERY, params: { slug }, tags: ["tour"] }),
+    sanityFetch<SanitySiteSettings | null>({ query: SITE_SETTINGS_QUERY, tags: ["siteSettings"] }),
+  ]);
   if (!tour) notFound();
 
-  const similar = await sanityFetch<SanityTourSummary[]>({
-    query: SIMILAR_TOURS_QUERY,
-    params: { slug, category: tour.category },
-    tags: ["tour"],
-  });
-  const t = await getTranslations("TourDetail");
+  const [similar, t] = await Promise.all([
+    sanityFetch<SanityTourSummary[]>({
+      query: SIMILAR_TOURS_QUERY,
+      params: { slug, category: tour.category },
+      tags: ["tour"],
+    }),
+    getTranslations("TourDetail"),
+  ]);
+
+  const conditionsMessage = settings?.conditionsBanner?.active
+    ? settings.conditionsBanner.message
+    : undefined;
 
   return (
     <>
-      <TourHero tour={tour as unknown as Tour} locale={locale} backLabel={t("backToTours")} />
+      <TourHero tour={tour as unknown as Tour} locale={locale} backLabel={t("backToTours")} conditionsMessage={conditionsMessage} />
 
       <div className="max-w-[90rem] mx-auto px-4 md:px-6 py-12">
         <div className="flex flex-col lg:flex-row gap-12">

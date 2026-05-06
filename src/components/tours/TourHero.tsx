@@ -2,14 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Tour } from "@/types/tour";
 import { SEASON_LABELS } from "@/types/tour";
+import ConditionsNotice from "@/components/layout/ConditionsNotice";
 
 interface Props {
   tour: Tour;
   locale: string;
   backLabel: string;
+  conditionsMessage?: string;
 }
 
-export default function TourHero({ tour, locale, backLabel }: Props) {
+export default function TourHero({ tour, locale, backLabel, conditionsMessage }: Props) {
   const isPt = locale === "pt";
   const minPrice = Math.min(...tour.pricing.map((p) => p.price));
   const seasons = tour.seasonAvailability
@@ -68,6 +70,7 @@ export default function TourHero({ tour, locale, backLabel }: Props) {
         </div>
       </div>
 
+      {conditionsMessage && <ConditionsNotice message={conditionsMessage} />}
       {/* Scroll chevron */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-50 animate-nudge-down">
         <svg

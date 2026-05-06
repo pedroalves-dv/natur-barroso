@@ -166,3 +166,20 @@ export const BLOG_POSTS_BY_CATEGORY_QUERY = groq`
 export const BLOG_SLUGS_QUERY = groq`
   *[_type == "blogPost"] { "slug": slug.current }
 `;
+
+// ---------------------------------------------------------------------------
+// Site Settings
+// ---------------------------------------------------------------------------
+
+export type SanitySiteSettings = {
+  conditionsBanner: { active: boolean; message: string } | null;
+  whatsappNumber: string | null;
+};
+
+// Singleton — fetch with [0]; returns null when no document exists yet
+export const SITE_SETTINGS_QUERY = groq`
+  *[_type == "siteSettings"][0] {
+    conditionsBanner { active, message },
+    whatsappNumber
+  }
+`;

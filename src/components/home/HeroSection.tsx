@@ -2,12 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import NaturBarrosoLogo from "../ui/NaturBarrosoLogo";
+import ConditionsNotice from "@/components/layout/ConditionsNotice";
 
 interface Props {
   locale: string;
+  conditionsMessage?: string;
 }
 
-export default async function HeroSection({ locale }: Props) {
+export default async function HeroSection({ locale, conditionsMessage }: Props) {
   const t = await getTranslations("HomePage");
 
   return (
@@ -44,6 +46,7 @@ export default async function HeroSection({ locale }: Props) {
           </Link>
         </div>
       </div>
+      {conditionsMessage && <ConditionsNotice message={conditionsMessage} />}
       {/* Scroll chevron indicator  */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-50 animate-nudge-down">
         <svg

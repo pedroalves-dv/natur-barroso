@@ -1,9 +1,14 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { sanityFetch } from "../../../../sanity/lib/client";
-import { TOURS_LIST_QUERY } from "../../../../sanity/lib/queries";
-import type { SanityTourSummary } from "../../../../sanity/lib/queries";
+import {
+  TOURS_LIST_QUERY,
+  SITE_SETTINGS_QUERY,
+  type SanityTourSummary,
+  type SanitySiteSettings,
+} from "../../../../sanity/lib/queries";
 import ToursFilter from "@/components/tours/ToursFilter";
+import ConditionsNotice from "@/components/layout/ConditionsNotice";
 import type { Tour } from "@/types/tour";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -13,10 +18,14 @@ export default async function ToursPage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations("ToursPage");
 
-  const tours = await sanityFetch<SanityTourSummary[]>({
-    query: TOURS_LIST_QUERY,
-    tags: ["tour"],
-  });
+  const [tours, settings] = await Promise.all([
+    sanityFetch<SanityTourSummary[]>({ query: TOURS_LIST_QUERY, tags: ["tour"] }),
+    sanityFetch<SanitySiteSettings | null>({ query: SITE_SETTINGS_QUERY, tags: ["siteSettings"] }),
+  ]);
+
+  const conditionsMessage = settings?.conditionsBanner?.active
+    ? settings.conditionsBanner.message
+    : undefined;
 
   const labels = {
     filterTitle: t("filterTitle"),
@@ -56,6 +65,7 @@ export default async function ToursPage({ params }: Props) {
           <h1 className="page-hero-title">{t("title")}</h1>
           <p className="hero-body">{t("subtitle")}</p>
         </div>
+        {conditionsMessage && <ConditionsNotice message={conditionsMessage} />}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-50 animate-nudge-down">
           <svg
             width="24"
