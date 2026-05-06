@@ -1,7 +1,10 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import Image from "next/image";
-import { tours } from "@/data/tours";
+import { sanityFetch } from "../../../../sanity/lib/client";
+import { TOURS_LIST_QUERY } from "../../../../sanity/lib/queries";
+import type { SanityTourSummary } from "../../../../sanity/lib/queries";
 import ToursFilter from "@/components/tours/ToursFilter";
+import type { Tour } from "@/types/tour";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -9,6 +12,11 @@ export default async function ToursPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("ToursPage");
+
+  const tours = await sanityFetch<SanityTourSummary[]>({
+    query: TOURS_LIST_QUERY,
+    tags: ["tour"],
+  });
 
   const labels = {
     filterTitle: t("filterTitle"),
@@ -65,7 +73,7 @@ export default async function ToursPage({ params }: Props) {
         </div>
       </section>
 
-      <ToursFilter tours={tours} locale={locale} labels={labels} />
+      <ToursFilter tours={tours as unknown as Tour[]} locale={locale} labels={labels} />
     </>
   );
 }

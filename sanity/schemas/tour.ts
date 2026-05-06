@@ -82,6 +82,12 @@ export const tour = defineType({
       of: [defineArrayMember({ type: "string" })],
     }),
     defineField({
+      name: "whatToBring",
+      title: "What to Bring",
+      type: "array",
+      of: [defineArrayMember({ type: "string" })],
+    }),
+    defineField({
       name: "difficulty",
       title: "Difficulty",
       type: "string",
