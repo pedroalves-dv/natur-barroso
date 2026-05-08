@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import type { Tour } from "@/types/tour";
 import { SEASON_LABELS } from "@/types/tour";
 import ConditionsNotice from "@/components/layout/ConditionsNotice";
@@ -11,7 +12,8 @@ interface Props {
   conditionsMessage?: string;
 }
 
-export default function TourHero({ tour, locale, backLabel, conditionsMessage }: Props) {
+export default async function TourHero({ tour, locale, backLabel, conditionsMessage }: Props) {
+  const t = await getTranslations("TourDetail");
   const isPt = locale === "pt";
   const minPrice = Math.min(...tour.pricing.map((p) => p.price));
   const seasons = tour.seasonAvailability
@@ -61,11 +63,11 @@ export default function TourHero({ tour, locale, backLabel, conditionsMessage }:
           </span>
           <span>
             {tour.groupSize.min}–{tour.groupSize.max}{" "}
-            {isPt ? "pessoas" : "people"}
+            {t("people")}
           </span>
           <span>{seasons}</span>
           <span className="text-fog">
-            {isPt ? "A partir de" : "From"} €{minPrice}
+            {t("fromLabel")} €{minPrice}
           </span>
         </div>
       </div>

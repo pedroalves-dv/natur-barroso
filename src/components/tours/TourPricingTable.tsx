@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import type { PricingTier } from "@/types/tour";
 
 interface Props {
@@ -6,7 +7,8 @@ interface Props {
   locale: string;
 }
 
-export default function TourPricingTable({ pricing, title, locale }: Props) {
+export default async function TourPricingTable({ pricing, title, locale }: Props) {
+  const t = await getTranslations("TourDetail");
   const isPt = locale === "pt";
 
   return (
@@ -17,10 +19,10 @@ export default function TourPricingTable({ pricing, title, locale }: Props) {
           <thead>
             <tr className="bg-forest/5 border-b border-fog">
               <th className="text-left text-xs  uppercase tracking-wider text-granite/50 px-5 py-3">
-                {isPt ? "Tipo" : "Type"}
+                {t("pricingTypeHeader")}
               </th>
               <th className="text-right text-xs  uppercase tracking-wider text-granite/50 px-5 py-3">
-                {isPt ? "Preço" : "Price"}
+                {t("pricingPriceHeader")}
               </th>
             </tr>
           </thead>
@@ -42,9 +44,7 @@ export default function TourPricingTable({ pricing, title, locale }: Props) {
         </table>
       </div>
       <p className="text-xs text-granite/40 mt-3">
-        {isPt
-          ? "* Preços por pessoa. Crianças até 12 anos com desconto — contacte-nos para detalhes."
-          : "* Prices per person. Children under 12 receive a discount — contact us for details."}
+        {t("pricingNote")}
       </p>
     </div>
   );

@@ -8,12 +8,10 @@ type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "AboutPage" });
   return {
-    title: locale === "pt" ? "A Nossa Equipa" : "About Us",
-    description:
-      locale === "pt"
-        ? "Conheça os guias locais da Natur Barroso — a equipa que vive e respira o Barroso desde sempre."
-        : "Meet the local guides of Natur Barroso — the team that lives and breathes Barroso.",
+    title: t("metaTitle"),
+    description: t("metaDescription"),
   };
 }
 
@@ -21,49 +19,14 @@ export default async function AboutPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("AboutPage");
-  const isPt = locale === "pt";
 
-  const storyParagraphs = isPt
-    ? [
-        "A Natur Barroso nasceu de uma convicção simples: o Barroso é um dos territórios mais extraordinários da Europa, e merecia quem o apresentasse ao mundo com honestidade e paixão. Não como um produto turístico genérico, mas como o que realmente é — um planalto de granito e silêncio, onde a natureza e a cultura humana coexistem há milénios.",
-        "Os nossos guias não são apenas profissionais formados — são pessoas que cresceram neste território, que conhecem os seus segredos e que acreditam genuinamente que uma manhã no Barroso pode mudar a forma como alguém olha para o mundo.",
-        "Operamos em pequenos grupos porque acreditamos que a qualidade da experiência depende da atenção individual. Trabalhamos com produtores locais, alojamentos familiares e restaurantes de aldeia porque acreditamos que o turismo deve beneficiar as comunidades que o tornam possível.",
-      ]
-    : [
-        "Natur Barroso was born from a simple conviction: Barroso is one of the most extraordinary territories in Europe, and it deserved someone to present it to the world with honesty and passion. Not as a generic tourism product, but as what it truly is — a granite plateau of silence, where nature and human culture have coexisted for millennia.",
-        "Our guides are not just trained professionals — they are people who grew up in this territory, who know its secrets and genuinely believe that a morning in Barroso can change the way someone sees the world.",
-        "We operate in small groups because we believe the quality of experience depends on individual attention. We work with local producers, family-run accommodation and village restaurants because we believe tourism should benefit the communities that make it possible.",
-      ];
+  const storyParagraphs = [t("storyP1"), t("storyP2"), t("storyP3")];
 
-  const values = isPt
-    ? [
-        {
-          title: "Local de raiz",
-          body: "Somos da região e conhecemos cada trilho, aldeia e história. Nenhum detalhe é genérico.",
-        },
-        {
-          title: "Grupos pequenos",
-          body: "Máximo 8–12 pessoas por tour. Atenção individual, ritmo do grupo, experiência personalizada.",
-        },
-        {
-          title: "Impacto responsável",
-          body: "Colaboramos com produtores, alojamentos e restaurantes locais. O turismo que praticamos fica na região.",
-        },
-      ]
-    : [
-        {
-          title: "Locally rooted",
-          body: "We are from the region and know every trail, village and story. Nothing is generic.",
-        },
-        {
-          title: "Small groups",
-          body: "Maximum 8–12 people per tour. Individual attention, group pace, personalised experience.",
-        },
-        {
-          title: "Responsible impact",
-          body: "We collaborate with local producers, accommodation and restaurants. The tourism we practice stays in the region.",
-        },
-      ];
+  const values = [
+    { title: t("value1Title"), body: t("value1Body") },
+    { title: t("value2Title"), body: t("value2Body") },
+    { title: t("value3Title"), body: t("value3Body") },
+  ];
 
   return (
     <>
@@ -71,11 +34,7 @@ export default async function AboutPage({ params }: Props) {
       <section className="relative min-h-[100vh] flex items-center md:items-end">
         <Image
           src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=1200&q=85"
-          alt={
-            isPt
-              ? "Guias Natur Barroso no trilho"
-              : "Natur Barroso guides on trail"
-          }
+          alt={t("heroAlt")}
           fill
           className="object-cover"
           priority
@@ -173,9 +132,9 @@ export default async function AboutPage({ params }: Props) {
             {t("certTitle")}
           </p>
           <div className="flex flex-wrap justify-between gap-4 text-sm text-granite/60">
-            <span>✓ IPDJ — Guias de Montanha Certificados</span>
-            <span>✓ Seguro de Atividade na Natureza</span>
-            <span>✓ Primeiros Socorros em Ambiente Remoto</span>
+            <span>✓ {t("cert1")}</span>
+            <span>✓ {t("cert2")}</span>
+            <span>✓ {t("cert3")}</span>
             <span>✓ 4,8★ {t("ratingLabel")}</span>
           </div>
         </div>

@@ -26,6 +26,7 @@ interface Props {
     filtersBtn: string;
     closeFilters: string;
     toursLabel: string;
+    viewBtn: string;
   };
 }
 
@@ -261,9 +262,7 @@ export default function ToursFilter({ tours, locale, labels }: Props) {
               onClick={() => setDrawerOpen(false)}
               className="mt-8 w-full py-3 bg-forest text-white rounded-full text-sm font-medium hover:bg-moss transition-colors"
             >
-              {isPt
-                ? `Ver ${filtered.length} tours`
-                : `View ${filtered.length} tours`}
+              {labels.viewBtn} {filtered.length} {labels.toursLabel}
             </button>
           </div>
         </div>

@@ -8,12 +8,10 @@ type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "ContactPage" });
   return {
-    title: locale === "pt" ? "Contacto" : "Contact",
-    description:
-      locale === "pt"
-        ? "Contacte a Natur Barroso — reservas, informações, grupos e experiências personalizadas."
-        : "Contact Natur Barroso — bookings, information, groups and custom experiences.",
+    title: t("title"),
+    description: t("metaDescription"),
   };
 }
 
@@ -21,7 +19,6 @@ export default async function ContactPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("ContactPage");
-  const isPt = locale === "pt";
 
   const formLabels = {
     nameLabel: t("nameLabel"),
@@ -124,7 +121,7 @@ export default async function ContactPage({ params }: Props) {
             </div>
             <div>
               <p className="text-xs uppercase tracking-widest text-granite/40 mb-3">
-                Email
+                {t("emailLabel")}
               </p>
               <a
                 href={`mailto:${EMAIL}`}
@@ -148,9 +145,7 @@ export default async function ContactPage({ params }: Props) {
           {/* Map placeholder */}
           <div className="mt-10 w-full h-64 rounded-2xl bg-granite/5 border border-granite/10 flex items-center justify-center">
             <p className="text-granite/30 text-sm">
-              {isPt
-                ? "Mapa interativo disponível em breve"
-                : "Interactive map coming soon"}
+              {t("mapPlaceholder")}
             </p>
           </div>
 

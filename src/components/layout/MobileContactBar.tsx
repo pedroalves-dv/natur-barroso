@@ -9,6 +9,7 @@ const MAIL_HREF = `mailto:${EMAIL}`;
 
 export default function MobileContactBar() {
   const t = useTranslations("ContactPage");
+  const tNav = useTranslations("Nav");
   const WA_HREF = buildWaHref(t("waMessage"));
   const [visible, setVisible] = useState(false);
   const lastScrollY = useRef(0);
@@ -84,7 +85,7 @@ export default function MobileContactBar() {
           href={WA_HREF}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Chat on WhatsApp"
+          aria-label={tNav("whatsapp")}
           className="w-11 h-11 rounded-full bg-whatsapp flex items-center justify-center text-white shrink-0 active:scale-95 transition-transform"
         >
           <svg

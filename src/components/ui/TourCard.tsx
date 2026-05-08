@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import type { Tour, Season } from "@/types/tour";
 import CategoryBadge from "./CategoryBadge";
 import DifficultyPill from "./DifficultyPill";
@@ -27,11 +30,11 @@ const SEASON_MONTHS: Record<
   winter: { firstPt: "Dez", lastPt: "Fev", firstEn: "Dec", lastEn: "Feb" },
 };
 
-function SeasonPill({ seasons, isPt }: { seasons: Season[]; isPt: boolean }) {
+function SeasonPill({ seasons, isPt, yearRoundLabel }: { seasons: Season[]; isPt: boolean; yearRoundLabel: string }) {
   if (seasons.length === 4) {
     return (
       <span className="text-xs font-medium tracking-wide px-2 py-1 rounded-full bg-granite/85 backdrop-blur text-fog/70">
-        {isPt ? "Todo o ano" : "Year-round"}
+        {yearRoundLabel}
       </span>
     );
   }
@@ -48,6 +51,7 @@ function SeasonPill({ seasons, isPt }: { seasons: Season[]; isPt: boolean }) {
 }
 
 export default function TourCard({ tour, locale, featured }: Props) {
+  const t = useTranslations("ToursPage");
   const minPrice = Math.min(...tour.pricing.map((p) => p.price));
   const isPt = locale === "pt";
 
@@ -77,7 +81,7 @@ export default function TourCard({ tour, locale, featured }: Props) {
 
         {/* season pill — top right */}
         <div className="absolute top-3 right-3 z-20">
-          <SeasonPill seasons={tour.seasonAvailability} isPt={isPt} />
+          <SeasonPill seasons={tour.seasonAvailability} isPt={isPt} yearRoundLabel={t("yearRound")} />
         </div>
 
         {/* price — bottom right of image (hidden on featured desktop) */}
@@ -85,7 +89,7 @@ export default function TourCard({ tour, locale, featured }: Props) {
           className={`absolute bottom-3 right-3 z-20 text-right ${featured ? "lg:hidden" : ""}`}
         >
           <span className="block text-[9px] font-medium tracking-widest uppercase text-fog/70 leading-none mb-0.5">
-            {isPt ? "A partir de" : "From"}
+            {t("fromLabel")}
           </span>
           <span className="block font-serif text-4xl text-fog leading-none">
             €{minPrice}
@@ -139,7 +143,7 @@ export default function TourCard({ tour, locale, featured }: Props) {
               <path d="M2 11c0-2.2 1.8-4 4-4s4 1.8 4 4" />
             </svg>
             {tour.groupSize.min}–{tour.groupSize.max}{" "}
-            {isPt ? "pessoas" : "people"}
+            {t("people")}
           </span>
         </div>
 
@@ -147,7 +151,7 @@ export default function TourCard({ tour, locale, featured }: Props) {
         {featured && (
           <div className="hidden lg:block mt-auto text-right mb-12">
             <span className="block text-[10px] font-medium tracking-widest uppercase text-granite/40 leading-none mb-1">
-              {isPt ? "A partir de" : "From"}
+              {t("fromLabel")}
             </span>
             <span className="block font-serif text-6xl text-granite leading-none">
               €{minPrice}
@@ -158,7 +162,7 @@ export default function TourCard({ tour, locale, featured }: Props) {
         {/* CTA button */}
         <div className="mt-auto md:mt-0 flex justify-end">
           <span className="btn-sm btn-granite-ghost group-hover:bg-fog">
-            {isPt ? "Ver" : "View"}
+            {t("viewBtn")}
             <span className="transition-transform group-hover:translate-x-0.5">
               →
             </span>

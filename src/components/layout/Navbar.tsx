@@ -50,7 +50,7 @@ export default function Navbar() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-fog border-b border-granite/30 text-granite">
         <nav className="max-w-[90rem] mx-auto px-4 md:px-6 flex items-center justify-between h-16 md:h-16">
           {/* Logo */}
-          <Link href={`/${locale}`} aria-label="Natur Barroso — início">
+          <Link href={`/${locale}`} aria-label={t("homeLabel")}>
             <NaturBarrosoLogo variant="dark" className="h-5 md:h-7 w-auto" />
           </Link>
 

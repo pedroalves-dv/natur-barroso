@@ -8,86 +8,30 @@ type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "RegionPage" });
   return {
-    title: locale === "pt" ? "A Região Barroso" : "Barroso Region Guide",
-    description:
-      locale === "pt"
-        ? "Descubra as Terras de Barroso — cascatas, aldeias medievais, castelos e o Parque Nacional Peneda-Gerês."
-        : "Discover the Terras de Barroso — waterfalls, medieval villages, castles and Peneda-Gerês National Park.",
+    title: t("metaTitle"),
+    description: t("metaDescription"),
   };
 }
-
-const SEASONS = [
-  {
-    season: "Primavera",
-    months: "Mar – Mai",
-    note: "Cascatas em pleno. Flores silvestres. Ideal para caminhadas.",
-    image: "/images/waterfall.jpg",
-  },
-  {
-    season: "Verão",
-    months: "Jun – Ago",
-    note: "Banhos nas cascatas e rios. Dias longos. Reservar com antecedência.",
-    image: "/images/summer.jpg",
-  },
-  {
-    season: "Outono",
-    months: "Set – Nov",
-    note: "Melhor para fauna e fotografia. Menos turistas. Castanhas e vindimas.",
-    image: "/images/autumn.jpg",
-  },
-  {
-    season: "Inverno",
-    months: "Dez – Fev",
-    note: "Planalto nevado. Caudais máximos. Expedições 4×4 especiais.",
-    image: "/images/winter.jpg",
-  },
-];
-
-const WHY_CARDS = [
-  {
-    image: "/images/wildlife.jpg",
-    titlePt: "Fauna singular",
-    titleEn: "Singular wildlife",
-    bodyPt:
-      "Uma das últimas alcateias de lobo-ibérico de Portugal. Corços, javalis e mais de 200 espécies de aves.",
-    bodyEn:
-      "One of Portugal's last Iberian wolf packs. Roe deer, wild boar and over 200 bird species.",
-  },
-  {
-    image: "/images/hotel.jpg",
-    titlePt: "Cultura e história",
-    titleEn: "Culture & history",
-    bodyPt:
-      "Castelos medievais, mosteiros em ruínas e aldeias graníticas onde o tempo ainda manda.",
-    bodyEn:
-      "Medieval castles, ruined monasteries and granite villages where time still rules.",
-  },
-  {
-    image: "/images/restaurant.jpg",
-    titlePt: "Gastronomia de excelência",
-    titleEn: "Fine gastronomy",
-    bodyPt:
-      "Vinho do Douro, carne barrosã, mel de urze, queijo de cabra. O berço de uma cozinha de renome mundial.",
-    bodyEn:
-      "Vinho do Douro, Barrosã beef, heather honey, goat cheese. The home of a world reknown cuisine.",
-  },
-  // {
-  //   image: "/images/hotel-1.jpg",
-  //   titlePt: "Alojamento único",
-  //   titleEn: "Unique accommodation",
-  //   bodyPt:
-  //     "Vinho dos Mortos, carne barrosã, mel de urze, queijo de cabra. Uma cozinha que é puro território.",
-  //   bodyEn:
-  //     "Vinho dos Mortos, Barrosã beef, heather honey, goat cheese. A cuisine that is pure territory.",
-  // },
-];
 
 export default async function RegionPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("RegionPage");
-  const isPt = locale === "pt";
+
+  const seasons = [
+    { name: t("season1Name"), months: t("season1Months"), note: t("season1Note"), image: "/images/waterfall.jpg" },
+    { name: t("season2Name"), months: t("season2Months"), note: t("season2Note"), image: "/images/summer.jpg" },
+    { name: t("season3Name"), months: t("season3Months"), note: t("season3Note"), image: "/images/autumn.jpg" },
+    { name: t("season4Name"), months: t("season4Months"), note: t("season4Note"), image: "/images/winter.jpg" },
+  ];
+
+  const whyCards = [
+    { image: "/images/wildlife.jpg", title: t("why1Title"), body: t("why1Body") },
+    { image: "/images/hotel.jpg", title: t("why2Title"), body: t("why2Body") },
+    { image: "/images/restaurant.jpg", title: t("why3Title"), body: t("why3Body") },
+  ];
 
   return (
     <>
@@ -95,11 +39,7 @@ export default async function RegionPage({ params }: Props) {
       <section className="relative min-h-[100vh] flex items-center md:items-end">
         <Image
           src="/images/view.jpg"
-          alt={
-            isPt
-              ? "Paisagem do planalto barrosano"
-              : "Barroso plateau landscape"
-          }
+          alt={t("heroAlt")}
           fill
           className="object-cover object-[center_70%]"
           priority
@@ -141,8 +81,8 @@ export default async function RegionPage({ params }: Props) {
             </div>
           </div>
           <div className="grid md:grid-cols-3 gap-4">
-            {WHY_CARDS.map((card) => (
-              <div key={card.titleEn} className="flex flex-col">
+            {whyCards.map((card) => (
+              <div key={card.title} className="flex flex-col">
                 <div className="relative aspect-[4/3] overflow-hidden mb-4">
                   <Image
                     src={card.image}
@@ -153,10 +93,10 @@ export default async function RegionPage({ params }: Props) {
                   />
                 </div>
                 <h3 className="font-serif text-granite text-3xl leading-[0.8] mb-2">
-                  {isPt ? card.titlePt : card.titleEn}
+                  {card.title}
                 </h3>
                 <p className="text-granite/60 text-sm leading-relaxed tracking-wide mb-4 max-w-lg">
-                  {isPt ? card.bodyPt : card.bodyEn}
+                  {card.body}
                 </p>
               </div>
             ))}
@@ -176,7 +116,7 @@ export default async function RegionPage({ params }: Props) {
           <RegionCardsTrack
             places={regionPlaces}
             locale={locale}
-            exploreLabel={isPt ? "Explorar" : "Explore"}
+            exploreLabel={t("exploreLabel")}
           />
         </div>
       </section>
@@ -191,12 +131,12 @@ export default async function RegionPage({ params }: Props) {
             </div>
           </div>
           <div className="grid md:grid-cols-2 gap-4">
-            {SEASONS.map((s) => (
-              <div key={s.season} className="flex flex-col">
+            {seasons.map((s) => (
+              <div key={s.name} className="flex flex-col">
                 <div className="relative aspect-[16/9] overflow-hidden mb-4">
                   <Image
                     src={s.image}
-                    alt={s.season}
+                    alt={s.name}
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
@@ -206,7 +146,7 @@ export default async function RegionPage({ params }: Props) {
                   </span>
                 </div>
                 <h3 className="font-serif text-granite text-3xl leading-[0.8] mb-2">
-                  {s.season}
+                  {s.name}
                 </h3>
                 <p className="text-granite/60 text-sm leading-relaxed tracking-wide max-w-lg">
                   {s.note}
@@ -233,9 +173,7 @@ export default async function RegionPage({ params }: Props) {
               <p className="text-granite/70">A23 / IP3 · 420 km · 3h45</p>
             </div>
             <div>
-              <p className="text-amber mb-2">
-                {isPt ? "Aeroporto mais próximo" : "Nearest airport"}
-              </p>
+              <p className="text-amber mb-2">{t("nearestAirport")}</p>
               <p className="text-granite/70">Porto OPO · 90 km · 1h10</p>
             </div>
           </div>

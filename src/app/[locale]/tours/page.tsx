@@ -45,6 +45,7 @@ export default async function ToursPage({ params }: Props) {
     filtersBtn: t("filtersBtn"),
     closeFilters: t("closeFilters"),
     toursLabel: t("toursLabel"),
+    viewBtn: t("viewBtn"),
   };
 
   return (

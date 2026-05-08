@@ -1,46 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
-const ACTIVITY_OPTIONS_PT = [
-  "Trilhos de caminhada",
-  "Tour 4×4 off-road",
-  "Escalada",
-  "Kayak / canoagem",
-  "Cultural e gastronomia",
-  "Fotografia de natureza",
-  "Expedição multi-dia",
-  "Escola / educação ambiental",
-  "Outro / combinar",
-];
-
-const ACTIVITY_OPTIONS_EN = [
-  "Guided hiking",
-  "4×4 off-road tour",
-  "Rock climbing",
-  "Kayak / canoeing",
-  "Cultural & gastronomy",
-  "Nature photography",
-  "Multi-day expedition",
-  "School / environmental education",
-  "Other / to discuss",
-];
-
-const BUDGET_OPTIONS_PT = [
-  "Menos de €200 total",
-  "€200–€500 total",
-  "€500–€1.000 total",
-  "Mais de €1.000 total",
-  "Por determinar",
-];
-
-const BUDGET_OPTIONS_EN = [
-  "Under €200 total",
-  "€200–€500 total",
-  "€500–€1,000 total",
-  "Over €1,000 total",
-  "To be determined",
-];
+import { useTranslations } from "next-intl";
 
 interface Props {
   locale: string;
@@ -63,12 +24,13 @@ interface Props {
 }
 
 export default function CustomEnquiryForm({ locale, labels }: Props) {
+  const t = useTranslations("ContactPage");
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
-  const isPt = locale === "pt";
-  const activityOptions = isPt ? ACTIVITY_OPTIONS_PT : ACTIVITY_OPTIONS_EN;
-  const budgetOptions = isPt ? BUDGET_OPTIONS_PT : BUDGET_OPTIONS_EN;
+
+  const activityOptions = t.raw("activityOptions") as string[];
+  const budgetOptions = t.raw("budgetOptions") as string[];
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -184,7 +146,7 @@ export default function CustomEnquiryForm({ locale, labels }: Props) {
             </label>
             <input
               name="dates"
-              placeholder={isPt ? "Ex: Maio 2026" : "E.g. May 2026"}
+              placeholder={t("datesPlaceholder")}
               className="px-4 py-2.5 rounded-lg border border-fog/20 text-sm bg-fog/5 text-fog placeholder-fog/30 focus:outline-none focus:border-amber transition-colors"
             />
           </div>
@@ -213,11 +175,7 @@ export default function CustomEnquiryForm({ locale, labels }: Props) {
           <textarea
             name="requirements"
             rows={4}
-            placeholder={
-              isPt
-                ? "Alergias, mobilidade reduzida, crianças, pedidos especiais..."
-                : "Allergies, reduced mobility, children, special requests..."
-            }
+            placeholder={t("requirementsPlaceholder")}
             className="px-4 py-2.5 rounded-lg border border-fog/20 text-sm bg-fog/5 text-fog placeholder-fog/30 focus:outline-none focus:border-amber transition-colors resize-none"
           />
         </div>

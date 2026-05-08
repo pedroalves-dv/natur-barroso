@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -101,10 +101,11 @@ export default async function BlogPostPage({ params }: Props) {
       : categoryConfig.label
     : post.category;
 
-  const backLabel = isPt ? "← Todos os artigos" : "← All articles";
-  const authorLabel = isPt ? "Por" : "By";
-  const relatedLabel = isPt ? "Outros artigos" : "More from the journal";
-  const readPostLabel = isPt ? "Ler artigo" : "Read post";
+  const tBlog = await getTranslations("BlogPage");
+  const backLabel = tBlog("back");
+  const authorLabel = tBlog("by");
+  const relatedLabel = tBlog("relatedTitle");
+  const readPostLabel = tBlog("readPost");
 
   return (
     <>

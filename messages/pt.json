@@ -9,7 +9,8 @@
     "bookTour": "Reservar",
     "menu": "Menu",
     "close": "Fechar",
-    "whatsapp": "Chat no WhatsApp"
+    "whatsapp": "Chat no WhatsApp",
+    "homeLabel": "Natur Barroso — início"
   },
   "Footer": {
     "tagline": "A sua aventura começa aqui.",
@@ -59,7 +60,6 @@
     "whatsappCtaBody": "Sem formulários. Envie-nos uma mensagem ou ligue — respondemos em menos de uma hora e temos todo o gosto em criar uma experiência à sua medida.",
     "whatsappCtaButton": "Falar connosco no WhatsApp",
     "whatsappCtaCallButton": "Ligar diretamente",
-
     "whatsappCtaWhatsappHeading": "Fale connosco no WhatsApp",
     "whatsappCtaWhatsappDesc": "A forma mais rápida de nos contactar. Respondemos em menos de uma hora e adoramos planear itinerários personalizados.",
     "whatsappCtaCallHeading": "Prefere ligar?",
@@ -89,7 +89,11 @@
     "multiDay": "Multi-dia",
     "filtersBtn": "Filtros",
     "closeFilters": "Fechar filtros",
-    "toursLabel": "tours"
+    "toursLabel": "tours",
+    "viewBtn": "Ver",
+    "yearRound": "Todo o ano",
+    "fromLabel": "A partir de",
+    "people": "pessoas"
   },
   "TourDetail": {
     "backToTours": "Todos os tours",
@@ -104,7 +108,20 @@
     "pricing": "Preços",
     "meetGuide": "O seu guia",
     "faq": "Perguntas frequentes",
-    "similarTours": "Outros tours que poderão interessar-lhe"
+    "similarTours": "Outros tours que poderão interessar-lhe",
+    "difficultyFullEasy": "Este tour tem dificuldade fácil. Adequado a todas as idades e condições físicas. Terreno plano ou com pequeno desnível.",
+    "difficultyFullModerate": "Este tour tem dificuldade moderada. Recomendamos praticar caminhada com alguma regularidade. Pode incluir subidas e troços rochosos.",
+    "difficultyFullChallenging": "Este tour tem dificuldade exigente. Para participantes com boa condição física e experiência em caminhada de montanha.",
+    "difficultyFullExpert": "Este tour tem nível de especialista. Nível avançado. Requer excelente condição física e experiência técnica em montanha.",
+    "people": "pessoas",
+    "fromLabel": "A partir de",
+    "bookBtn": "Reservar",
+    "perPerson": "por pessoa",
+    "requestBtn": "Solicitar este tour",
+    "bookingNote": "Reserva segura via FareHarbor — em breve. Respondemos em menos de 24 horas.",
+    "pricingTypeHeader": "Tipo",
+    "pricingPriceHeader": "Preço",
+    "pricingNote": "* Preços por pessoa. Crianças até 12 anos com desconto — contacte-nos para detalhes."
   },
   "NotFound": {
     "heading": "Parece que esta trilha não existe.",
@@ -129,7 +146,22 @@
     "valuesEyebrow": "Os nossos princípios",
     "valuesTitle": "O que nos define",
     "certTitle": "Certificações e segurança",
-    "ratingLabel": "no TripAdvisor"
+    "ratingLabel": "no TripAdvisor",
+    "metaTitle": "A Nossa Equipa",
+    "metaDescription": "Conheça os guias locais da Natur Barroso — a equipa que vive e respira o Barroso desde sempre.",
+    "heroAlt": "Guias Natur Barroso no trilho",
+    "storyP1": "A Natur Barroso nasceu de uma convicção simples: o Barroso é um dos territórios mais extraordinários da Europa, e merecia quem o apresentasse ao mundo com honestidade e paixão. Não como um produto turístico genérico, mas como o que realmente é — um planalto de granito e silêncio, onde a natureza e a cultura humana coexistem há milénios.",
+    "storyP2": "Os nossos guias não são apenas profissionais formados — são pessoas que cresceram neste território, que conhecem os seus segredos e que acreditam genuinamente que uma manhã no Barroso pode mudar a forma como alguém olha para o mundo.",
+    "storyP3": "Operamos em pequenos grupos porque acreditamos que a qualidade da experiência depende da atenção individual. Trabalhamos com produtores locais, alojamentos familiares e restaurantes de aldeia porque acreditamos que o turismo deve beneficiar as comunidades que o tornam possível.",
+    "value1Title": "Local de raiz",
+    "value1Body": "Somos da região e conhecemos cada trilho, aldeia e história. Nenhum detalhe é genérico.",
+    "value2Title": "Grupos pequenos",
+    "value2Body": "Máximo 8–12 pessoas por tour. Atenção individual, ritmo do grupo, experiência personalizada.",
+    "value3Title": "Impacto responsável",
+    "value3Body": "Colaboramos com produtores, alojamentos e restaurantes locais. O turismo que praticamos fica na região.",
+    "cert1": "IPDJ — Guias de Montanha Certificados",
+    "cert2": "Seguro de Atividade na Natureza",
+    "cert3": "Primeiros Socorros em Ambiente Remoto"
   },
   "BlogPage": {
     "eyebrow": "Diário de bordo",
@@ -137,7 +169,10 @@
     "subtitle": "Histórias, guias de trilhos, fauna e cultura das Terras de Barroso e do Parque Nacional Peneda-Gerês.",
     "allCategories": "Todos",
     "readPost": "Ler artigo",
-    "noResults": "Nenhum artigo nesta categoria."
+    "noResults": "Nenhum artigo nesta categoria.",
+    "back": "← Todos os artigos",
+    "by": "Por",
+    "relatedTitle": "Outros artigos"
   },
   "ContactPage": {
     "eyebrow": "Fale connosco",
@@ -167,7 +202,13 @@
     "whatsappBtn": "Falar connosco no WhatsApp",
     "waMessage": "Olá! Tenho interesse num tour da Natur Barroso.",
     "phoneLabel": "Telefone",
-    "addressLabel": "Morada"
+    "addressLabel": "Morada",
+    "metaDescription": "Contacte a Natur Barroso — reservas, informações, grupos e experiências personalizadas.",
+    "mapPlaceholder": "Mapa interativo disponível em breve",
+    "datesPlaceholder": "Ex: Maio 2026",
+    "requirementsPlaceholder": "Alergias, mobilidade reduzida, crianças, pedidos especiais...",
+    "activityOptions": ["Trilhos de caminhada", "Tour 4×4 off-road", "Escalada", "Kayak / canoagem", "Cultural e gastronomia", "Fotografia de natureza", "Expedição multi-dia", "Escola / educação ambiental", "Outro / combinar"],
+    "budgetOptions": ["Menos de €200 total", "€200–€500 total", "€500–€1.000 total", "Mais de €1.000 total", "Por determinar"]
   },
   "FAQPage": {
     "eyebrow": "Perguntas frequentes",
@@ -191,7 +232,33 @@
     "gettingHereTitle": "Como chegar",
     "mapPlaceholder": "Mapa interativo disponível em breve",
     "toursEyebrow": "Experiências locais",
-    "toursTitle": "Tours que visitam este local"
+    "toursTitle": "Tours que visitam este local",
+    "metaTitle": "A Região Barroso",
+    "metaDescription": "Descubra as Terras de Barroso — cascatas, aldeias medievais, castelos e o Parque Nacional Peneda-Gerês.",
+    "heroAlt": "Paisagem do planalto barrosano",
+    "season1Name": "Primavera",
+    "season1Months": "Mar – Mai",
+    "season1Note": "Cascatas em pleno. Flores silvestres. Ideal para caminhadas.",
+    "season2Name": "Verão",
+    "season2Months": "Jun – Ago",
+    "season2Note": "Banhos nas cascatas e rios. Dias longos. Reservar com antecedência.",
+    "season3Name": "Outono",
+    "season3Months": "Set – Nov",
+    "season3Note": "Melhor para fauna e fotografia. Menos turistas. Castanhas e vindimas.",
+    "season4Name": "Inverno",
+    "season4Months": "Dez – Fev",
+    "season4Note": "Planalto nevado. Caudais máximos. Expedições 4×4 especiais.",
+    "why1Title": "Fauna singular",
+    "why1Body": "Uma das últimas alcateias de lobo-ibérico de Portugal. Corços, javalis e mais de 200 espécies de aves.",
+    "why2Title": "Cultura e história",
+    "why2Body": "Castelos medievais, mosteiros em ruínas e aldeias graníticas onde o tempo ainda manda.",
+    "why3Title": "Gastronomia de excelência",
+    "why3Body": "Vinho do Douro, carne barrosã, mel de urze, queijo de cabra. O berço de uma cozinha de renome mundial.",
+    "exploreLabel": "Explorar",
+    "back": "← A Região",
+    "highlightsEyebrow": "O que visitar",
+    "highlightsTitle": "Pontos de interesse",
+    "nearestAirport": "Aeroporto mais próximo"
   },
   "ReviewsPage": {
     "sources": "TripAdvisor · Google Reviews",

@@ -9,7 +9,8 @@
     "bookTour": "Book",
     "menu": "Menu",
     "close": "Close",
-    "whatsapp": "Chat on WhatsApp"
+    "whatsapp": "Chat on WhatsApp",
+    "homeLabel": "Natur Barroso — home"
   },
   "Footer": {
     "tagline": "Your adventure begins here.",
@@ -23,7 +24,6 @@
   },
   "HomePage": {
     "title": "Your adventure begins here.",
-
     "subtitle": "Guided tours in the heart of Peneda-Gerês National Park.",
     "heroCtaPrimary": "Explore our tours",
     "heroCtaSecondary": "About the Region",
@@ -59,13 +59,11 @@
     "whatsappCtaTitle": "Prefer to talk it through?",
     "whatsappCtaBody": "No forms to fill in. Message or call us — we reply within the hour and are happy to build a custom experience around you.",
     "whatsappCtaButton": "Message us on WhatsApp",
-
     "whatsappCtaWhatsappHeading": "Message us on WhatsApp",
     "whatsappCtaWhatsappDesc": "The quickest way to reach us. We reply within the hour and love planning custom itineraries over chat.",
     "whatsappCtaCallHeading": "Call us directly",
     "whatsappCtaCallDesc": "Speak directly with one of our guides. Available during daylight hours, seven days a week.",
     "whatsappCtaCallButton": "Call directly",
-
     "bookTourCta": "Book a tour",
     "journalEyebrow": "Field notes",
     "journalTitle": "From our Journal",
@@ -91,7 +89,11 @@
     "multiDay": "Multi-day",
     "filtersBtn": "Filters",
     "closeFilters": "Close filters",
-    "toursLabel": "tours"
+    "toursLabel": "tours",
+    "viewBtn": "View",
+    "yearRound": "Year-round",
+    "fromLabel": "From",
+    "people": "people"
   },
   "TourDetail": {
     "backToTours": "All tours",
@@ -106,7 +108,20 @@
     "pricing": "Pricing",
     "meetGuide": "Meet your guide",
     "faq": "Frequently asked questions",
-    "similarTours": "Other tours you might enjoy"
+    "similarTours": "Other tours you might enjoy",
+    "difficultyFullEasy": "This tour is rated easy. Suitable for all ages and fitness levels. Flat or gently undulating terrain.",
+    "difficultyFullModerate": "This tour is rated moderate. We recommend regular walking. May include ascents and rocky sections.",
+    "difficultyFullChallenging": "This tour is rated challenging. For participants with good fitness and mountain hiking experience.",
+    "difficultyFullExpert": "This tour is rated expert. Advanced level. Requires excellent fitness and technical mountain experience.",
+    "people": "people",
+    "fromLabel": "From",
+    "bookBtn": "Book now",
+    "perPerson": "per person",
+    "requestBtn": "Request this tour",
+    "bookingNote": "Secure booking via FareHarbor — coming soon. We reply within 24 hours.",
+    "pricingTypeHeader": "Type",
+    "pricingPriceHeader": "Price",
+    "pricingNote": "* Prices per person. Children under 12 receive a discount — contact us for details."
   },
   "NotFound": {
     "heading": "This trail doesn't seem to exist.",
@@ -131,7 +146,22 @@
     "valuesEyebrow": "Our principles",
     "valuesTitle": "What defines us",
     "certTitle": "Certifications & safety",
-    "ratingLabel": "on TripAdvisor"
+    "ratingLabel": "on TripAdvisor",
+    "metaTitle": "About Us",
+    "metaDescription": "Meet the local guides of Natur Barroso — the team that lives and breathes Barroso.",
+    "heroAlt": "Natur Barroso guides on trail",
+    "storyP1": "Natur Barroso was born from a simple conviction: Barroso is one of the most extraordinary territories in Europe, and it deserved someone to present it to the world with honesty and passion. Not as a generic tourism product, but as what it truly is — a granite plateau of silence, where nature and human culture have coexisted for millennia.",
+    "storyP2": "Our guides are not just trained professionals — they are people who grew up in this territory, who know its secrets and genuinely believe that a morning in Barroso can change the way someone sees the world.",
+    "storyP3": "We operate in small groups because we believe the quality of experience depends on individual attention. We work with local producers, family-run accommodation and village restaurants because we believe tourism should benefit the communities that make it possible.",
+    "value1Title": "Locally rooted",
+    "value1Body": "We are from the region and know every trail, village and story. Nothing is generic.",
+    "value2Title": "Small groups",
+    "value2Body": "Maximum 8–12 people per tour. Individual attention, group pace, personalised experience.",
+    "value3Title": "Responsible impact",
+    "value3Body": "We collaborate with local producers, accommodation and restaurants. The tourism we practice stays in the region.",
+    "cert1": "IPDJ — Certified Mountain Guides",
+    "cert2": "Nature Activity Insurance",
+    "cert3": "Wilderness First Aid"
   },
   "BlogPage": {
     "eyebrow": "Field notes",
@@ -139,7 +169,10 @@
     "subtitle": "Stories, trail guides, wildlife and culture from the Terras de Barroso and Peneda-Gerês National Park.",
     "allCategories": "All",
     "readPost": "Read post",
-    "noResults": "No articles in this category."
+    "noResults": "No articles in this category.",
+    "back": "← All articles",
+    "by": "By",
+    "relatedTitle": "More from the journal"
   },
   "ContactPage": {
     "eyebrow": "Get in touch",
@@ -169,7 +202,13 @@
     "whatsappBtn": "Message us on WhatsApp",
     "waMessage": "Hello! I'm interested in a Natur Barroso tour.",
     "phoneLabel": "Phone",
-    "addressLabel": "Address"
+    "addressLabel": "Address",
+    "metaDescription": "Contact Natur Barroso — bookings, information, groups and custom experiences.",
+    "mapPlaceholder": "Interactive map coming soon",
+    "datesPlaceholder": "E.g. May 2026",
+    "requirementsPlaceholder": "Allergies, reduced mobility, children, special requests...",
+    "activityOptions": ["Guided hiking", "4×4 off-road tour", "Rock climbing", "Kayak / canoeing", "Cultural & gastronomy", "Nature photography", "Multi-day expedition", "School / environmental education", "Other / to discuss"],
+    "budgetOptions": ["Under €200 total", "€200–€500 total", "€500–€1,000 total", "Over €1,000 total", "To be determined"]
   },
   "FAQPage": {
     "eyebrow": "Frequently asked questions",
@@ -193,7 +232,33 @@
     "gettingHereTitle": "Getting here",
     "mapPlaceholder": "Interactive map coming soon",
     "toursEyebrow": "Local experiences",
-    "toursTitle": "Tours that visit this place"
+    "toursTitle": "Tours that visit this place",
+    "metaTitle": "Barroso Region Guide",
+    "metaDescription": "Discover the Terras de Barroso — waterfalls, medieval villages, castles and Peneda-Gerês National Park.",
+    "heroAlt": "Barroso plateau landscape",
+    "season1Name": "Spring",
+    "season1Months": "Mar – May",
+    "season1Note": "Waterfalls in full flow. Wild flowers. Ideal for hiking.",
+    "season2Name": "Summer",
+    "season2Months": "Jun – Aug",
+    "season2Note": "Swimming in waterfalls and rivers. Long days. Book in advance.",
+    "season3Name": "Autumn",
+    "season3Months": "Sep – Nov",
+    "season3Note": "Best for wildlife and photography. Fewer tourists. Chestnuts and harvest season.",
+    "season4Name": "Winter",
+    "season4Months": "Dec – Feb",
+    "season4Note": "Snow-covered plateau. Maximum water flows. Special 4×4 expeditions.",
+    "why1Title": "Singular wildlife",
+    "why1Body": "One of Portugal's last Iberian wolf packs. Roe deer, wild boar and over 200 bird species.",
+    "why2Title": "Culture & history",
+    "why2Body": "Medieval castles, ruined monasteries and granite villages where time still rules.",
+    "why3Title": "Fine gastronomy",
+    "why3Body": "Vinho do Douro, Barrosã beef, heather honey, goat cheese. The home of a world renowned cuisine.",
+    "exploreLabel": "Explore",
+    "back": "← The Region",
+    "highlightsEyebrow": "Key highlights",
+    "highlightsTitle": "Things to see",
+    "nearestAirport": "Nearest airport"
   },
   "ReviewsPage": {
     "sources": "TripAdvisor · Google Reviews",

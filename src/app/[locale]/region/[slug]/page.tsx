@@ -32,17 +32,10 @@ export default async function RegionSubPage({ params }: Props) {
   if (!place) notFound();
 
   const t = await getTranslations("RegionPage");
-  const isPt = locale === "pt";
 
   const relatedTours = tours.filter((tour) =>
     place.relatedTourSlugs.includes(tour.slug),
   );
-
-  const backLabel = isPt ? "← A Região" : "← The Region";
-  const howToGetThereLabel = isPt ? "Como chegar" : "How to get there";
-  const mapPlaceholder = isPt
-    ? "Mapa interativo disponível em breve"
-    : "Interactive map coming soon";
 
   return (
     <>
@@ -63,7 +56,7 @@ export default async function RegionSubPage({ params }: Props) {
             href={`/${locale}/region`}
             className="btn-lg btn-ghost inline-flex items-center gap-2 text-md text-fog/70 hover:text-fog transition-colors mb-6"
           >
-            {backLabel}
+            {t("back")}
           </Link>
           {/* Hero Text */}
           <h1 className="font-serif text-fog text-4xl md:text-7xl leading-[0.8] tracking-[-0.01em] max-w-2xl mb-6">
@@ -148,10 +141,10 @@ export default async function RegionSubPage({ params }: Props) {
         <div className="max-w-[90rem] mx-auto px-4 md:px-6">
           <div className="mb-10 md:mb-16">
             <p className="text-[10px] md:text-base uppercase tracking-wide text-granite/30 mb-3">
-              {isPt ? "O que visitar" : "Key highlights"}
+              {t("highlightsEyebrow")}
             </p>
             <h2 className="font-serif text-granite text-4xl md:text-4xl leading-[0.8] tracking-[-0.01em]">
-              {isPt ? "Pontos de interesse" : "Things to see"}
+              {t("highlightsTitle")}
             </h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -182,14 +175,14 @@ export default async function RegionSubPage({ params }: Props) {
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
               <h2 className="font-serif text-granite text-4xl md:text-4xl leading-[0.8] tracking-[-0.01em] mb-8">
-                {howToGetThereLabel}
+                {t("gettingHereTitle")}
               </h2>
               <p className="text-granite/70 leading-relaxed text-sm">
                 {place.howToGetThere}
               </p>
             </div>
             <div className="w-full h-52 rounded-xl bg-granite/5 border border-granite/10 flex items-center justify-center">
-              <p className="text-granite/30 text-sm">{mapPlaceholder}</p>
+              <p className="text-granite/30 text-sm">{t("mapPlaceholder")}</p>
             </div>
           </div>
         </div>
