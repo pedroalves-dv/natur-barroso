@@ -20,6 +20,8 @@ export async function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+const launched = process.env.SITE_LAUNCHED === "true";
+
 export async function generateMetadata({
   params,
 }: {
@@ -33,6 +35,7 @@ export async function generateMetadata({
       template: "%s | Natur Barroso",
     },
     description: t("subtitle"),
+    ...(!launched && { robots: { index: false, follow: false } }),
   };
 }
 
