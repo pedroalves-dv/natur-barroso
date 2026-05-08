@@ -559,3 +559,13 @@ These are intentionally deferred to v2:
 | Inline FAQs on tour pages | Reduces drop-off; answers objections at point of decision |
 | No standalone gallery page (v1) | Low conversion value; images embedded contextually are more effective |
 | JSON fixtures before Sanity | Unblocks frontend build; CMS integrated in Phase 4 |
+
+
+#### launch
+To go live at launch: add SITE_LAUNCHED=true as an environment variable on Vercel (in your project's Settings → Environment Variables), then redeploy. Both guards flip off automatically — no code changes needed.
+
+Right now (without that env var set), every page will have the noindex meta tag and robots.txt will read:
+
+
+User-agent: *
+Disallow: /
