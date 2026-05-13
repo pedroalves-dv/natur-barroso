@@ -30,7 +30,15 @@ const SEASON_MONTHS: Record<
   winter: { firstPt: "Dez", lastPt: "Fev", firstEn: "Dec", lastEn: "Feb" },
 };
 
-function SeasonPill({ seasons, isPt, yearRoundLabel }: { seasons: Season[]; isPt: boolean; yearRoundLabel: string }) {
+function SeasonPill({
+  seasons,
+  isPt,
+  yearRoundLabel,
+}: {
+  seasons: Season[];
+  isPt: boolean;
+  yearRoundLabel: string;
+}) {
   if (seasons.length === 4) {
     return (
       <span className="text-xs font-medium tracking-wide px-2 py-1 rounded-full bg-granite/85 backdrop-blur text-fog/70">
@@ -60,7 +68,6 @@ export default function TourCard({ tour, locale, featured }: Props) {
       href={`/${locale}/tours/${tour.slug}`}
       className={`group relative flex h-full bg-white overflow-hidden hover:shadow-[0_5px_10px_rgba(42,42,40,0.03)] hover:-translate-y-1 transition-all duration-200 ease-out ${featured ? "flex-col lg:flex-row" : "flex-col"}`}
     >
-
       {/* cover image */}
       <div
         className={`relative overflow-hidden shrink-0 ${featured ? "h-56 lg:w-3/5 lg:h-full lg:min-h-72" : "h-56"}`}
@@ -75,13 +82,17 @@ export default function TourCard({ tour, locale, featured }: Props) {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-granite/55 pointer-events-none" />
 
         {/* category badge pill — top left */}
-        {/* <div className="absolute top-3 left-3 z-20">
+        <div className="absolute top-3 left-3 z-20">
           <CategoryBadge category={tour.category} locale={locale} />
-        </div> */}
+        </div>
 
         {/* season pill — top right */}
         <div className="absolute top-3 right-3 z-20">
-          <SeasonPill seasons={tour.seasonAvailability} isPt={isPt} yearRoundLabel={t("yearRound")} />
+          <SeasonPill
+            seasons={tour.seasonAvailability}
+            isPt={isPt}
+            yearRoundLabel={t("yearRound")}
+          />
         </div>
 
         {/* price — bottom right of image (hidden on featured desktop) */}
@@ -114,7 +125,7 @@ export default function TourCard({ tour, locale, featured }: Props) {
         {/* meta pills row */}
         <div className="mb-4 flex items-center gap-1 flex-wrap">
           {/* difficulty pill */}
-          {/* <DifficultyPill difficulty={tour.difficulty} locale={locale} /> */}
+          <DifficultyPill difficulty={tour.difficulty} locale={locale} />
 
           {/* duration pill */}
           <span className="inline-flex items-center text-xs font-medium px-2.5 py-1 rounded-full bg-fog text-granite/65">
@@ -142,8 +153,7 @@ export default function TourCard({ tour, locale, featured }: Props) {
               <circle cx="6" cy="3" r="1.8" />
               <path d="M2 11c0-2.2 1.8-4 4-4s4 1.8 4 4" />
             </svg>
-            {tour.groupSize.min}–{tour.groupSize.max}{" "}
-            {t("people")}
+            {tour.groupSize.min}–{tour.groupSize.max} {t("people")}
           </span>
         </div>
 
